@@ -7,6 +7,15 @@ class Pages extends CI_Controller {
             show_404();
         }
 
+        $length = strlen('_test');
+        if(substr($page, -$length) === '_test'){
+            $this->load->view('templates/header_test');
+            $this->load->view('pages/' . $page);
+            $this->load->view('templates/footer_test');
+
+            return;
+        }
+
         $ignore = array('home', 'login');
         if (in_array($page, $ignore)) {
             $this->load->view('pages/' . $page);
