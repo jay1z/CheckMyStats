@@ -101,7 +101,7 @@ if (!$user_id) {
                                     <span class="m-menu__arrow m-menu__arrow--adjust"></span>
                                     <ul class="m-menu__subnav">
                                         <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
-                                            <a  href="index.html" class="m-menu__link ">
+                                            <a  href="home" class="m-menu__link ">
                                                 <i class="m-menu__link-icon flaticon-diagram"></i>
                                                 <span class="m-menu__link-title">
 															<span class="m-menu__link-wrap">
@@ -1188,7 +1188,7 @@ if (!$user_id) {
                                                         </li>
                                                         <li class="m-nav__separator m-nav__separator--fit"></li>
                                                         <li class="m-nav__item">
-                                                            <a href="login" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                            <a href="user/logout" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
                                                                 Logout
                                                             </a>
                                                         </li>
