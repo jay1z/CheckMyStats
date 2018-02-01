@@ -24,7 +24,7 @@ class Pages extends CI_Controller {
             $this->load->view('pages/' . $page);
             $this->load->view('templates/quick_sidebar');
             $this->load->view('templates/scroll_top');
-            $this->load->view('templates/quick_nav');
+            //$this->load->view('templates/quick_nav');
             $this->load->view('templates/footer');
         }
     }

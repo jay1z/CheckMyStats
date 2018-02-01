@@ -1,7 +1,7 @@
 <?php
 $user_id = $this->session->userdata('id');
 if ($user_id) {
-    redirect('profile');
+    redirect('dashboard');
 }
 ?>
 
