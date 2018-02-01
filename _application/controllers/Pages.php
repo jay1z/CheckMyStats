@@ -21,7 +21,9 @@ class Pages extends CI_Controller {
             $this->load->view('pages/' . $page);
         } else {
             $this->load->view('templates/header');
+            //$this->load->view('templates/page_header');
             $this->load->view('pages/' . $page);
+            //$this->load->view('templates/page_footer');
             $this->load->view('templates/quick_sidebar');
             $this->load->view('templates/scroll_top');
             //$this->load->view('templates/quick_nav');
