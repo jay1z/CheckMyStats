@@ -1,7 +1,12 @@
 <?php
 $user_id = $this->session->userdata('id');
 if ($user_id) {
-    redirect('dashboard');
+    //redirect('dashboard');
+    $this->load->view('templates/header');
+    $this->load->view('pages/dashboard');
+    $this->load->view('templates/quick_sidebar');
+    $this->load->view('templates/scroll_top');
+    $this->load->view('templates/footer');
 }
 ?>
 
