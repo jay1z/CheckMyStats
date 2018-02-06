@@ -27,51 +27,33 @@ if (!$user_id) {
                             <div class="m-widget1__item">
                                 <div class="row m-row--no-padding align-items-center">
                                     <div class="col">
-                                        <h3 class="m-widget1__title">
-                                            Member Profit
-                                        </h3>
-                                        <span class="m-widget1__desc">
-                                                    Awerage Weekly Profit
-                                                </span>
+                                        <h3 class="m-widget1__title">Member Profit</h3>
+                                        <span class="m-widget1__desc">Average Weekly Profit</span>
                                     </div>
                                     <div class="col m--align-right">
-                                                <span class="m-widget1__number m--font-brand">
-                                                    +$17,800
-                                                </span>
+                                        <span class="m-widget1__number m--font-brand">+$17,800</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="m-widget1__item">
                                 <div class="row m-row--no-padding align-items-center">
                                     <div class="col">
-                                        <h3 class="m-widget1__title">
-                                            Orders
-                                        </h3>
-                                        <span class="m-widget1__desc">
-                                                    Weekly Customer Orders
-                                                </span>
+                                        <h3 class="m-widget1__title">Orders</h3>
+                                        <span class="m-widget1__desc">Weekly Customer Orders</span>
                                     </div>
                                     <div class="col m--align-right">
-                                                <span class="m-widget1__number m--font-danger">
-                                                    +1,800
-                                                </span>
+                                        <span class="m-widget1__number m--font-danger">+1,800</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="m-widget1__item">
                                 <div class="row m-row--no-padding align-items-center">
                                     <div class="col">
-                                        <h3 class="m-widget1__title">
-                                            Issue Reports
-                                        </h3>
-                                        <span class="m-widget1__desc">
-                                                    System bugs and issues
-                                                </span>
+                                        <h3 class="m-widget1__title">Issue Reports</h3>
+                                        <span class="m-widget1__desc">System bugs and issues</span>
                                     </div>
                                     <div class="col m--align-right">
-                                                <span class="m-widget1__number m--font-success">
-                                                    -27,49%
-                                                </span>
+                                        <span class="m-widget1__number m--font-success">-27,49%</span>
                                     </div>
                                 </div>
                             </div>
@@ -82,12 +64,8 @@ if (!$user_id) {
                         <!--begin:: Widgets/Revenue Change-->
                         <div class="m-widget14">
                             <div class="m-widget14__header">
-                                <h3 class="m-widget14__title">
-                                    Revenue Change
-                                </h3>
-                                <span class="m-widget14__desc">
-                                            Revenue change breakdown by cities
-                                        </span>
+                                <h3 class="m-widget14__title">Revenue Change</h3>
+                                <span class="m-widget14__desc">Revenue change breakdown by cities</span>
                             </div>
                             <div class="row  align-items-center">
                                 <div class="col">
@@ -98,21 +76,15 @@ if (!$user_id) {
                                     <div class="m-widget14__legends">
                                         <div class="m-widget14__legend">
                                             <span class="m-widget14__legend-bullet m--bg-accent"></span>
-                                            <span class="m-widget14__legend-text">
-                                                        +10% New York
-                                                    </span>
+                                            <span class="m-widget14__legend-text">+10% New York</span>
                                         </div>
                                         <div class="m-widget14__legend">
                                             <span class="m-widget14__legend-bullet m--bg-warning"></span>
-                                            <span class="m-widget14__legend-text">
-                                                        -7% London
-                                                    </span>
+                                            <span class="m-widget14__legend-text">-7% London</span>
                                         </div>
                                         <div class="m-widget14__legend">
                                             <span class="m-widget14__legend-bullet m--bg-brand"></span>
-                                            <span class="m-widget14__legend-text">
-                                                        +20% California
-                                                    </span>
+                                            <span class="m-widget14__legend-text">+20% California</span>
                                         </div>
                                     </div>
                                 </div>

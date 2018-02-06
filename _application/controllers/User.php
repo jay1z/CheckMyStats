@@ -23,7 +23,7 @@ class User extends CI_Controller {
             $this->session->set_userdata('email', $data->email);
 
             //show_error($data, 300, 'Custom Error');
-            redirect('dashboard');
+            redirect(base_url());
         } else {
             $this->session->set_flashdata('error_msg', 'An error has occurred, Please try again.');
             redirect('login');

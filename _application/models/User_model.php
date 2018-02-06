@@ -44,7 +44,6 @@ class user_model extends CI_model {
 
     public function update_profile($profile){
         $id = $this->session->userdata('id');
-        $this->db->where('id', $id);
-        $this->db->update('profile', $profile);
+        $this->db->update('profile', $profile, array('id' => $id));
     }
 }
