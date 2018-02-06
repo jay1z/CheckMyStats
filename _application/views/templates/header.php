@@ -21,9 +21,7 @@ if (!$user_id) {
 <!-- begin::Head -->
 <head>
     <meta charset="utf-8"/>
-    <title>
-        CheckMyStats | Dashboard
-    </title>
+    <title>CheckMyStats | Dashboard</title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -61,25 +59,22 @@ if (!$user_id) {
                     <div class="m-stack m-stack--ver m-stack--general">
                         <div class="m-stack__item m-stack__item--middle m-brand__logo">
                             <a href="home" class="m-brand__logo-wrapper">
-                                <img alt="" src="../../../assets/demo/demo7/media/img/logo/logo.png"/>
+                                <img alt="" src="../../../assets/demo/demo5/media/img/logo/logo.png"/>
                             </a>
                         </div>
                         <div class="m-stack__item m-stack__item--middle m-brand__tools">
                             <!-- BEGIN: Responsive Aside Left Menu Toggler -->
-                            <a href="javascript:;" id="m_aside_left_offcanvas_toggle"
-                               class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block">
+                            <a href="javascript:;" id="m_aside_left_offcanvas_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block">
                                 <span></span>
                             </a>
                             <!-- END -->
                             <!-- BEGIN: Responsive Header Menu Toggler -->
-                            <a id="m_aside_header_menu_mobile_toggle" href="javascript:;"
-                               class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
+                            <a id="m_aside_header_menu_mobile_toggle" href="javascript:;" class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
                                 <span></span>
                             </a>
                             <!-- END -->
                             <!-- BEGIN: Topbar Toggler -->
-                            <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;"
-                               class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
+                            <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
                                 <i class="flaticon-more"></i>
                             </a>
                             <!-- BEGIN: Topbar Toggler -->
@@ -89,12 +84,10 @@ if (!$user_id) {
                 <!-- END: Brand -->
                 <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
                     <!-- BEGIN: Horizontal Menu -->
-                    <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-light "
-                            id="m_aside_header_menu_mobile_close_btn">
+                    <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-light " id="m_aside_header_menu_mobile_close_btn">
                         <i class="la la-close"></i>
                     </button>
-                    <div id="m_header_menu"
-                         class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light ">
+                    <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light ">
                         <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
                             <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" data-menu-submenu-toggle="click" aria-haspopup="true">
                                 <a href="#" class="m-menu__link m-menu__toggle">
@@ -110,26 +103,20 @@ if (!$user_id) {
                                             <a href="home" class="m-menu__link ">
                                                 <i class="m-menu__link-icon flaticon-diagram"></i>
                                                 <span class="m-menu__link-title">
-															<span class="m-menu__link-wrap">
-																<span class="m-menu__link-text">
-																	Generate Reports
-																</span>
-																<span class="m-menu__link-badge">
-																	<span class="m-badge m-badge--success">
-																		2
-																	</span>
-																</span>
-															</span>
-														</span>
+                                                    <span class="m-menu__link-wrap">
+                                                        <span class="m-menu__link-text">Generate Reports</span>
+                                                        <span class="m-menu__link-badge">
+                                                            <span class="m-badge m-badge--success">2</span>
+                                                        </span>
+                                                    </span>
+                                                </span>
                                             </a>
                                         </li>
                                         <li class="m-menu__item  m-menu__item--submenu" data-menu-submenu-toggle="hover"
                                             data-redirect="true" aria-haspopup="true">
                                             <a href="#" class="m-menu__link m-menu__toggle">
                                                 <i class="m-menu__link-icon flaticon-business"></i>
-                                                <span class="m-menu__link-text">
-															Manage Orders
-														</span>
+                                                <span class="m-menu__link-text">Manage Orders</span>
                                                 <i class="m-menu__hor-arrow la la-angle-right"></i>
                                                 <i class="m-menu__ver-arrow la la-angle-right"></i>
                                             </a>
@@ -138,44 +125,32 @@ if (!$user_id) {
                                                 <ul class="m-menu__subnav">
                                                     <li class="m-menu__item " data-redirect="true" aria-haspopup="true">
                                                         <a href="inner.html" class="m-menu__link ">
-																	<span class="m-menu__link-text">
-																		Latest Orders
-																	</span>
+                                                            <span class="m-menu__link-text">Latest Orders</span>
                                                         </a>
                                                     </li>
                                                     <li class="m-menu__item " data-redirect="true" aria-haspopup="true">
                                                         <a href="inner.html" class="m-menu__link ">
-																	<span class="m-menu__link-text">
-																		Pending Orders
-																	</span>
+                                                            <span class="m-menu__link-text">Pending Orders</span>
                                                         </a>
                                                     </li>
                                                     <li class="m-menu__item " data-redirect="true" aria-haspopup="true">
                                                         <a href="inner.html" class="m-menu__link ">
-																	<span class="m-menu__link-text">
-																		Processed Orders
-																	</span>
+                                                            <span class="m-menu__link-text">Processed Orders</span>
                                                         </a>
                                                     </li>
                                                     <li class="m-menu__item " data-redirect="true" aria-haspopup="true">
                                                         <a href="inner.html" class="m-menu__link ">
-																	<span class="m-menu__link-text">
-																		Delivery Reports
-																	</span>
+                                                            <span class="m-menu__link-text">Delivery Reports</span>
                                                         </a>
                                                     </li>
                                                     <li class="m-menu__item " data-redirect="true" aria-haspopup="true">
                                                         <a href="inner.html" class="m-menu__link ">
-																	<span class="m-menu__link-text">
-																		Payments
-																	</span>
+                                                            <span class="m-menu__link-text">Payments</span>
                                                         </a>
                                                     </li>
                                                     <li class="m-menu__item " data-redirect="true" aria-haspopup="true">
                                                         <a href="inner.html" class="m-menu__link ">
-																	<span class="m-menu__link-text">
-																		Customers
-																	</span>
+                                                            <span class="m-menu__link-text">Customers</span>
                                                         </a>
                                                     </li>
                                                 </ul>
