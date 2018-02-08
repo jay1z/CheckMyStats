@@ -11,7 +11,6 @@ class User extends CI_Controller {
     }
 
     public function login() {
-
         $user_login = array(
             'email' => $this->input->post('signin_email'),
             'password' => $this->input->post('signin_password')
@@ -56,7 +55,6 @@ class User extends CI_Controller {
     }
 
     public function update_profile(){
-        $this->input->post('');
         $profile = array(
             'fullname' => $this->input->post('profile_fullname'),
             'address' => $this->input->post('profile_address'),
@@ -69,6 +67,15 @@ class User extends CI_Controller {
         $this->session->set_flashdata('success_msg', 'Updated.');
 
         redirect('profile');
+    }
+
+    public function post(){
+        $post = array(
+            'message' => $this->input->post('post_message'),
+            'datetime' => mdate("%Y-%m-%d %H:%i:%s")
+        );
+        $this->user_model->insert_post($post);
+        redirect(base_url());
     }
 
     public function logout() {

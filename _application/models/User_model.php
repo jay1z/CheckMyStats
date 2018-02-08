@@ -46,4 +46,9 @@ class user_model extends CI_model {
         $id = $this->session->userdata('id');
         $this->db->update('profile', $profile, array('id' => $id));
     }
+
+    public function insert_post($post){
+        $post['author_id'] = $this->session->userdata('id');
+        $this->db->insert('post', $post);
+    }
 }

@@ -42,7 +42,7 @@ if ($user_id) {
         <div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
             <div class="m-login__container">
                 <div class="m-login__logo">
-                    <a href="#">
+                    <a href="<?php echo base_url(); ?>">
                         <img src="../../../assets/app/media/img/logos/logo-1.png" alt="">
                     </a>
                 </div>
@@ -61,9 +61,7 @@ if ($user_id) {
 
                 <div class="m-login__signin">
                     <div class="m-login__head">
-                        <h3 class="m-login__title">
-                            Sign In
-                        </h3>
+                        <h3 class="m-login__title">Sign In</h3>
                     </div>
                     <form class="m-login__form m-form" action="user/login" method="post">
                         <div class="form-group m-form__group">

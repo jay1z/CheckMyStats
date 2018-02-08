@@ -18217,7 +18217,7 @@ body.m-portlet--fullscreen {
     vertical-align: top;
     position: absolute;
     padding-top: 0.18rem; }
-  .m-timeline-2 .m-timeline-2__items .m-timeline-2__item .m-timeline-2__item-cricle {
+  .m-timeline-2 .m-timeline-2__items .m-timeline-2__item .m-timeline-2__item-circle {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -18228,7 +18228,7 @@ body.m-portlet--fullscreen {
     top: 0.2rem;
     left: 4.1rem;
     position: relative; }
-    .m-timeline-2 .m-timeline-2__items .m-timeline-2__item .m-timeline-2__item-cricle > i {
+    .m-timeline-2 .m-timeline-2__items .m-timeline-2__item .m-timeline-2__item-circle > i {
       font-size: 1.78rem;
       top: -0.93rem;
       left: -0.57rem;
