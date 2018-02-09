@@ -8472,7 +8472,7 @@ var mLayout = function() {
 
         qs.mQuicksearch({
             type: qs.data('search-type'), // quick search type
-            source: 'https://keenthemes.com/metronic/preview/inc/api/quick_search.php',            
+            source: 'quick_search',
             spinner: 'm-loader m-loader--skin-light m-loader--right',
 
             input: '#m_quicksearch_input',

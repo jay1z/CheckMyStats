@@ -16,7 +16,7 @@ class Pages extends CI_Controller {
             return;
         }*/
 
-        $ignore = array('home', 'login');
+        $ignore = array('home', 'login', 'quick_search');
         if (in_array($page, $ignore)) {
             $this->load->view('pages/' . $page);
         } else {

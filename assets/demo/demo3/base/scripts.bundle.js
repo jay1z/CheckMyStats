@@ -4785,7 +4785,7 @@ jQuery.fn.extend({
              * Change dropdown drop position
              */
             handleDropPosition: function() {
-                return;
+                //return;
                 
                 if (dropdown.options.dropAuto == true) {
                     if (Plugin.isInVerticalViewport() === false) {
@@ -8294,11 +8294,7 @@ var mLayout = function() {
             options.minimize.mobile = false;
         }
 
-        if (header.data('minimize') == 'minimize') {
-            options.minimize.desktop = {};
-            options.minimize.desktop.on = 'm-header--minimize-on';
-            options.minimize.desktop.off = 'm-header--minimize-off';
-        } else  if (header.data('minimize') == 'hide') {
+        if (header.data('minimize') == 'hide') {
             options.minimize.desktop = {};
             options.minimize.desktop.on = 'm-header--hide';
             options.minimize.desktop.off = 'm-header--show';
@@ -8315,7 +8311,7 @@ var mLayout = function() {
         }
 
         header.mHeader(options);
-    };
+    }
 
     // handle horizontal menu
     var initHorMenu = function() {
@@ -8345,8 +8341,6 @@ var mLayout = function() {
                     var headerTopbarWidth = $('#m_header_topbar').width();
                     var spareWidth = 20;
 
-                    console.log('nav:' + headerNavWidth + '=> menu:' + headerMenuWidth + '+' + headerTopbarWidth);
-
                     if ((headerMenuWidth + headerTopbarWidth + spareWidth) > headerNavWidth ) {
                         return false;
                     } else {
@@ -8355,7 +8349,7 @@ var mLayout = function() {
                 }
             }
         });
-    };
+    }
 
     // handle vertical menu
     var initLeftAsideMenu = function() {
@@ -8388,9 +8382,10 @@ var mLayout = function() {
         asideMenu = menu.mMenu(menuOptions);
 
         // handle fixed aside menu
-        if (asideMenu.data('menu-scrollable')) {
+        if (menu.data('menu-scrollable')) {
             function initScrollableMenu(obj) {
                 if (mUtil.isInResponsiveRange('tablet-and-mobile')) {
+                    // destroy if the instance was previously created
                     mApp.destroyScroller(obj);
                     return;
                 }
@@ -8410,7 +8405,11 @@ var mLayout = function() {
                 initScrollableMenu(asideMenu);
             });
         }
-    };
+
+        //var item = $("a[href='?page=components/forms/validation/states']").parent('.m-menu__item');
+        //alert(item.length);
+        //menu.setActiveItem(item);
+    }
 
     // handle vertical menu
     var initLeftAside = function() {
@@ -8426,7 +8425,7 @@ var mLayout = function() {
                 state: 'm-brand__toggler--active'
             }
         });
-    };
+    }
 
     // handle sidebar toggle
     var initLeftAsideToggle = function() {
@@ -8447,7 +8446,7 @@ var mLayout = function() {
             horMenu.pauseDropdownHover(800);
             asideMenu.pauseDropdownHover(800);
         })
-    };
+    }
 
     var initTopbar = function() {
         $('#m_aside_header_topbar_mobile_toggle').click(function() {
@@ -8464,7 +8463,7 @@ var mLayout = function() {
             $('#m_topbar_notification_icon .m-nav__link-icon').removeClass('m-animate-shake');
             $('#m_topbar_notification_icon .m-nav__link-badge').removeClass('m-animate-blink');
         }, 6000);
-    };
+    }
 
     // handle quick search
     var initQuicksearch = function() {
@@ -8488,14 +8487,14 @@ var mLayout = function() {
                 }
             }
         });
-    };
+    }
 
     var initScrollTop = function() {
         $('[data-toggle="m-scroll-top"]').mScrollTop({
             offset: 300,
             speed: 600
         });
-    };
+    }
 
     return {
         init: function() {
@@ -8513,8 +8512,8 @@ var mLayout = function() {
 
         initAside: function() {
             initLeftAside();
-            initLeftAsideToggle();
             initLeftAsideMenu();
+            initLeftAsideToggle();
         },
 
         getAsideMenu: function() {
@@ -8540,6 +8539,7 @@ $(document).ready(function() {
         mLayout.init();
     }
 });
+
 
 var mQuickSidebar = function() {
     var topbarAside = $('#m_quick_sidebar');

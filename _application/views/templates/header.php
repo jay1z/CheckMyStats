@@ -81,7 +81,8 @@ if (!$user_id) {
                     <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-light " id="m_aside_header_menu_mobile_close_btn">
                         <i class="la la-close"></i>
                     </button>
-                    <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light ">
+                    <div id="m_header_menu"
+                         class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light ">
                         <ul class="m-menu__nav ">
                             <li class="m-menu__item">
                                 <a href="<?php echo base_url(); ?>" class="m-menu__link"><span class="m-menu__link-text">Dashboard</span></a>
@@ -118,8 +119,7 @@ if (!$user_id) {
                                 <div class="m-dropdown__arrow m-dropdown__arrow--center"></div>
                                 <div class="m-dropdown__inner">
                                     <div class="m-dropdown__body">
-                                        <div class="m-dropdown__scrollable m-scrollable" data-max-height="300"
-                                             data-mobile-max-height="200">
+                                        <div class="m-dropdown__scrollable m-scrollable" data-max-height="300" data-mobile-max-height="200">
                                             <div class="m-dropdown__content m-list-search m-list-search--skin-light"></div>
                                         </div>
                                     </div>
@@ -129,8 +129,7 @@ if (!$user_id) {
                         </div>
                         <div class="m-stack__item m-topbar__nav-wrapper">
                             <ul class="m-topbar__nav m-nav m-nav--inline">
-                                <li class="m-nav__item m-topbar__notifications m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width"
-                                    data-dropdown-toggle="click" data-dropdown-persistent="true">
+                                <li class="m-nav__item m-topbar__notifications m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" data-dropdown-toggle="click" data-dropdown-persistent="true">
                                     <a href="#" class="m-nav__link m-dropdown__toggle" id="m_topbar_notification_icon">
                                         <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
                                         <span class="m-nav__link-icon">
@@ -412,7 +411,8 @@ if (!$user_id) {
                                         </div>
                                     </div>
                                 </li>
-                                <li class="m-nav__item m-topbar__user-profile  m-dropdown m-dropdown--medium m-dropdown--arrow  m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" data-dropdown-toggle="click">
+                                <li class="m-nav__item m-topbar__user-profile  m-dropdown m-dropdown--medium m-dropdown--arrow  m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light"
+                                    data-dropdown-toggle="click">
                                     <a href="#" class="m-nav__link m-dropdown__toggle">
                                         <span class="m-topbar__userpic m--hide">
 													<img src="../../../assets/app/media/img/users/user4.jpg"
@@ -514,11 +514,11 @@ if (!$user_id) {
                                 </li>
                                 <li id="m_quick_sidebar_toggle" class="m-nav__item">
                                     <a href="#" class="m-nav__link m-dropdown__toggle">
-												<span class="m-nav__link-icon m-nav__link-icon-alt">
-													<span class="m-nav__link-icon-wrapper">
-														<i class="flaticon-grid-menu"></i>
-													</span>
-												</span>
+                                        <span class="m-nav__link-icon m-nav__link-icon-alt">
+                                            <span class="m-nav__link-icon-wrapper">
+                                                <i class="flaticon-grid-menu"></i>
+                                            </span>
+                                        </span>
                                     </a>
                                 </li>
                             </ul>
