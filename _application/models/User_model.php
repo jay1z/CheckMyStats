@@ -47,8 +47,12 @@ class user_model extends CI_model {
         $this->db->update('profile', $profile, array('id' => $id));
     }
 
-    public function insert_post($post){
+    public function insert_activity_post($post){
         $post['author_id'] = $this->session->userdata('id');
         $this->db->insert('post', $post);
+    }
+
+    public function switch_role($role){
+        $this->session->set_userdata('role', $role);
     }
 }

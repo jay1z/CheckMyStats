@@ -20,7 +20,7 @@ class User extends CI_Controller {
         if ($data) {
             $this->session->set_userdata('id', $data->id);
             $this->session->set_userdata('email', $data->email);
-
+            $this->switch_role('_user');
             //show_error($data, 300, 'Custom Error');
             redirect(base_url());
         } else {
@@ -69,12 +69,18 @@ class User extends CI_Controller {
         redirect('profile');
     }
 
-    public function post(){
+    public function post_activity(){
         $post = array(
             'message' => $this->input->post('post_message'),
             'datetime' => mdate("%Y-%m-%d %H:%i:%s")
         );
-        $this->user_model->insert_post($post);
+        $this->user_model->insert_activity_post($post);
+        redirect(base_url());
+    }
+
+    public function switch_role($role){
+        $this->user_model->switch_role($role);
+
         redirect(base_url());
     }
 
