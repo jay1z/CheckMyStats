@@ -1,4 +1,6 @@
 <?php
+    defined('BASEPATH') OR exit('No direct script access allowed');
+
     $query_string = $this->input->get('query', TRUE);
     $user_id = $this->session->userdata('id');
 
@@ -28,18 +30,6 @@
 		No records found
 	</span>
 
-    <span class="m-list-search__result-category m-list-search__result-category--first">Teams</span>
-    <?php
-        if (isset($teams)) {
-            foreach ($teams->result() as $row) {
-                echo '<a href="'.urlencode($row->name).'" class="m-list-search__result-item">
-                          <span class="m-list-search__result-item-icon"><i class="flaticon-share m--font-success"></i></span>
-                          <span class="m-list-search__result-item-text">'.$row->name.'</span>
-                      </a>';
-            }
-        }
-    ?>
-
     <span class="m-list-search__result-category">People</span>
     <?php
     if (isset($users)) {
@@ -52,6 +42,18 @@
                   </a>';
         }
     }
+    ?>
+
+    <span class="m-list-search__result-category m-list-search__result-category--first">Teams</span>
+    <?php
+        if (isset($teams)) {
+            foreach ($teams->result() as $row) {
+                echo '<a href="'.urlencode($row->name).'" class="m-list-search__result-item">
+                          <span class="m-list-search__result-item-icon"><i class="flaticon-share m--font-success"></i></span>
+                          <span class="m-list-search__result-item-text">'.$row->name.'</span>
+                      </a>';
+            }
+        }
     ?>
 
     <span class="m-list-search__result-category">Leagues</span>

@@ -1332,6 +1332,68 @@ var Dashboard = function() {
     };
 
     var datatableLatestOrders = function() {
+        if ($('#m_datatable_team_roster').length === 0) {
+            return;
+        }
+
+        var datatable = $('.m_datatable').mDatatable({
+            data: {
+                type: 'remote',
+                source: {
+                    read: {
+                        //url: 'https://keenthemes.com/metronic/preview/inc/api/datatables/demos/default.php'
+                        url: 'https://www.checkmystats.net/data_team_roster'
+                    }
+                },
+                pageSize: 20,
+                saveState: {
+                    cookie: true,
+                    webstorage: true
+                },
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true
+            },
+
+            layout: {
+                theme: 'default',
+                class: '',
+                scroll: true,
+                height: 380,
+                footer: false
+            },
+
+            sortable: true,
+
+            filterable: false,
+
+            pagination: true,
+
+            columns: [{
+                field: "fullname",
+                title: "Full Name",
+                sortable: true,
+                filterable: false,
+                width: 150,
+                template: function(row) {
+                    var fullname = row.fullname;
+                    return '<a href="profile/' + fullname + '">' + fullname + '</a>';
+                }
+            }, {
+                field: "position",
+                title: "Position",
+                sortable: 'asc',
+                filterable: false,
+                width: 100
+            }, {
+                field: "number",
+                title: "Jersey Number",
+                width: 100
+            }]
+        });
+    };
+
+    /*var datatableLatestOrders = function() {
         if ($('#m_datatable_latest_orders').length === 0) {
             return;
         }
@@ -1484,7 +1546,7 @@ var Dashboard = function() {
                 }
             }]
         });
-    };
+    };*/
 
     var calendarInit = function() {
         if ($('#m_calendar').length === 0) {
@@ -1669,7 +1731,7 @@ var Dashboard = function() {
 
             // datatables
             datatableLatestOrders();
-
+            //datatableTeamRoster();
             // calendar
             calendarInit();
         }

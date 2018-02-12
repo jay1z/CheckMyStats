@@ -58,9 +58,7 @@ if (!$user_id) {
                 <div class="m-stack__item m-brand ">
                     <div class="m-stack m-stack--ver m-stack--general">
                         <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                            <a href="home" class="m-brand__logo-wrapper">
-                                <img alt="" src="../../../assets/demo/demo5/media/img/logo/logo.png"/>
-                            </a>
+                            <a href="<?php echo base_url(); ?>" class="m-brand__logo-wrapper"><img alt="" src="../../../assets/demo/demo5/media/img/logo/logo.png"/></a>
                         </div>
                         <div class="m-stack__item m-stack__item--middle m-brand__tools">
                             <!-- BEGIN: Responsive Aside Left Menu Toggler -->
@@ -676,8 +674,7 @@ if (!$user_id) {
                     <!-- END: Horizontal Menu -->
                     <!-- BEGIN: Topbar -->
                     <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
-                        <div class="m-stack__item m-stack__item--middle m-dropdown m-dropdown--arrow m-dropdown--large m-dropdown--mobile-full-width m-dropdown--align-right m-dropdown--skin-light m-header-search m-header-search--expandable m-header-search--skin-light"
-                             id="m_quicksearch" data-search-type="default">
+                        <div class="m-stack__item m-stack__item--middle m-dropdown m-dropdown--arrow m-dropdown--large m-dropdown--mobile-full-width m-dropdown--align-right m-dropdown--skin-light m-header-search m-header-search--expandable m-header-search--skin-light" id="m_quicksearch" data-search-type="default">
                             <!--BEGIN: Search Form -->
                             <form class="m-header-search__form">
                                 <div class="m-header-search__wrapper">
@@ -711,48 +708,34 @@ if (!$user_id) {
                         </div>
                         <div class="m-stack__item m-topbar__nav-wrapper">
                             <ul class="m-topbar__nav m-nav m-nav--inline">
-                                <li class="m-nav__item m-topbar__notifications m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" data-dropdown-toggle="click"
-                                    data-dropdown-persistent="true">
+                                <li class="m-nav__item m-topbar__notifications m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" data-dropdown-toggle="click" data-dropdown-persistent="true">
                                     <a href="#" class="m-nav__link m-dropdown__toggle" id="m_topbar_notification_icon">
                                         <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
                                         <span class="m-nav__link-icon">
-													<span class="m-nav__link-icon-wrapper">
-														<i class="flaticon-music-2"></i>
-													</span>
-												</span>
+                                            <span class="m-nav__link-icon-wrapper">
+                                                <i class="flaticon-music-2"></i>
+                                            </span>
+                                        </span>
                                     </a>
                                     <div class="m-dropdown__wrapper">
                                         <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
                                         <div class="m-dropdown__inner">
                                             <div class="m-dropdown__header m--align-center">
-														<span class="m-dropdown__header-title">
-															9 New
-														</span>
-                                                <span class="m-dropdown__header-subtitle">
-															User Notifications
-														</span>
+                                                <span class="m-dropdown__header-title">9 New</span>
+                                                <span class="m-dropdown__header-subtitle">User Notifications</span>
                                             </div>
                                             <div class="m-dropdown__body">
                                                 <div class="m-dropdown__content">
                                                     <ul class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand"
                                                         role="tablist">
                                                         <li class="nav-item m-tabs__item">
-                                                            <a class="nav-link m-tabs__link active" data-toggle="tab"
-                                                               href="#topbar_notifications_notifications" role="tab">
-                                                                Alerts
-                                                            </a>
+                                                            <a class="nav-link m-tabs__link active" data-toggle="tab" href="#topbar_notifications_notifications" role="tab">Alerts</a>
                                                         </li>
                                                         <li class="nav-item m-tabs__item">
-                                                            <a class="nav-link m-tabs__link" data-toggle="tab"
-                                                               href="#topbar_notifications_events" role="tab">
-                                                                Events
-                                                            </a>
+                                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#topbar_notifications_events" role="tab">Events</a>
                                                         </li>
                                                         <li class="nav-item m-tabs__item">
-                                                            <a class="nav-link m-tabs__link" data-toggle="tab"
-                                                               href="#topbar_notifications_logs" role="tab">
-                                                                Logs
-                                                            </a>
+                                                            <a class="nav-link m-tabs__link" data-toggle="tab" href="#topbar_notifications_logs" role="tab">Logs</a>
                                                         </li>
                                                     </ul>
                                                     <div class="tab-content">
@@ -764,33 +747,18 @@ if (!$user_id) {
                                                                     <div class="m-list-timeline__items">
                                                                         <div class="m-list-timeline__item">
                                                                             <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
-                                                                            <span class="m-list-timeline__text">
-																						12 new users registered
-																					</span>
-                                                                            <span class="m-list-timeline__time">
-																						Just now
-																					</span>
+                                                                            <span class="m-list-timeline__text">12 new users registered</span>
+                                                                            <span class="m-list-timeline__time">Just now</span>
                                                                         </div>
                                                                         <div class="m-list-timeline__item">
                                                                             <span class="m-list-timeline__badge"></span>
-                                                                            <span class="m-list-timeline__text">
-																						System shutdown
-																						<span class="m-badge m-badge--success m-badge--wide">
-																							pending
-																						</span>
-																					</span>
-                                                                            <span class="m-list-timeline__time">
-																						14 mins
-																					</span>
+                                                                            <span class="m-list-timeline__text">System shutdown<span class="m-badge m-badge--success m-badge--wide">pending</span></span>
+                                                                            <span class="m-list-timeline__time">14 mins</span>
                                                                         </div>
                                                                         <div class="m-list-timeline__item">
                                                                             <span class="m-list-timeline__badge"></span>
-                                                                            <span class="m-list-timeline__text">
-																						New invoice received
-																					</span>
-                                                                            <span class="m-list-timeline__time">
-																						20 mins
-																					</span>
+                                                                            <span class="m-list-timeline__text">New invoice received</span>
+                                                                            <span class="m-list-timeline__time">20 mins</span>
                                                                         </div>
                                                                         <div class="m-list-timeline__item">
                                                                             <span class="m-list-timeline__badge"></span>
@@ -1121,7 +1089,7 @@ if (!$user_id) {
         </button>
         <div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-light ">
             <!-- BEGIN: Brand -->
-            <div class="m-brand  m-brand--skin-light "><a href="home" class="m-brand__logo"><img alt="" src="../../../assets/demo/demo7/media/img/logo/logo.png"/></a></div>
+            <div class="m-brand  m-brand--skin-light "><a href="<?php echo base_url(); ?>" class="m-brand__logo"><img alt="" src="../../../assets/demo/demo7/media/img/logo/logo.png"/></a></div>
             <!-- END: Brand -->
             <!-- BEGIN: Aside Menu -->
             <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-light m-aside-menu--submenu-skin-light " data-menu-vertical="true" data-menu-scrollable="true" data-menu-dropdown-timeout="500" >
