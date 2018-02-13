@@ -1,15 +1,8 @@
 <?php
-$user_id = $this->session->userdata('id');
+    $user_id = $this->session->userdata('id');
 
-if (!$user_id) {
-    redirect('login');
-} else {
-    $user_query = $this->db->get_where('user', array('id' => $user_id), null, null);
-    $profile_query = $this->db->get_where('profile', array('user_id' => $user_id), null, null);
-
-    $user = $user_query->row();
-    $profile = $profile_query->row();
-}
+    $user = $this->session->userdata('user');
+    $profile = $this->session->userdata('profile');
 ?>
 
 <!-- BEGIN: Subheader -->

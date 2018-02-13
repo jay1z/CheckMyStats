@@ -10,6 +10,9 @@ if (!$user_id) {
     $user = $user_query->row();
     $profile = $profile_query->row();
 
+    $this->session->set_userdata('user', $user);
+    $this->session->set_userdata('profile', $profile);
+
     if (!isset($user)) {
         redirect('login');
     }
@@ -1100,14 +1103,7 @@ if (!$user_id) {
                             <span class="m-menu__link-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="m-menu__item">
-                        <a href="profile" class="m-menu__link">
-                            <i class="m-menu__link-icon flaticon-profile"></i>
-                            <span class="m-menu__link-text">Profile</span>
-                        </a>
-                    </li>
-
-                    <li class="m-menu__item  m-menu__item--submenu m-menu__item--bottom" aria-haspopup="true"  data-menu-submenu-toggle="click" data-redirect="true">
+                    <li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  data-menu-submenu-toggle="click" data-redirect="true">
                         <a  href="#" class="m-menu__link m-menu__toggle">
                             <i class="m-menu__link-icon flaticon-apps"></i>
                             <span class="m-menu__link-text">My Sports</span>
@@ -1134,6 +1130,13 @@ if (!$user_id) {
                             </ul>
                         </div>
                     </li>
+                    <li class="m-menu__item">
+                        <a href="profile" class="m-menu__link">
+                            <i class="m-menu__link-icon flaticon-profile"></i>
+                            <span class="m-menu__link-text">Profile</span>
+                        </a>
+                    </li>
+
                     <li class="m-menu__item  m-menu__item--submenu m-menu__item--bottom-2" aria-haspopup="true"  data-menu-submenu-toggle="click">
                         <a  href="#" class="m-menu__link m-menu__toggle">
                             <i class="m-menu__link-icon flaticon-settings"></i>

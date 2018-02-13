@@ -40,339 +40,289 @@
 <!-- begin::Body -->
     <div class="m-content">
         <!--Begin::Section-->
-        <div class="row">
-            <div class="col-xl-4">
-                <div class="m-portlet m-portlet--mobile ">
-                    <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title"><h3 class="m-portlet__head-text">Team Roster</h3></div>
+        <div class="m-portlet">
+            <div class="m-portlet__body  m-portlet__body--no-padding">
+                <div class="row m-row--no-padding m-row--col-separator-xl">
+                    <div class="col-xl-4">
+                        <div class="m-portlet m-portlet--mobile m-portlet--unair">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title"><h3 class="m-portlet__head-text">Team Roster</h3></div>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <div class="m_datatable" id="m_datatable_team_roster"></div>
+                            </div>
                         </div>
-                        <div class="m-portlet__head-tools">
-                            <ul class="m-portlet__nav">
-                                <li class="m-portlet__nav-item">
-                                    <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
-                                        <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                                            <i class="la la-ellipsis-h m--font-brand"></i>
-                                        </a>
-                                        <div class="m-dropdown__wrapper">
-                                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                            <div class="m-dropdown__inner">
-                                                <div class="m-dropdown__body">
-                                                    <div class="m-dropdown__content">
-                                                        <ul class="m-nav">
-                                                            <li class="m-nav__section m-nav__section--first">
-																				<span class="m-nav__section-text">
-																					Quick Actions
-																				</span>
-                                                            </li>
-                                                            <li class="m-nav__item">
-                                                                <a href="" class="m-nav__link">
-                                                                    <i class="m-nav__link-icon flaticon-share"></i>
-                                                                    <span class="m-nav__link-text">
-																						Create Post
-																					</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="m-nav__item">
-                                                                <a href="" class="m-nav__link">
-                                                                    <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                                    <span class="m-nav__link-text">
-																						Send Messages
-																					</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="m-nav__item">
-                                                                <a href="" class="m-nav__link">
-                                                                    <i class="m-nav__link-icon flaticon-multimedia-2"></i>
-                                                                    <span class="m-nav__link-text">
-																						Upload File
-																					</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="m-nav__section">
-																				<span class="m-nav__section-text">
-																					Useful Links
-																				</span>
-                                                            </li>
-                                                            <li class="m-nav__item">
-                                                                <a href="" class="m-nav__link">
-                                                                    <i class="m-nav__link-icon flaticon-info"></i>
-                                                                    <span class="m-nav__link-text">
-																						FAQ
-																					</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="m-nav__item">
-                                                                <a href="" class="m-nav__link">
-                                                                    <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                                    <span class="m-nav__link-text">
-																						Support
-																					</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
-                                                            <li class="m-nav__item m--hide">
-                                                                <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                                    Submit
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <!--begin:: Widgets-->
+                        <div class="m-portlet m-portlet--full-height  m-portlet--unair">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">Upcoming Games</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">
+                                <div class="m-widget5">
+                                    <div class="m-widget5__item">
+                                        <div class="m-widget5__pic">
+                                            <img class="m-widget7__img" src="assets/app/media/img/products/product4.jpg" alt="">
+                                        </div>
+                                        <div class="m-widget5__content">
+                                            <h4 class="m-widget5__title">Team 1</h4>
+                                            <span class="m-widget5__desc">Team 1 motto here!</span>
+                                            <div class="m-widget5__info">
+                                                <span class="m-widget5__info-label">Date:</span>
+                                                <span class="m-widget5__info-date m--font-info">Feb. 15, 2018</span>
+                                                <span class="m-widget5__author">Record:</span>
+                                                <span class="m-widget5__info-author m--font-info">1-6</span>
                                             </div>
                                         </div>
                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="m-portlet__body">
-                        <!--begin: Datatable -->
-                        <div class="m_datatable" id="m_datatable_team_roster"></div>
-                        <!--end: Datatable -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4">
-                <!--begin:: Widgets-->
-                <div class="m-portlet m-portlet--full-height ">
-                    <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title">
-                                <h3 class="m-portlet__head-text">Upcoming Games</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-portlet__body">
-                        <div class="m-widget5">
-                            <div class="m-widget5__item">
-                                <div class="m-widget5__pic">
-                                    <img class="m-widget7__img" src="assets/app/media/img/products/product4.jpg" alt="">
-                                </div>
-                                <div class="m-widget5__content">
-                                    <h4 class="m-widget5__title">Team 1</h4>
-                                    <span class="m-widget5__desc">Team 1 motto here!</span>
-                                    <div class="m-widget5__info">
-                                        <span class="m-widget5__info-label">Date:</span>
-                                        <span class="m-widget5__info-date m--font-info">Feb. 15, 2018</span>
-                                        <span class="m-widget5__author">Record:</span>
-                                        <span class="m-widget5__info-author m--font-info">1-6</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-widget5__item">
-                                <div class="m-widget5__pic">
-                                    <img class="m-widget7__img" src="assets/app/media/img/products/product5.jpg" alt="">
-                                </div>
-                                <div class="m-widget5__content">
-                                    <h4 class="m-widget5__title">Team 2</h4>
-                                    <span class="m-widget5__desc">Team 2 motto here!</span>
-                                    <div class="m-widget5__info">
-                                        <span class="m-widget5__info-label">Date:</span>
-                                        <span class="m-widget5__info-date m--font-info">Feb. 18, 2018</span>
-                                        <span class="m-widget5__author">Record:</span>
-                                        <span class="m-widget5__info-author m--font-info">5-2</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-widget5__item">
-                                <div class="m-widget5__pic">
-                                    <img class="m-widget7__img" src="assets/app/media/img/products/product6.jpg" alt="">
-                                </div>
-                                <div class="m-widget5__content">
-                                    <h4 class="m-widget5__title">Team 3</h4>
-                                    <span class="m-widget5__desc">Team 3 motto here!</span>
-                                    <div class="m-widget5__info">
-                                        <span class="m-widget5__info-label">Date:</span>
-                                        <span class="m-widget5__info-date m--font-info">Feb. 25, 2018</span>
-                                        <span class="m-widget5__author">Record:</span>
-                                        <span class="m-widget5__info-author m--font-info">4-3</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-widget5__item">
-                                <div class="m-widget5__pic">
-                                    <img class="m-widget7__img" src="assets/app/media/img/products/product7.jpg" alt="">
-                                </div>
-                                <div class="m-widget5__content">
-                                    <h4 class="m-widget5__title">Team 4</h4>
-                                    <span class="m-widget5__desc">Team 4 motto here!</span>
-                                    <div class="m-widget5__info">
-                                        <span class="m-widget5__info-label">Date:</span>
-                                        <span class="m-widget5__info-date m--font-info">Feb. 31, 2018</span>
-                                        <span class="m-widget5__author">Record:</span>
-                                        <span class="m-widget5__info-author m--font-info">7-0</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end:: Widgets-->
-            </div>
-            <div class="col-xl-4">
-                <!--begin:: Widgets/Blog-->
-                <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--rounded-force">
-                    <div class="m-portlet__head m-portlet__head--fit">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-action">
-                                <button type="button" class="btn btn-sm m-btn--pill  btn-brand">Blog</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="m-portlet__body">
-                        <div class="m-widget19">
-                            <div class="m-widget19__pic m-portlet-fit--top m-portlet-fit--sides"
-                                 style="min-height-: 286px">
-                                <img src="assets/app/media/img//blog/blog1.jpg" alt="">
-                                <h3 class="m-widget19__title m--font-light">
-                                    Introducing New Feature
-                                </h3>
-                                <div class="m-widget19__shadow"></div>
-                            </div>
-                            <div class="m-widget19__content">
-                                <div class="m-widget19__header">
-                                    <div class="m-widget19__user-img">
-                                        <img class="m-widget19__img" src="assets/app/media/img//users/user1.jpg"
-                                             alt="">
-                                    </div>
-                                    <div class="m-widget19__info">
-                                                    <span class="m-widget19__username">
-                                                        Anna Krox
-                                                    </span>
-                                        <br>
-                                        <span class="m-widget19__time">
-                                                        UX/UI Designer, Google
-                                                    </span>
-                                    </div>
-                                    <div class="m-widget19__stats">
-                                                    <span class="m-widget19__number m--font-brand">
-                                                        18
-                                                    </span>
-                                        <span class="m-widget19__comment">
-                                                        Comments
-                                                    </span>
-                                    </div>
-                                </div>
-                                <div class="m-widget19__body">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry
-                                    scrambled it to make text of the printing and typesetting industry scrambled
-                                    a type specimen book text of the dummy text of the printing printing and
-                                    typesetting industry scrambled dummy text of the printing.
-                                </div>
-                            </div>
-                            <div class="m-widget19__action">
-                                <button type="button"
-                                        class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom">
-                                    Read More
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end:: Widgets/Blog-->
-            </div>
-            <div class="col-xl-4">
-                <!--begin:: Widgets/Announcements 1-->
-                <div class="m-portlet m-portlet--bordered-semi m-portlet--skin-dark m-portlet--full-height ">
-                    <div class="m-portlet__head">
-                        <div class="m-portlet__head-caption">
-                            <div class="m-portlet__head-title">
-                                <h3 class="m-portlet__head-text">Announcements</h3>
-                            </div>
-                        </div>
-                        <div class="m-portlet__head-tools">
-                            <ul class="m-portlet__nav">
-                                <li class="m-portlet__nav-item m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push"
-                                    data-dropdown-toggle="hover">
-                                    <a href="#"
-                                       class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl">
-                                        <i class="la la-ellipsis-h m--font-light"></i>
-                                    </a>
-                                    <div class="m-dropdown__wrapper">
-                                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                        <div class="m-dropdown__inner">
-                                            <div class="m-dropdown__body">
-                                                <div class="m-dropdown__content">
-                                                    <ul class="m-nav">
-                                                        <li class="m-nav__section m-nav__section--first">
-                                                                        <span class="m-nav__section-text">
-                                                                            Quick Actions
-                                                                        </span>
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-share"></i>
-                                                                <span class="m-nav__link-text">
-                                                                                Activity
-                                                                            </span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                                <span class="m-nav__link-text">
-                                                                                Messages
-                                                                            </span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-info"></i>
-                                                                <span class="m-nav__link-text">
-                                                                                FAQ
-                                                                            </span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="m-nav__item">
-                                                            <a href="" class="m-nav__link">
-                                                                <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                                <span class="m-nav__link-text">
-                                                                                Support
-                                                                            </span>
-                                                            </a>
-                                                        </li>
-                                                        <li class="m-nav__separator m-nav__separator--fit"></li>
-                                                        <li class="m-nav__item">
-                                                            <a href="#"
-                                                               class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                                Cancel
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                    <div class="m-widget5__item">
+                                        <div class="m-widget5__pic">
+                                            <img class="m-widget7__img" src="assets/app/media/img/products/product5.jpg" alt="">
+                                        </div>
+                                        <div class="m-widget5__content">
+                                            <h4 class="m-widget5__title">Team 2</h4>
+                                            <span class="m-widget5__desc">Team 2 motto here!</span>
+                                            <div class="m-widget5__info">
+                                                <span class="m-widget5__info-label">Date:</span>
+                                                <span class="m-widget5__info-date m--font-info">Feb. 18, 2018</span>
+                                                <span class="m-widget5__author">Record:</span>
+                                                <span class="m-widget5__info-author m--font-info">5-2</span>
                                             </div>
                                         </div>
                                     </div>
-                                </li>
-                            </ul>
+                                    <div class="m-widget5__item">
+                                        <div class="m-widget5__pic">
+                                            <img class="m-widget7__img" src="assets/app/media/img/products/product6.jpg" alt="">
+                                        </div>
+                                        <div class="m-widget5__content">
+                                            <h4 class="m-widget5__title">Team 3</h4>
+                                            <span class="m-widget5__desc">Team 3 motto here!</span>
+                                            <div class="m-widget5__info">
+                                                <span class="m-widget5__info-label">Date:</span>
+                                                <span class="m-widget5__info-date m--font-info">Feb. 25, 2018</span>
+                                                <span class="m-widget5__author">Record:</span>
+                                                <span class="m-widget5__info-author m--font-info">4-3</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-widget5__item">
+                                        <div class="m-widget5__pic">
+                                            <img class="m-widget7__img" src="assets/app/media/img/products/product7.jpg" alt="">
+                                        </div>
+                                        <div class="m-widget5__content">
+                                            <h4 class="m-widget5__title">Team 4</h4>
+                                            <span class="m-widget5__desc">Team 4 motto here!</span>
+                                            <div class="m-widget5__info">
+                                                <span class="m-widget5__info-label">Date:</span>
+                                                <span class="m-widget5__info-date m--font-info">Feb. 31, 2018</span>
+                                                <span class="m-widget5__author">Record:</span>
+                                                <span class="m-widget5__info-author m--font-info">7-0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <!--end:: Widgets-->
                     </div>
-                    <div class="m-portlet__body">
-                        <!--begin::Widget 7-->
-                        <div class="m-widget7 m-widget7--skin-dark">
-                            <div class="m-widget7__desc">
-                                Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy euismod
-                                tinciduntut laoreet doloremagna
-                            </div>
-                            <div class="m-widget7__user">
-                                <div class="m-widget7__user-img">
-                                    <img class="m-widget7__img" src="assets/app/media/img//users/100_3.jpg" alt="">
-                                </div>
-                                <div class="m-widget7__info">
-                                    <span class="m-widget7__username">Dan Bold</span>
-                                    <br>
-                                    <span class="m-widget7__time">3 days ago</span>
+                    <div class="col-xl-4">
+                        <!--begin:: Widgets/Blog-->
+                        <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--unair m-portlet--rounded-force">
+                            <div class="m-portlet__head m-portlet__head--fit">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-action">
+                                        <button type="button" class="btn btn-sm m-btn--pill  btn-brand">Blog</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="m-widget7__button">
-                                <a class="m-btn m-btn--pill btn btn-danger" href="#" role="button">All Feeds</a>
+                            <div class="m-portlet__body">
+                                <div class="m-widget19">
+                                    <div class="m-widget19__pic m-portlet-fit--top m-portlet-fit--sides"
+                                         style="min-height-: 286px">
+                                        <img src="assets/app/media/img/blog/blog1.jpg" alt="">
+                                        <h3 class="m-widget19__title m--font-light">
+                                            Introducing New Feature
+                                        </h3>
+                                        <div class="m-widget19__shadow"></div>
+                                    </div>
+                                    <div class="m-widget19__content">
+                                        <div class="m-widget19__header">
+                                            <div class="m-widget19__user-img">
+                                                <img class="m-widget19__img" src="assets/app/media/img/users/user1.jpg"
+                                                     alt="">
+                                            </div>
+                                            <div class="m-widget19__info">
+                                                            <span class="m-widget19__username">
+                                                                Anna Krox
+                                                            </span>
+                                                <br>
+                                                <span class="m-widget19__time">
+                                                                UX/UI Designer, Google
+                                                            </span>
+                                            </div>
+                                            <div class="m-widget19__stats">
+                                                            <span class="m-widget19__number m--font-brand">
+                                                                18
+                                                            </span>
+                                                <span class="m-widget19__comment">
+                                                                Comments
+                                                            </span>
+                                            </div>
+                                        </div>
+                                        <div class="m-widget19__body">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                            scrambled it to make text of the printing and typesetting industry scrambled
+                                            a type specimen book text of the dummy text of the printing printing and
+                                            typesetting industry scrambled dummy text of the printing.
+                                        </div>
+                                    </div>
+                                    <div class="m-widget19__action">
+                                        <button type="button" class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom">Read More</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!--end::Widget 7-->
+                        <!--end:: Widgets/Blog-->
                     </div>
                 </div>
-                <!--end:: Widgets/Announcements 1-->
+            </div>
+        </div>
+        <!--End::Section-->
+        <!--Begin::Section-->
+        <div class="m-portlet">
+            <div class="m-portlet__body  m-portlet__body--no-padding">
+                <div class="row m-row--no-padding m-row--col-separator-xl">
+                    <div class="col-xl-4">
+                        <!--begin:: Widgets/Stats2-1 -->
+                        <div class="m-widget1">
+                            <div class="m-widget1__item">
+                                <div class="row m-row--no-padding align-items-center">
+                                    <div class="col">
+                                        <h3 class="m-widget1__title">
+                                            Member Profit
+                                        </h3>
+                                        <span class="m-widget1__desc">
+															Awerage Weekly Profit
+														</span>
+                                    </div>
+                                    <div class="col m--align-right">
+														<span class="m-widget1__number m--font-brand">
+															+$17,800
+														</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-widget1__item">
+                                <div class="row m-row--no-padding align-items-center">
+                                    <div class="col">
+                                        <h3 class="m-widget1__title">
+                                            Orders
+                                        </h3>
+                                        <span class="m-widget1__desc">
+															Weekly Customer Orders
+														</span>
+                                    </div>
+                                    <div class="col m--align-right">
+														<span class="m-widget1__number m--font-danger">
+															+1,800
+														</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-widget1__item">
+                                <div class="row m-row--no-padding align-items-center">
+                                    <div class="col">
+                                        <h3 class="m-widget1__title">
+                                            Issue Reports
+                                        </h3>
+                                        <span class="m-widget1__desc">
+															System bugs and issues
+														</span>
+                                    </div>
+                                    <div class="col m--align-right">
+														<span class="m-widget1__number m--font-success">
+															-27,49%
+														</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end:: Widgets/Stats2-1 -->
+                    </div>
+                    <div class="col-xl-4">
+                        <!--begin:: Widgets/Revenue Change-->
+                        <div class="m-widget14">
+                            <div class="m-widget14__header">
+                                <h3 class="m-widget14__title">Revenue Change</h3>
+                                <span class="m-widget14__desc">Revenue change breakdown by cities</span>
+                            </div>
+                            <div class="row  align-items-center">
+                                <div class="col">
+                                    <div id="m_chart_revenue_change" class="m-widget14__chart1" style="height: 180px"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="m-widget14__legends">
+                                        <div class="m-widget14__legend">
+                                            <span class="m-widget14__legend-bullet m--bg-accent"></span>
+                                            <span class="m-widget14__legend-text">+10% New York</span>
+                                        </div>
+                                        <div class="m-widget14__legend">
+                                            <span class="m-widget14__legend-bullet m--bg-warning"></span>
+                                            <span class="m-widget14__legend-text">-7% London</span>
+                                        </div>
+                                        <div class="m-widget14__legend">
+                                            <span class="m-widget14__legend-bullet m--bg-brand"></span>
+                                            <span class="m-widget14__legend-text">+20% California</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end:: Widgets/Revenue Change-->
+                    </div>
+                    <div class="col-xl-4">
+                        <!--begin:: Widgets/Profit Share-->
+                        <div class="m-widget14">
+                            <div class="m-widget14__header">
+                                <h3 class="m-widget14__title">Profit Share</h3>
+                                <span class="m-widget14__desc">Profit Share between customers</span>
+                            </div>
+                            <div class="row  align-items-center">
+                                <div class="col">
+                                    <div id="m_chart_profit_share" class="m-widget14__chart" style="height: 160px">
+                                        <div class="m-widget14__stat">
+                                            45
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="m-widget14__legends">
+                                        <div class="m-widget14__legend">
+                                            <span class="m-widget14__legend-bullet m--bg-accent"></span>
+                                            <span class="m-widget14__legend-text">37% Sport Tickets</span>
+                                        </div>
+                                        <div class="m-widget14__legend">
+                                            <span class="m-widget14__legend-bullet m--bg-warning"></span>
+                                            <span class="m-widget14__legend-text">47% Business Events</span>
+                                        </div>
+                                        <div class="m-widget14__legend">
+                                            <span class="m-widget14__legend-bullet m--bg-brand"></span>
+                                            <span class="m-widget14__legend-text">19% Others</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end:: Widgets/Profit Share-->
+                    </div>
+                </div>
             </div>
         </div>
         <!--End::Section-->

@@ -1,6 +1,9 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
     header("Content-Type: text/plain");
+
+    $user_id = $this->session->userdata('id');
+
     echo '{
     "meta": {
         "page": 1,

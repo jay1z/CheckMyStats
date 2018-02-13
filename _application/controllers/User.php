@@ -34,9 +34,7 @@ class User extends CI_Controller {
         $pass_h = password_hash($password, PASSWORD_BCRYPT);
         $user = array(
             'email' => $this->input->post('signup_email'),
-            'password' => $pass_h,
-            'role_id' => null,
-            'permission_id' => null
+            'password' => $pass_h
         );
 
         $profile = array(
