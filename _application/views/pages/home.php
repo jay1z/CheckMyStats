@@ -34,7 +34,7 @@
     <link href="../../../assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css"/>
     <!--end::Page Vendors -->
     <link href="../../../assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css"/>
-    <link href="../../../assets/demo/demo5/base/style.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
     <!--end::Base Styles -->
     <link rel="shortcut icon" href="../../../assets/demo/demo5/media/img/logo/favicon.ico"/>
 </head>
@@ -92,7 +92,7 @@
                                     </li>
                                     <li class="m-menu__item m-menu__item--rel" aria-haspopup="false">
                                         <a href="login" class="m-menu__link ">
-                                            <i class="m-menu__link-icon flaticon-users"></i>
+                                            <i class="m-menu__link-icon flaticon-user"></i>
                                             <span class="m-menu__link-text">Login/Register</span>
                                         </a>
                                     </li>

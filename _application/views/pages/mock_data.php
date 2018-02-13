@@ -1,4 +1,10 @@
 <?php
+    if($this->db->count_all('user') == 0){
+        echo "ERROR: No users exist!";
+        return;
+    }
+
+
     $type = array('type' => 'Softball');
     $this->db->insert('sport_type', $type);
 

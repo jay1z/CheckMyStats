@@ -1339,12 +1339,7 @@ var Dashboard = function() {
         var datatable = $('.m_datatable').mDatatable({
             data: {
                 type: 'remote',
-                source: {
-                    read: {
-                        //url: 'https://keenthemes.com/metronic/preview/inc/api/datatables/demos/default.php'
-                        url: 'https://www.checkmystats.net/data_team_roster'
-                    }
-                },
+                source: { read: { url: 'https://www.checkmystats.net/data_team_roster' } },
                 pageSize: 20,
                 saveState: {
                     cookie: true,
@@ -1367,29 +1362,31 @@ var Dashboard = function() {
 
             filterable: false,
 
-            pagination: true,
+            pagination: false,
 
-            columns: [{
-                field: "fullname",
-                title: "Full Name",
-                sortable: true,
-                filterable: false,
-                width: 150,
-                template: function(row) {
-                    var fullname = row.fullname;
-                    return '<a href="profile/' + fullname + '">' + fullname + '</a>';
+            columns: [
+                {
+                    field: "fullname",
+                    title: "Full Name",
+                    sortable: true,
+                    filterable: false,
+                    width: 150,
+                    template: function(row) {
+                        var fullname = row.fullname;
+                        return '<a href="profile/' + fullname + '">' + fullname + '</a>';
                 }
-            }, {
-                field: "position",
-                title: "Position",
-                sortable: 'asc',
-                filterable: false,
-                width: 100
-            }, {
-                field: "number",
-                title: "Jersey Number",
-                width: 100
-            }]
+                }, {
+                    field: "position",
+                    title: "Position",
+                    sortable: 'asc',
+                    filterable: false,
+                    width: 100
+                }, {
+                    field: "number",
+                    title: "Jersey Number",
+                    width: 100
+                }
+            ]
         });
     };
 

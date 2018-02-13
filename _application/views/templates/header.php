@@ -44,7 +44,7 @@ if (!$user_id) {
     <link href="../../../assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css"/>
     <!--end::Page Vendors -->
     <link href="../../../assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css"/>
-    <link href="../../../assets/demo/demo7/base/style.bundle.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../assets/css/style.bundle.css" rel="stylesheet" type="text/css"/>
     <!--end::Base Styles -->
     <link rel="shortcut icon" href="../../../assets/demo/demo7/media/img/logo/favicon.ico"/>
 </head>
@@ -61,7 +61,7 @@ if (!$user_id) {
                 <div class="m-stack__item m-brand ">
                     <div class="m-stack m-stack--ver m-stack--general">
                         <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                            <a href="<?php echo base_url(); ?>" class="m-brand__logo-wrapper"><img alt="" src="../../../assets/demo/demo5/media/img/logo/logo.png"/></a>
+                            <a href="<?php echo base_url(); ?>" class="m-brand__logo-wrapper"><img alt="" src="../../../assets/img/logos/logo-1.png"/></a>
                         </div>
                         <div class="m-stack__item m-stack__item--middle m-brand__tools">
                             <!-- BEGIN: Responsive Aside Left Menu Toggler -->
@@ -1092,7 +1092,7 @@ if (!$user_id) {
         </button>
         <div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-light ">
             <!-- BEGIN: Brand -->
-            <div class="m-brand  m-brand--skin-light "><a href="<?php echo base_url(); ?>" class="m-brand__logo"><img alt="" src="../../../assets/demo/demo7/media/img/logo/logo.png"/></a></div>
+            <div class="m-brand  m-brand--skin-light "><a href="<?php echo base_url(); ?>" class="m-brand__logo"><img alt="" src="../../../assets/img/logos/logo-1.png"/></a></div>
             <!-- END: Brand -->
             <!-- BEGIN: Aside Menu -->
             <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-light m-aside-menu--submenu-skin-light " data-menu-vertical="true" data-menu-scrollable="true" data-menu-dropdown-timeout="500" >

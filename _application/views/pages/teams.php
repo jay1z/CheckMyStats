@@ -1,3 +1,5 @@
+
+
 <!-- BEGIN: Subheader -->
 <div class="m-subheader ">
     <div class="d-flex align-items-center">
@@ -48,6 +50,26 @@
                             <div class="m-portlet__head">
                                 <div class="m-portlet__head-caption">
                                     <div class="m-portlet__head-title"><h3 class="m-portlet__head-text">Team Roster</h3></div>
+                                    <div class="m-select2 m-select2--air m-select2--pill">
+                                        <select class="form-control m-select2" id="m_select2_12_3"  name="param" data-placeholder="Air & pill styles">
+                                            <option></option>
+                                            <option value="AK">
+                                                Option 1
+                                            </option>
+                                            <option value="AK">
+                                                Option 2
+                                            </option>
+                                            <option value="AK">
+                                                Option 3
+                                            </option>
+                                            <option value="AK">
+                                                Option 4
+                                            </option>
+                                            <option value="AK">
+                                                Option 5
+                                            </option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="m-portlet__body">

@@ -145,12 +145,7 @@ if (!$user_id) {
                                     <div class="m--bg-danger"></div>
                                 </div>
                                 <div class="m-timeline-1__item-arrow"></div>
-                                <span class="m-timeline-1__item-time m--font-brand">
-                                                    04:10
-                                                    <span>
-                                                        PM
-                                                    </span>
-                                                </span>
+                                <span class="m-timeline-1__item-time m--font-brand">04:10<span>PM</span></span>
                                 <div class="m-timeline-1__item-content">
                                     <div class="m-timeline-1__item-title">
                                         My ToDo
@@ -241,7 +236,7 @@ if (!$user_id) {
             </div>
         </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-12">
         <div class="m-portlet m-portlet--bordered-semi m-portlet--half-height m-portlet--fit " style="min-height: 300px">
             <div class="m-portlet__head">
                 <div class="m-portlet__head-caption">
@@ -259,9 +254,7 @@ if (!$user_id) {
                 <!--end::Widget 5-->
             </div>
         </div>
-        <div class="m-portlet m-portlet--bordered-semi m-portlet--half-height m-portlet--fit " style="min-height: 300px">
-            <div class="m-portlet__body">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <!--begin::Portlet-->
                     <div class="m-portlet m-portlet--creative m-portlet--bordered-semi">
                         <div class="m-portlet__head">
@@ -280,7 +273,7 @@ if (!$user_id) {
                     </div>
                     <!--end::Portlet-->
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <!--begin::Portlet-->
                     <div class="m-portlet m-portlet--creative m-portlet--bordered-semi">
                         <div class="m-portlet__head">
@@ -302,7 +295,5 @@ if (!$user_id) {
                     </div>
                     <!--end::Portlet-->
                 </div>
-            </div>
-        </div>
     </div>
 </div>

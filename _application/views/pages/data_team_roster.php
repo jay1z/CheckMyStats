@@ -4,57 +4,27 @@
 
     $user_id = $this->session->userdata('id');
 
-    echo '{
+    if (!$user_id) {
+        redirect('login');
+    } else {
+        $query = $this->db->get_where('userXteam', array('user_id' => $user_id));
+    }
+
+    $result = '{
     "meta": {
         "page": 1,
         "pages": 1,
         "perpage": -1,
-        "total": 7,
+        "total": '. $query->num_rows() .',
         "sort": "asc",
         "field": "fullname"
-    },
-    "data": [
-        {
-            "fullname": "Jason Zurowski",
-            "url" : "'.urlencode('Jason Zurowski').'",
-            "position": "Center Field",
-            "number": "24" 
-        },
-        {
-            "fullname": "Jason Zurowski",
-            "url" : "'.urlencode('Jason Zurowski').'",
-            "position": "Center Field",
-            "number": "24" 
-        },
-        {
-            "fullname": "Jason Zurowski",
-            "url" : "'.urlencode('Jason Zurowski').'",
-            "position": "Center Field",
-            "number": "24" 
-        },
-        {
-            "fullname": "Jason Zurowski",
-            "url" : "'.urlencode('Jason Zurowski').'",
-            "position": "Center Field",
-            "number": "24" 
-        },
-        {
-            "fullname": "Jason Zurowski",
-            "url" : "'.urlencode('Jason Zurowski').'",
-            "position": "Center Field",
-            "number": "24" 
-        },
-        {
-            "fullname": "Jason Zurowski",
-            "url" : "'.urlencode('Jason Zurowski').'",
-            "position": "Center Field",
-            "number": "24" 
-        },
-        {
-            "fullname": "Jason Zurowski",
-            "url" : "'.urlencode('Jason Zurowski').'",
-            "position": "Center Field",
-            "number": "24" 
+    }, "data": [';
+
+    if (isset($query)) {
+        foreach ($query->result() as $row) {
+            $result .='{"fullname": "Jason Zurowski","position": "Center Field","number": "24"},';
         }
-    ]
-}';
+    }
+
+    $result .=']}';
+    echo $result;
