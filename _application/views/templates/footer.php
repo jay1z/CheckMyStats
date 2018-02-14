@@ -46,7 +46,7 @@
 <!-- end:: Page -->
 <!--begin::Base Scripts -->
 <script src="../../../assets/vendors/base/vendors.bundle.js"></script>
-<script src="../../../assets/js/scripts.bundle.js"></script>
+<script src="../../../assets/demo/demo7/base/scripts.bundle.js"></script>
 <!--end::Base Scripts -->
 <!--begin::Page Resources -->
 <script src="../../../assets/default/custom/components/forms/widgets/select2.js" type="text/javascript"></script>
