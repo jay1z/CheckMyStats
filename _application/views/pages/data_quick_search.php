@@ -4,20 +4,19 @@
     $query_string = $this->input->get('query', TRUE);
     $user_id = $this->session->userdata('id');
 
-    $this->db->select('*');
-    $this->db->from('profile');
-    $this->db->like('fullname', $query_string, 'both');
-    $users = $this->db->get();
+    $users = $this->db->select('*')
+    ->like('fullname', $query_string, 'both')
+    ->get('profile');
 
-    $this->db->select('*');
-    $this->db->from('team');
-    $this->db->like('name', $query_string, 'both');
-    $teams = $this->db->get();
+    $teams = $this->db->select('*')
+    ->from()
+    ->like('name', $query_string, 'both')
+    ->get('team');
 
-    $this->db->select('*');
-    $this->db->from('league');
-    $this->db->like('name', $query_string, 'both');
-    $leagues = $this->db->get();
+    $leagues = $this->db->select('*')
+    ->from()
+    ->like('name', $query_string, 'both')
+    ->get('league');
 
     /*$teams_query = $this->db->like('name', $query_string, 'both');
     $teams = $this->db->from('team');

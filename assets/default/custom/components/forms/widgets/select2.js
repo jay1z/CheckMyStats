@@ -168,7 +168,7 @@ var Select2 = function() {
             $('#m_select2_4_modal').select2({
                 placeholder: "Select a state",
                 allowClear: true
-            }); 
+            });
         });
     }
 

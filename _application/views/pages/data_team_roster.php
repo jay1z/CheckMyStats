@@ -1,6 +1,6 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
-    header("Content-Type: text/plain");
+    header("Content-Type: application/json");
 
     $user_id = $this->session->userdata('id');
 
@@ -22,7 +22,7 @@
 
     if (isset($query)) {
         foreach ($query->result() as $row) {
-            $result .='{"fullname": "Jason Zurowski","position": "Center Field","number": "24"},';
+            $result .='{"fullname": "'.$row->user_id.'","position": "Center Field","number": "24"},';
         }
     }
 
