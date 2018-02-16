@@ -33,11 +33,11 @@
     <?php
     if (isset($users)) {
         foreach ($users->result() as $row) {
-            echo '<a href="'.urlencode($row->fullname).'" class="m-list-search__result-item">
+            echo '<a href="'.urlencode($row->fullname). '" class="m-list-search__result-item">
                     <span class="m-list-search__result-item-pic">
                         <img class="m--img-rounded" src="../../../assets/app/media/img/users/user1.jpg" title=""/>
                     </span>
-                    <span class="m-list-search__result-item-text">'.$row->fullname.'</span>
+                    <span class="m-list-search__result-item-text">' .$row->fullname.'</span>
                   </a>';
         }
     }
