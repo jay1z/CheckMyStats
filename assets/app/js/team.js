@@ -1,9 +1,8 @@
 //== Class definition
 var Team = function() {
+    var select = $('#m_select2_teamRoster').select2({placeholder: "Select Team"});
+
     var datatableTeamRoster = function() {
-        $('#m_select2_teamRoster').select2({
-            placeholder: "Select a Team"
-        });
 
         if ($('#m_datatable_team_roster').length === 0) {
             return;

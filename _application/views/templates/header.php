@@ -990,8 +990,14 @@ if (!$user_id) {
                                                         <img src="../../../assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt=""/>
                                                     </div>
                                                     <div class="m-card-user__details">
-																<span class="m-card-user__name m--font-weight-500">
-																	<?php echo $profile->fullname ?>
+                                                        <span class="m-card-user__name m--font-weight-500">
+																	<?php
+                                                                    if (isset($profile)) {
+                                                                        echo $profile->fullname;
+                                                                    }else{
+                                                                        echo '~';
+                                                                    }
+                                                                    ?>
 																</span>
                                                         <a href="" class="m-card-user__email m--font-weight-300 m-link">
                                                             <?php echo $user->email ?>

@@ -1,227 +1,362 @@
 <?php
-    $user_id = $this->session->userdata('id');
-    $query = $this->db->select('userXteam.user_id, userXteam.team_id, team.name as team_name, team.league_id, league.name as league_name')
+$user_id = $this->session->userdata('id');
+$team_id = $this->session->userdata('team_id');
+
+$team = $this->db->get_where('team', array('id' => $team_id))->row();
+$userXteam_query = $this->db->select('userXteam.user_id, userXteam.team_id, team.name as team_name, team.league_id, league.name as league_name')
     ->join('team', 'team_id = team.id and user_id = '.$user_id)
     ->join('league', 'league_id = league.id')
     ->get('userXteam');
-    //print_r($query->result_array());
+
+if (isset($team_id)) {
+    $game_events_query = $this->db->select('datetime, team.name as opponent, venue.name as venue_name, concat(venue.address, " ", venue.city, ", ", venue.state, " ", venue.zip ) as venue_address')
+        ->join('team', 'opponent_id = team.id and team_id = ' . $team_id . ' and datetime >= now()')
+        ->join('venue', 'venue_id = venue.id')
+        ->order_by('datetime', 'ASC')
+        ->limit(4)
+        ->get('game_event');
+}
 ?>
 
 <!-- BEGIN: Subheader -->
-<div class="m-subheader ">
-    <div class="d-flex align-items-center">
-        <div class="mr-auto">
-            <h3 class="m-subheader__title m-subheader__title--separator">My Teams</h3>
-            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-                <li class="m-nav__item m-nav__item--home">
-                    <a href="home" class="m-nav__link m-nav__link--icon">
-                        <i class="m-nav__link-icon la la-home"></i>
-                    </a>
-                </li>
-                <li class="m-nav__separator">-</li>
-                <li class="m-nav__item">
-                    <a href="" class="m-nav__link">
-                        <span class="m-nav__link-text">My Teams</span>
-                    </a>
-                </li>
-                <li class="m-nav__separator">-</li>
-                <li class="m-nav__item">
-                    <a href="" class="m-nav__link">
-                        <span class="m-nav__link-text">Generate Reports</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
-                <span class="m-subheader__daterange-label">
-                    <span class="m-subheader__daterange-title"></span>
-                    <span class="m-subheader__daterange-date m--font-brand"></span>
-                </span>
-                <a href="#" class="btn btn-sm btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill">
-                    <i class="la la-angle-down"></i>
-                </a>
-            </span>
-        </div>
-    </div>
-</div>
 <!-- END: Subheader -->
 <!-- begin::Body -->
 <div class="m-content">
     <!--Begin::Section-->
     <!--<div class="m-portlet">
         <div class="m-portlet__body  m-portlet__body--no-padding">-->
-            <div class="row  ">
-                <div class="col-xl-4">
-                    <div class="m-portlet m-portlet--mobile m-portlet--unair">
-                        <div class="m-portlet__head">
-                            <div class="m-portlet__head-caption">
-                                <div class="m-portlet__head-title">
-                                    <h3 class="m-portlet__head-text">Team Roster</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-portlet__body">
-                            <div class="m-select2 m-select2--air m-select2--pill">
-                                <select class="form-control m-select2" id="m_select2_teamRoster"  name="param" data-placeholder="Air & pill styles">
-                                    <option></option>
-                                    <?php
-                                    $query_league_name = '';
-                                    foreach ($query->result() as $row){
-                                        //echo '<option value="'.$row->league_id.'">'.$row->name.'</option><br>';
-                                        if ($row->league_name != $query_league_name){
-                                            echo '<optgroup label="'.$row->league_name.'">';
-                                            $query_league_name = $row->league_name;
+    <div class="col-12">
+        <!--begin:: Widgets/Blog-->
+        <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--unair m-portlet--rounded-force">
+            <div class="m-portlet__head m-portlet__head--fit">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-action">
+                        <div class="col-3">
+                            <form class="m-form m-form--fit m-form--label-align-right" action="user/change_team" method="post">
+                                <div class="m-select2 m-select2--air m-select2--pill">
+                                    <select class="form-control m-select2" id="m_select2_teamRoster"  name="teamRoster" data-placeholder="Air & pill styles" onchange="this.form.submit();" >
+                                        <option></option>
+                                        <?php
+                                        $query_league_name = '';
+                                        foreach ($userXteam_query->result() as $row){
+                                            if ($row->league_name != $query_league_name){
+                                                echo '<optgroup label="'.$row->league_name.'">';
+                                                $query_league_name = $row->league_name;
+                                            }
+                                            if ($team_id == $row->team_id) {
+                                                echo '<option selected="selected" value="' . $row->team_id . '">' . $row->team_name . '</option><br>';
+                                            }else{
+                                                echo '<option value="' . $row->team_id . '">' . $row->team_name . '</option><br>';
+                                            }
                                         }
-                                        echo '<option value="'.$row->team_id.'">'.$row->team_name.'</option><br>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="m-separator"></div>
-                            <div class="m_datatable" id="m_datatable_team_roster"></div>
+                                        ?>
+                                    </select>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4">
-                    <!--begin:: Widgets-->
-                    <div class="m-portlet m-portlet--full-height  m-portlet--unair">
-                        <div class="m-portlet__head">
-                            <div class="m-portlet__head-caption">
-                                <div class="m-portlet__head-title">
-                                    <h3 class="m-portlet__head-text">Upcoming Games</h3>
-                                </div>
+            </div>
+            <div class="m-portlet__body">
+                <div class="m-widget19">
+                    <div class="m-widget19__pic m-portlet-fit--top m-portlet-fit--sides" style="min-height-: 286px">
+                        <img src="assets/app/media/img/misc/user_profile_bg_3x.jpg" alt="">
+                        <h3 class="m-widget19__title m--font-light">Team motto...maybe?</h3>
+                        <div class="m-widget19__shadow"></div>
+                    </div>
+                    <div class="m-widget19__content">
+                        <div class="m-widget19__header">
+                            <div class="m-widget19__user-img">
+                                <img class="m-widget19__img" src="assets/app/media/img/users/user2.jpg"
+                                     alt="">
+                            </div>
+                            <div class="m-widget19__info">
+                                <span class="m-widget19__username">Peter Zurowski</span>
+                                <br>
+                                <span class="m-widget19__time">Team Manager</span>
+                            </div>
+                            <div class="m-widget19__stats">
+                                <span class="m-widget19__number m--font-brand">18</span>
+                                <span class="m-widget19__comment">something</span>
                             </div>
                         </div>
-                        <div class="m-portlet__body">
-                            <div class="m-widget5">
+                        <div class="m-widget19__body">
+                            Team Mission Statement: To be the best team ever!
+                        </div>
+                    </div>
+                    <!--<div class="m-widget19__action">
+                        <button type="button" class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom">Read More</button>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/Blog-->
+    </div>
+    <div class="row  ">
+        <div class="col-xl-4">
+            <!--begin:: Widgets-->
+            <div class="m-portlet m-portlet--full-height  m-portlet--unair">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title"><h3 class="m-portlet__head-text">Upcoming Games</h3></div>
+                    </div>
+                </div>
+                <div class="m-portlet__body">
+                    <div class="m-widget5">
+                        <?php
+                        if (isset($game_events_query)) {
+                            foreach ($game_events_query->result() as $row) {
+                                echo '
                                 <div class="m-widget5__item">
                                     <div class="m-widget5__pic">
                                         <img class="m-widget7__img" src="assets/app/media/img/products/product4.jpg" alt="">
                                     </div>
                                     <div class="m-widget5__content">
-                                        <h4 class="m-widget5__title">Team 1</h4>
+                                        <h4 class="m-widget5__title"><a href="#">' . $row->opponent . '</a></h4>
                                         <span class="m-widget5__desc">Team 1 motto here!</span>
                                         <div class="m-widget5__info">
                                             <span class="m-widget5__info-label">Date:</span>
-                                            <span class="m-widget5__info-date m--font-info">Feb. 15, 2018</span>
-                                            <span class="m-widget5__author">Record:</span>
-                                            <span class="m-widget5__info-author m--font-info">1-6</span>
+                                            <span class="m-widget5__info-date m--font-info">' . date("d-m-Y", strtotime($row->datetime)) . '</span>
+                                            <span class="m-widget5__author">Location:</span>
+                                            <span class="m-widget5__info-author m--font-info"><a href="#">' . $row->venue_name . '</a></span>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="m-widget5__item">
-                                    <div class="m-widget5__pic">
-                                        <img class="m-widget7__img" src="assets/app/media/img/products/product5.jpg" alt="">
-                                    </div>
-                                    <div class="m-widget5__content">
-                                        <h4 class="m-widget5__title">Team 2</h4>
-                                        <span class="m-widget5__desc">Team 2 motto here!</span>
-                                        <div class="m-widget5__info">
-                                            <span class="m-widget5__info-label">Date:</span>
-                                            <span class="m-widget5__info-date m--font-info">Feb. 18, 2018</span>
-                                            <span class="m-widget5__author">Record:</span>
-                                            <span class="m-widget5__info-author m--font-info">5-2</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="m-widget5__item">
-                                    <div class="m-widget5__pic">
-                                        <img class="m-widget7__img" src="assets/app/media/img/products/product6.jpg" alt="">
-                                    </div>
-                                    <div class="m-widget5__content">
-                                        <h4 class="m-widget5__title">Team 3</h4>
-                                        <span class="m-widget5__desc">Team 3 motto here!</span>
-                                        <div class="m-widget5__info">
-                                            <span class="m-widget5__info-label">Date:</span>
-                                            <span class="m-widget5__info-date m--font-info">Feb. 25, 2018</span>
-                                            <span class="m-widget5__author">Record:</span>
-                                            <span class="m-widget5__info-author m--font-info">4-3</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="m-widget5__item">
-                                    <div class="m-widget5__pic">
-                                        <img class="m-widget7__img" src="assets/app/media/img/products/product7.jpg" alt="">
-                                    </div>
-                                    <div class="m-widget5__content">
-                                        <h4 class="m-widget5__title">Team 4</h4>
-                                        <span class="m-widget5__desc">Team 4 motto here!</span>
-                                        <div class="m-widget5__info">
-                                            <span class="m-widget5__info-label">Date:</span>
-                                            <span class="m-widget5__info-date m--font-info">Feb. 31, 2018</span>
-                                            <span class="m-widget5__author">Record:</span>
-                                            <span class="m-widget5__info-author m--font-info">7-0</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                </div>';
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <!--end:: Widgets-->
+        </div>
+        <div class="col-xl-4">
+            <!--begin:: Widgets/Sales Stats-->
+            <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <h3 class="m-portlet__head-text">
+                                Sales Stats
+                            </h3>
                         </div>
                     </div>
-                    <!--end:: Widgets-->
+                    <div class="m-portlet__head-tools">
+                        <ul class="m-portlet__nav">
+                            <li class="m-portlet__nav-item m-portlet__nav-item--last m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover">
+                                <a href="#" class="m-portlet__nav-link m-portlet__nav-link--icon m-portlet__nav-link--icon-xl">
+                                    <i class="fa fa-genderless m--font-brand"></i>
+                                </a>
+                                <div class="m-dropdown__wrapper">
+                                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                    <div class="m-dropdown__inner">
+                                        <div class="m-dropdown__body">
+                                            <div class="m-dropdown__content">
+                                                <ul class="m-nav">
+                                                    <li class="m-nav__section m-nav__section--first">
+																			<span class="m-nav__section-text">
+																				Quick Actions
+																			</span>
+                                                    </li>
+                                                    <li class="m-nav__item">
+                                                        <a href="" class="m-nav__link">
+                                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                                            <span class="m-nav__link-text">
+																					Activity
+																				</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="m-nav__item">
+                                                        <a href="" class="m-nav__link">
+                                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                                            <span class="m-nav__link-text">
+																					Messages
+																				</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="m-nav__item">
+                                                        <a href="" class="m-nav__link">
+                                                            <i class="m-nav__link-icon flaticon-info"></i>
+                                                            <span class="m-nav__link-text">
+																					FAQ
+																				</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="m-nav__item">
+                                                        <a href="" class="m-nav__link">
+                                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                                            <span class="m-nav__link-text">
+																					Support
+																				</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="m-nav__separator m-nav__separator--fit"></li>
+                                                    <li class="m-nav__item">
+                                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                                            Cancel
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-xl-4">
-                    <!--begin:: Widgets/Blog-->
-                    <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--unair m-portlet--rounded-force">
-                        <div class="m-portlet__head m-portlet__head--fit">
-                            <div class="m-portlet__head-caption">
-                                <div class="m-portlet__head-action">
-                                    <button type="button" class="btn btn-sm m-btn--pill  btn-brand">Blog</button>
+                <div class="m-portlet__body">
+                    <!--begin::Widget 6-->
+                    <div class="m-widget15">
+                        <div class="m-widget15__chart" style="height:180px;">
+                            <canvas  id="m_chart_sales_stats"></canvas>
+                        </div>
+                        <div class="m-widget15__items">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="m-widget15__item">
+															<span class="m-widget15__stats">
+																63%
+															</span>
+                                        <span class="m-widget15__text">
+																Sales Grow
+															</span>
+                                        <div class="m--space-10"></div>
+                                        <div class="progress m-progress--sm">
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="m-widget15__item">
+															<span class="m-widget15__stats">
+																54%
+															</span>
+                                        <span class="m-widget15__text">
+																Orders Grow
+															</span>
+                                        <div class="m--space-10"></div>
+                                        <div class="progress m-progress--sm">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="m-widget15__item">
+															<span class="m-widget15__stats">
+																41%
+															</span>
+                                        <span class="m-widget15__text">
+																Profit Grow
+															</span>
+                                        <div class="m--space-10"></div>
+                                        <div class="progress m-progress--sm">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 55%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="m-widget15__item">
+															<span class="m-widget15__stats">
+																79%
+															</span>
+                                        <span class="m-widget15__text">
+																Member Grow
+															</span>
+                                        <div class="m--space-10"></div>
+                                        <div class="progress m-progress--sm">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 60%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="m-portlet__body">
-                            <div class="m-widget19">
-                                <div class="m-widget19__pic m-portlet-fit--top m-portlet-fit--sides"
-                                     style="min-height-: 286px">
-                                    <img src="assets/app/media/img/blog/blog1.jpg" alt="">
-                                    <h3 class="m-widget19__title m--font-light">
-                                        Introducing New Feature
-                                    </h3>
-                                    <div class="m-widget19__shadow"></div>
+                        <div class="m-widget15__desc">
+                            * lorem ipsum dolor sit amet consectetuer sediat elit
+                        </div>
+                    </div>
+                    <!--end::Widget 6-->
+                </div>
+            </div>
+            <!--end:: Widgets/Sales Stats-->
+        </div>
+        <div class="col-xl-4">
+            <!--begin:: Widgets/Blog-->
+            <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--unair m-portlet--rounded-force">
+                <div class="m-portlet__head m-portlet__head--fit">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-action">
+                            <button type="button" class="btn btn-sm m-btn--pill  btn-brand">Blog</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-portlet__body">
+                    <div class="m-widget19">
+                        <div class="m-widget19__pic m-portlet-fit--top m-portlet-fit--sides" style="min-height-: 286px">
+                            <img src="assets/app/media/img/blog/blog1.jpg" alt="">
+                            <h3 class="m-widget19__title m--font-light">
+                                Introducing New Feature
+                            </h3>
+                            <div class="m-widget19__shadow"></div>
+                        </div>
+                        <div class="m-widget19__content">
+                            <div class="m-widget19__header">
+                                <div class="m-widget19__user-img">
+                                    <img class="m-widget19__img" src="assets/app/media/img/users/user1.jpg"
+                                         alt="">
                                 </div>
-                                <div class="m-widget19__content">
-                                    <div class="m-widget19__header">
-                                        <div class="m-widget19__user-img">
-                                            <img class="m-widget19__img" src="assets/app/media/img/users/user1.jpg"
-                                                 alt="">
-                                        </div>
-                                        <div class="m-widget19__info">
+                                <div class="m-widget19__info">
                                                         <span class="m-widget19__username">
                                                             Anna Krox
                                                         </span>
-                                            <br>
-                                            <span class="m-widget19__time">
+                                    <br>
+                                    <span class="m-widget19__time">
                                                             UX/UI Designer, Google
                                                         </span>
-                                        </div>
-                                        <div class="m-widget19__stats">
+                                </div>
+                                <div class="m-widget19__stats">
                                                         <span class="m-widget19__number m--font-brand">
                                                             18
                                                         </span>
-                                            <span class="m-widget19__comment">
+                                    <span class="m-widget19__comment">
                                                             Comments
                                                         </span>
-                                        </div>
-                                    </div>
-                                    <div class="m-widget19__body">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry
-                                        scrambled it to make text of the printing and typesetting industry scrambled
-                                        a type specimen book text of the dummy text of the printing printing and
-                                        typesetting industry scrambled dummy text of the printing.
-                                    </div>
-                                </div>
-                                <div class="m-widget19__action">
-                                    <button type="button" class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom">Read More</button>
                                 </div>
                             </div>
+                            <div class="m-widget19__body">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                                scrambled it to make text of the printing and typesetting industry scrambled
+                                a type specimen book text of the dummy text of the printing printing and
+                                typesetting industry scrambled dummy text of the printing.
+                            </div>
+                        </div>
+                        <div class="m-widget19__action">
+                            <button type="button" class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom">Read More</button>
                         </div>
                     </div>
-                    <!--end:: Widgets/Blog-->
                 </div>
             </div>
-        <!--</div>
-    </div>-->
+            <!--end:: Widgets/Blog-->
+        </div>
+    </div>
+    <div class="row  ">
+        <div class="col-xl-8">
+            <div class="m-portlet m-portlet--mobile m-portlet--unair">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title"><h3 class="m-portlet__head-text">Team Roster</h3></div>
+                    </div>
+                </div>
+                <div class="m-portlet__body">
+                    <div class="m_datatable" id="m_datatable_team_roster"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--</div>
+</div>-->
     <!--End::Section-->
     <!--Begin::Section-->
     <div class="m-portlet">

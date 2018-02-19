@@ -86,4 +86,10 @@ class User extends CI_Controller {
         $this->session->sess_destroy();
         redirect('login', 'refresh');
     }
+
+    public function change_team(){
+        $team_id = $this->input->post('teamRoster');
+        $this->session->set_userdata('team_id', $team_id);
+        redirect('teams');
+    }
 }

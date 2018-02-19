@@ -7,7 +7,7 @@ class Pages extends CI_Controller {
             show_404();
         }
 
-        $ignore = array('home', 'login', 'quick_search', 'data_team_roster');
+        $ignore = array('home', 'login', 'team_roster', 'header_nav_search', 'mock_data');
         if (in_array($page, $ignore)) {
             $this->load->view('pages/' . $page);
         } else {
