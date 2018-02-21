@@ -55,4 +55,8 @@ class user_model extends CI_model {
     public function switch_role($role){
         $this->session->set_userdata('role', $role);
     }
+
+    public function create_league($league){
+        $this->db->insert('league', $league);
+    }
 }

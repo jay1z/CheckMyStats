@@ -1,5 +1,10 @@
 <?php
+
 class Data extends CI_Controller {
+    public function __construct() {
+        parent::__construct();
+    }
+
     public function view($page) {
         if (!file_exists(APPPATH . 'views/data/' . $page . '.php')) {
             // Whoops, we don't have a page for that!

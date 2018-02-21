@@ -1,9 +1,9 @@
 <?php
-
     if ($this->session->userdata('id')) {
-        //redirect('dashboard');
         $this->load->view('templates/header');
         $this->load->view('pages/home_user');
+        $this->load->view('templates/quick_sidebar');
+        $this->load->view('templates/scroll_top');
         $this->load->view('templates/footer');
         return;
     }

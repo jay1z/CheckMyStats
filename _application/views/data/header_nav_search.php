@@ -2,19 +2,16 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
 
     $query_string = $this->input->get('query', TRUE);
-    $user_id = $this->session->userdata('id');
 
     $users = $this->db->select('*')
     ->like('fullname', $query_string, 'both')
-    ->get('profile');
+    ->get('user_profile');
 
     $teams = $this->db->select('*')
-    ->from()
     ->like('name', $query_string, 'both')
     ->get('team');
 
     $leagues = $this->db->select('*')
-    ->from()
     ->like('name', $query_string, 'both')
     ->get('league');
 

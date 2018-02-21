@@ -92,4 +92,17 @@ class User extends CI_Controller {
         $this->session->set_userdata('team_id', $team_id);
         redirect('teams');
     }
+
+    public function create_league(){
+        $league = array(
+            'name' => $this->input->post('league_name'),
+            'is_active' => true,
+            'secretary_id' => $this->session->userdata('id')
+        );
+        $this->user_model->create_league($league);
+    }
+
+    public function create_team(){
+
+    }
 }

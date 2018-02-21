@@ -10,10 +10,9 @@ $team_id = $this->session->userdata('team_id');
 if (!$user_id) {
     redirect('login');
 } else {
-    $roster_query = $this->db->select('profile.fullname as fullname, team_profile_softball.position as position, team_profile_softball.jersey_number as jersey_number')
-        ->join('profile', 'profile.user_id = userXteam.user_id and team_id = '.$team_id)
+    $roster_query = $this->db->select('user_profile.fullname as fullname, userXteam.position as position, userXteam.jersey as jersey_number')
+        ->join('user_profile', 'user_profile.user_id = userXteam.user_id and team_id = '.$team_id)
         ->join('user', 'user.id = userXteam.user_id')
-        ->join('team_profile_softball', 'team_profile_softball.userXteam_id = userXteam.id')
         ->get('userXteam');
 }
 

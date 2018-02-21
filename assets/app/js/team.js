@@ -1,5 +1,33 @@
 //== Class definition
 var Team = function() {
+    //== Support Tickets Chart.
+    //** Based on Morris plugin - http://morrisjs.github.io/morris.js/
+    var supportTickets = function() {
+        if ($('#m_chart_support_tickets').length == 0) {
+            return;
+        }
+
+        Morris.Donut({
+            element: 'm_chart_support_tickets',
+            data: [
+            {
+                label: "Wins",
+                value: 7
+            },
+            {
+                label: "Loss(es)",
+                value: 1
+            }
+            ],
+            labelColor: '#a7a7c2',
+            colors: [
+                mUtil.getColor('accent'),
+                mUtil.getColor('danger')
+            ]
+            //formatter: function (x) { return x + "%"}
+        });
+    }
+
     var select = $('#m_select2_teamRoster').select2({placeholder: "Select Team"});
 
     var datatableTeamRoster = function() {
@@ -59,6 +87,7 @@ var Team = function() {
     return {
         //== Init
         init: function () {
+            supportTickets();
             datatableTeamRoster();
         }
     };
