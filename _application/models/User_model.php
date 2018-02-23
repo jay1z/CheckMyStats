@@ -59,4 +59,7 @@ class user_model extends CI_model {
     public function create_league($league){
         $this->db->insert('league', $league);
     }
+    public function create_team($team){
+        $this->db->insert('team', $team);
+    }
 }

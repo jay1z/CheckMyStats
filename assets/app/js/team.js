@@ -28,7 +28,8 @@ var Team = function() {
         });
     }
 
-    var select = $('#m_select2_teamRoster').select2({placeholder: "Select Team"});
+    $('#m_select2_teamRoster').select2({placeholder: "Select Team"});
+    $('#m_select2_LeagueSelect').select2({placeholder: "Select League"});
 
     var datatableTeamRoster = function() {
 

@@ -103,6 +103,17 @@ class User extends CI_Controller {
     }
 
     public function create_team(){
+        $manager_id = $this->input->post('manager_id');
+        $league_id = $this->input->post('league_id');
+        $sport_id = $this->input->post('sport_id');
 
+        $team = array(
+            'name' => $this->input->post('league_name'),
+            'is_active' => true,
+            'manager_id' => $manager_id,
+            'league_id' => $league_id,
+            'sport_id' => $sport_id
+        );
+        $this->user_model->create_team($team);
     }
 }

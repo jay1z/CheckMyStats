@@ -107,12 +107,12 @@ if (!$user_id) {
                                                 <span class="m-menu__arrow "></span>
                                                 <ul class="m-menu__subnav">
                                                     <li class="m-menu__item " data-redirect="true" aria-haspopup="true">
-                                                        <a href="#" class="m-menu__link " data-toggle="modal" data-target="#m_modal_4" >
+                                                        <span class="m-menu__link " data-toggle="modal" data-target="#m_modal_new_league" >
                                                             <span class="m-menu__link-text">League</span>
-                                                        </a>
+                                                        </span>
                                                     </li>
                                                     <li class="m-menu__item " data-redirect="true" aria-haspopup="true">
-                                                        <span class="m-menu__link " data-toggle="modal" data-target="#m_modal_4" >
+                                                        <span class="m-menu__link " data-toggle="modal" data-target="#m_modal_new_team" >
                                                             <span class="m-menu__link-text">Team</span>
                                                         </span>
                                                     </li>
