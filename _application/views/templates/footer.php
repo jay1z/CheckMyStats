@@ -53,6 +53,7 @@
 <!--end::Page Vendors -->
 <!--begin::Page Snippets -->
 <script src="../../../assets/app/js/team.js"></script>
+<script src="../../../assets/app/js/modals.js"></script>
 <!--end::Page Snippets -->
 </body>
 <!-- end::Body -->

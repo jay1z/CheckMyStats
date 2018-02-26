@@ -74,8 +74,7 @@ if (isset($team_id)) {
                     <div class="m-widget19__content">
                         <div class="m-widget19__header">
                             <div class="m-widget19__user-img">
-                                <img class="m-widget19__img" src="assets/app/media/img/users/user2.jpg"
-                                     alt="">
+                                <img class="m-widget19__img" src="../../../assets/app/media/img/users/user2.jpg" alt="">
                             </div>
                             <div class="m-widget19__info">
                                 <span class="m-widget19__username">Peter Zurowski</span>
@@ -111,18 +110,12 @@ if (isset($team_id)) {
                 <div class="m-portlet__body">
                     <div class="m-widget5">
                         <?php
-                        if (isset($team)){
-                            $logo = $team->logo;
-                        }else{
-                            $logo = '100_1.jpg';
-                        }
                         if (isset($game_events_query)) {
                             foreach ($game_events_query->result() as $row) {
                                 echo '
                                 <div class="m-widget5__item">
                                     <div class="m-widget5__pic">                                        
-                                        <img class="m-widget7__img" src="assets/app/media/img/users/'.$logo
-                                    . '" alt="">
+                                        <img class="m-widget7__img" src="../../../assets/app/media/img/users/'.$team->logo.'" alt="">
                                     </div>
                                     <div class="m-widget5__content">
                                         <h4 class="m-widget5__title"><a href="#">' . $row->opponent . '</a></h4>

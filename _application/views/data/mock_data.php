@@ -4,52 +4,52 @@ if ($this->db->count_all('user') == 0) {
     echo 'ERROR: No users exist!';
     return;
 }
-$loaded = array('users');
-if ($this->session->flashdata('_ran')) {
+$loaded = array('1-users');
+/*if ($this->session->flashdata('_ran')) {
     echo 'Returned early';
     return;
 } else {
     $this->session->set_flashdata('_ran', true);
-}
+}*/
 
 $user_profiles = array(
     array('fullname' => 'Jason Zurowski', 'user_id' => 1),
-    array('fullname' => 'Peter Zurowski', 'user_id' => 4),
     array('fullname' => 'Test User1', 'user_id' => 2),
     array('fullname' => 'Test User2', 'user_id' => 3),
+    array('fullname' => 'Peter Zurowski', 'user_id' => 4)
 );
 $this->db->insert_batch('user_profile', $user_profiles);
-array_push($loaded, 'profiles');
+array_push($loaded, '2-profiles');
 
 $type = array(
-    array('type' => 'softball')
+    array('name' => 'Softball')
 );
 $this->db->insert_batch('sport_type', $type);
-array_push($loaded, 'sport_types');
+array_push($loaded, '3-sport_types');
 
 $leagues = array(
-    array('name' => 'East Coast League', 'is_active' => 'true', 'secretary_id' => 1),
-    array('name' => 'West Coast League', 'is_active' => 'true', 'secretary_id' => 2)
+    array('name' => 'East Coast League', 'is_active' => 'true', 'secretary_id' => 1, 'sport_id' => 1),
+    array('name' => 'West Coast League', 'is_active' => 'true', 'secretary_id' => 2, 'sport_id' => 1)
 );
 $this->db->insert_batch('league', $leagues);
-array_push($loaded, 'leagues');
+array_push($loaded, '4-leagues');
 
 $teams = array(
-    array('name' => 'EC Ball Busters', 'is_active' => true, 'league_id' => 1, 'sport_id' => 1, 'manager_id' => 1, 'logo' => 'logo_1', 'image' => 'user_profile_bg_softball_1.jpg'),
-    array('name' => 'EC Thunderbolts', 'is_active' => true, 'league_id' => 1, 'sport_id' => 1, 'manager_id' => 4, 'logo' => 'logo_2', 'image' => 'user_profile_bg_softball_2.jpg'),
-    array('name' => 'EC Falcons', 'is_active' => true, 'league_id' => 1, 'sport_id' => 1, 'manager_id' => 1, 'logo' => 'logo_1', 'image' => 'user_profile_bg_softball_1.jpg'),
-    array('name' => 'EC Wolves', 'is_active' => true, 'league_id' => 1, 'sport_id' => 1, 'manager_id' => 4, 'logo' => 'logo_2', 'image' => 'user_profile_bg_softball_2.jpg'),
-    array('name' => 'EC FlimFlams', 'is_active' => true, 'league_id' => 1, 'sport_id' => 1, 'manager_id' => 1, 'logo' => 'logo_1', 'image' => 'user_profile_bg_softball_1.jpg'),
-    array('name' => 'EC Players', 'is_active' => true, 'league_id' => 1, 'sport_id' => 1, 'manager_id' => 4, 'logo' => 'logo_2', 'image' => 'user_profile_bg_softball_2.jpg'),
-    array('name' => 'WC Ball Busters', 'is_active' => true, 'league_id' => 2, 'sport_id' => 1, 'manager_id' => 4, 'logo' => 'logo_1', 'image' => 'user_profile_bg_softball_1.jpg'),
-    array('name' => 'WC Thunderbolts', 'is_active' => true, 'league_id' => 2, 'sport_id' => 1, 'manager_id' => 1, 'logo' => 'logo_2', 'image' => 'user_profile_bg_softball_2.jpg'),
-    array('name' => 'WC Falcons', 'is_active' => true, 'league_id' => 2, 'sport_id' => 1, 'manager_id' => 4, 'logo' => 'logo_1', 'image' => 'user_profile_bg_softball_1.jpg'),
-    array('name' => 'WC Wolves', 'is_active' => true, 'league_id' => 2, 'sport_id' => 1, 'manager_id' => 1, 'logo' => 'logo_2', 'image' => 'user_profile_bg_softball_2.jpg'),
-    array('name' => 'WC FlimFlams', 'is_active' => true, 'league_id' => 2, 'sport_id' => 1, 'manager_id' => 4, 'logo' => 'logo_1', 'image' => 'user_profile_bg_softball_1.jpg'),
-    array('name' => 'WC Players', 'is_active' => true, 'league_id' => 2, 'sport_id' => 1, 'manager_id' => 1, 'logo' => 'logo_2', 'image' => 'user_profile_bg_softball_2.jpg')
+    array('name' => 'EC Ball Busters', 'is_active' => true, 'league_id' => 1, 'manager_id' => 1, 'logo' => 'user1.jpg', 'image' => 'user_profile_bg_softball_1.jpg'),
+    array('name' => 'EC Thunderbolts', 'is_active' => true, 'league_id' => 1, 'manager_id' => 4, 'logo' => 'user2.jpg', 'image' => 'user_profile_bg_softball_2.jpg'),
+    array('name' => 'EC Falcons', 'is_active' => true, 'league_id' => 1, 'manager_id' => 1, 'logo' => 'user3.jpg', 'image' => 'user_profile_bg_softball_1.jpg'),
+    array('name' => 'EC Wolves', 'is_active' => true, 'league_id' => 1, 'manager_id' => 4, 'logo' => 'user4.jpg', 'image' => 'user_profile_bg_softball_2.jpg'),
+    array('name' => 'EC FlimFlams', 'is_active' => true, 'league_id' => 1, 'manager_id' => 1, 'logo' => 'user5.jpg', 'image' => 'user_profile_bg_softball_1.jpg'),
+    array('name' => 'EC Players', 'is_active' => true, 'league_id' => 1, 'manager_id' => 4, 'logo' => 'user1.jpg', 'image' => 'user_profile_bg_softball_2.jpg'),
+    array('name' => 'WC Ball Busters', 'is_active' => true, 'league_id' => 2, 'manager_id' => 4, 'logo' => 'user2.jpg', 'image' => 'user_profile_bg_softball_1.jpg'),
+    array('name' => 'WC Thunderbolts', 'is_active' => true, 'league_id' => 2, 'manager_id' => 1, 'logo' => 'user3.jpg', 'image' => 'user_profile_bg_softball_2.jpg'),
+    array('name' => 'WC Falcons', 'is_active' => true, 'league_id' => 2, 'manager_id' => 4, 'logo' => 'user4.jpg', 'image' => 'user_profile_bg_softball_1.jpg'),
+    array('name' => 'WC Wolves', 'is_active' => true, 'league_id' => 2, 'manager_id' => 1, 'logo' => 'user5.jpg', 'image' => 'user_profile_bg_softball_2.jpg'),
+    array('name' => 'WC FlimFlams', 'is_active' => true, 'league_id' => 2, 'manager_id' => 4, 'logo' => 'user1.jpg', 'image' => 'user_profile_bg_softball_1.jpg'),
+    array('name' => 'WC Players', 'is_active' => true, 'league_id' => 2, 'manager_id' => 1, 'logo' => 'user2.jpg', 'image' => 'user_profile_bg_softball_2.jpg')
 );
 $this->db->insert_batch('team', $teams);
-array_push($loaded, 'teams');
+array_push($loaded, '5-teams');
 
 $userXteams = array(
     array('user_id' => 1, 'team_id' => 1, 'position' => 'First Base', 'handedness' => 'right', 'jersey' => '24'),
@@ -73,7 +73,7 @@ $userXteams = array(
     array('user_id' => 4, 'team_id' => 8, 'position' => 'Pitcher', 'handedness' => 'right', 'jersey' => '06')
 );
 $this->db->insert_batch('userXteam', $userXteams);
-array_push($loaded, 'userXteams');
+array_push($loaded, '6-userXteams');
 
 $venues = array(
     array('name' => 'Baseball Stadium', 'address' => '123 Baseball Street', 'city' => 'Solon', 'state' => 'Ohio', 'zip' => '44139'),
@@ -82,7 +82,7 @@ $venues = array(
     array('name' => 'Softball Field', 'address' => '321 Softball Street', 'city' => 'Solon', 'state' => 'Ohio', 'zip' => '44139')
 );
 $this->db->insert_batch('venue', $venues);
-array_push($loaded, 'venues');
+array_push($loaded, '7-venues');
 
 $game_events = array(
     array('datetime' => date("2018-03-01 14:00"), 'team_id' => '1', 'opponent_id' => '2', 'venue_id' => '1'),
@@ -147,7 +147,8 @@ $game_events = array(
     array('datetime' => date("2018-03-12 22:00"), 'team_id' => 6, 'opponent_id' => 5, 'venue_id' => 4)
 );
 $this->db->insert_batch('game_event', $game_events);
-array_push($loaded, 'game_events');
+array_push($loaded, '8-game_events');
 
+print_r($loaded);
 ?>
 Success!

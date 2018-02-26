@@ -97,22 +97,19 @@ class User extends CI_Controller {
         $league = array(
             'name' => $this->input->post('league_name'),
             'is_active' => true,
-            'secretary_id' => $this->session->userdata('id')
+            'secretary_id' => $this->session->userdata('id'),
+            'sport_id' => $this->input->post('sport_id')
         );
-        $this->user_model->create_league($league);
+        $result = $this->user_model->create_league($league);
+        return $result;
     }
 
     public function create_team(){
-        $manager_id = $this->input->post('manager_id');
-        $league_id = $this->input->post('league_id');
-        $sport_id = $this->input->post('sport_id');
-
         $team = array(
-            'name' => $this->input->post('league_name'),
+            'name' => $this->input->post('team_name'),
             'is_active' => true,
-            'manager_id' => $manager_id,
-            'league_id' => $league_id,
-            'sport_id' => $sport_id
+            'manager_id' => $this->session->userdata('id'),
+            'league_id' => $this->input->post('league_id'),
         );
         $this->user_model->create_team($team);
     }
