@@ -1,13 +1,17 @@
 <?php
 
 class Pages extends CI_Controller {
-    public function view($page = 'home') {
+    public function view($page = 'landing', $id = null) {
         if (!file_exists(APPPATH . 'views/pages/' . $page . '.php')) {
             // Whoops, we don't have a page for that!
             show_404();
         }
 
-        $ignore = array('home', 'login', 'team_roster', 'header_nav_search', 'mock_data');
+        if ($page == 'game'){
+            $this->session->set_userdata('game_event_md5', $id);
+        }
+
+        $ignore = array('landing', 'login', 'team_roster', 'header_nav_search', 'mock_data');
         if (in_array($page, $ignore)) {
             $this->load->view('pages/' . $page);
         } else {

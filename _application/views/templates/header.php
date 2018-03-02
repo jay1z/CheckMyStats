@@ -120,7 +120,7 @@ if (!$user_id) {
                                             </div>
                                         </li>
                                         <li class="m-menu__item " data-redirect="true" aria-haspopup="true">
-                                            <a href="header/actions.html" class="m-menu__link ">
+                                            <a href="<?php echo base_url(); ?> header/actions.html" class="m-menu__link ">
                                                 <i class="m-menu__link-icon flaticon-user-add"></i>
                                                 <span class="m-menu__link-text">Invite</span>
                                             </a>
@@ -466,7 +466,7 @@ if (!$user_id) {
                                                     <ul class="m-nav m-nav--skin-light">
                                                         <li class="m-nav__section m--hide"><span class="m-nav__section-text">Section</span></li>
                                                         <li class="m-nav__item">
-                                                            <a href="profile" class="m-nav__link">
+                                                            <a href="<?php echo base_url(); ?>profile" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-profile-1"></i>
                                                                 <span class="m-nav__link-title">
 																			<span class="m-nav__link-wrap">
@@ -483,7 +483,7 @@ if (!$user_id) {
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a href="profile" class="m-nav__link">
+                                                            <a href="<?php echo base_url(); ?>profile" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-share"></i>
                                                                 <span class="m-nav__link-text">
 																			Activity
@@ -491,7 +491,7 @@ if (!$user_id) {
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a href="profile" class="m-nav__link">
+                                                            <a href="<?php echo base_url(); ?>profile" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-chat-1"></i>
                                                                 <span class="m-nav__link-text">
 																			Messages
@@ -500,7 +500,7 @@ if (!$user_id) {
                                                         </li>
                                                         <li class="m-nav__separator m-nav__separator--fit"></li>
                                                         <li class="m-nav__item">
-                                                            <a href="profile" class="m-nav__link">
+                                                            <a href="<?php echo base_url(); ?>profile" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-info"></i>
                                                                 <span class="m-nav__link-text">
 																			FAQ
@@ -508,7 +508,7 @@ if (!$user_id) {
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
-                                                            <a href="profile" class="m-nav__link">
+                                                            <a href="<?php echo base_url(); ?>profile" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-lifebuoy"></i>
                                                                 <span class="m-nav__link-text">
 																			Support
@@ -517,7 +517,7 @@ if (!$user_id) {
                                                         </li>
                                                         <li class="m-nav__separator m-nav__separator--fit"></li>
                                                         <li class="m-nav__item">
-                                                            <a href="user/logout"
+                                                            <a href="<?php echo base_url(); ?>user/logout"
                                                                class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
                                                                 Logout
                                                             </a>
@@ -560,7 +560,7 @@ if (!$user_id) {
             <div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-light m-aside-menu--submenu-skin-light " data-menu-vertical="true" data-menu-scrollable="true" data-menu-dropdown-timeout="500" >
                 <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
                     <li class="m-menu__item">
-                        <a href="dashboard" class="m-menu__link">
+                        <a href="<?php echo base_url(); ?>dashboard" class="m-menu__link">
                             <i class="m-menu__link-icon flaticon-dashboard"></i>
                             <span class="m-menu__link-text">Dashboard</span>
                         </a>
@@ -578,13 +578,13 @@ if (!$user_id) {
                                     <span class="m-menu__link"><span class="m-menu__link-text">My Sports</span></span>
                                 </li>
                                 <li class="m-menu__item">
-                                    <a  href="leagues" class="m-menu__link">
+                                    <a  href="<?php echo base_url(); ?>leagues" class="m-menu__link">
                                         <i class="m-menu__link-icon flaticon-book"><span></span></i>
                                         <span class="m-menu__link-text">My Leagues</span>
                                     </a>
                                 </li>
                                 <li class="m-menu__item">
-                                    <a  href="teams" class="m-menu__link">
+                                    <a  href="<?php echo base_url(); ?>teams" class="m-menu__link">
                                         <i class="m-menu__link-icon flaticon-book"><span></span></i>
                                         <span class="m-menu__link-text">My Teams</span>
                                     </a>
@@ -593,7 +593,7 @@ if (!$user_id) {
                         </div>
                     </li>
                     <li class="m-menu__item">
-                        <a href="profile" class="m-menu__link">
+                        <a href="<?php echo base_url(); ?>profile" class="m-menu__link">
                             <i class="m-menu__link-icon flaticon-profile"></i>
                             <span class="m-menu__link-text">Profile</span>
                         </a>

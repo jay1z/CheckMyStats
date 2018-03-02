@@ -70,7 +70,7 @@ var Team = function() {
                 width: 100
             }, {
                 field: "number",
-                title: "Jersey Number",
+                title: "Jersey",
                 width: 100
             }]
         });
