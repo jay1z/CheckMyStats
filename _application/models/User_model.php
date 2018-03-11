@@ -6,7 +6,7 @@ class user_model extends CI_model {
         $user_id = $this->db->insert_id();
 
         $profile['user_id'] = $user_id;
-        $this->db->insert('profile', $profile);
+        $this->db->insert('user_profile', $profile);
     }
 
     public function login_user($email, $pass) {
@@ -44,7 +44,7 @@ class user_model extends CI_model {
 
     public function update_profile($profile){
         $id = $this->session->userdata('id');
-        $this->db->update('profile', $profile, array('id' => $id));
+        $this->db->update('user_profile', $profile, array('id' => $id));
     }
 
     public function insert_activity_post($post){
@@ -58,10 +58,17 @@ class user_model extends CI_model {
 
     public function create_league($league){
         $this->db->insert('league', $league);
+    }
 
+    public function create_secretaryXleague($secretaryXleague){
+        $this->db->insert('secretaryXleague', $secretaryXleague);
     }
 
     public function create_team($team){
         $this->db->insert('team', $team);
+    }
+
+    public function create_managerXteam($managerXteam){
+        $this->db->insert('managerXteam', $managerXteam);
     }
 }

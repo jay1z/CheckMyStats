@@ -4,49 +4,10 @@ $user_id = $this->session->userdata('id');
 if (!$user_id) {
     redirect('login');
 } else {
-    $post_query = $this->db->get_where('post', array('author_id' => $user_id), null, null);
+    $post_query = $this->db->get_where('post', array('user_id' => $user_id), null, null);
 }
 ?>
 
-<!-- BEGIN: Subheader -->
-<div class="m-subheader ">
-    <div class="d-flex align-items-center">
-        <div class="mr-auto">
-            <h3 class="m-subheader__title m-subheader__title--separator">Home</h3>
-            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
-                <li class="m-nav__item m-nav__item--home">
-                    <a href="home" class="m-nav__link m-nav__link--icon">
-                        <i class="m-nav__link-icon la la-home"></i>
-                    </a>
-                </li>
-                <li class="m-nav__separator">-</li>
-                <li class="m-nav__item">
-                    <a href="" class="m-nav__link">
-                        <span class="m-nav__link-text">Home</span>
-                    </a>
-                </li>
-                <li class="m-nav__separator">-</li>
-                <li class="m-nav__item">
-                    <a href="" class="m-nav__link">
-                        <span class="m-nav__link-text">Generate Reports</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
-                <span class="m-subheader__daterange-label">
-                    <span class="m-subheader__daterange-title"></span>
-                    <span class="m-subheader__daterange-date m--font-brand"></span>
-                </span>
-                <a href="#" class="btn btn-sm btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill">
-                    <i class="la la-angle-down"></i>
-                </a>
-            </span>
-        </div>
-    </div>
-</div>
-<!-- END: Subheader -->
 <div class="m-content">
     <!--Begin::Section-->
     <div class="col-md-12">
@@ -59,7 +20,6 @@ if (!$user_id) {
                 </div>
             </div>
             <div class="m-portlet__body">
-                <div class="m-portlet m-portlet--unair">
                     <form class="m-form" action="user/post" method="post">
                         <div class="form-group m-form__group">
                             <div class="m-form m-form--fit m-form--label-align-right">
@@ -71,7 +31,6 @@ if (!$user_id) {
                             </div>
                         </div>
                     </form>
-                </div>
                 <div class="m-scrollable mCustomScrollbar _mCS_5 mCS-autoHide" data-scrollbar-shown="true" data-scrollable="true" data-max-height="380" style="overflow: visible; height: 380px; max-height: 380px; position: relative;">
                     <!--begin:Timeline 1-->
                     <div class="m-timeline-1 m-timeline-1--fixed">
@@ -87,23 +46,23 @@ if (!$user_id) {
                                     <div class="m-timeline-1__item-title">Users Joined Today</div>
                                     <div class="m-timeline-1__item-body">
                                         <div class="m-list-pics">
-                                            <a href="../../#">
-                                                <img src="assets/app/media/img/users/100_4.jpg" title="">
+                                            <a href="#">
+                                                <img src="../../../assets/app/media/img/users/100_4.jpg" title="">
                                             </a>
-                                            <a href="../../#">
-                                                <img src="assets/app/media/img/users/100_13.jpg" title="">
+                                            <a href="#">
+                                                <img src="../../../assets/app/media/img/users/100_13.jpg" title="">
                                             </a>
-                                            <a href="../../#">
-                                                <img src="assets/app/media/img/users/100_11.jpg" title="">
+                                            <a href="#">
+                                                <img src="../../../assets/app/media/img/users/100_11.jpg" title="">
                                             </a>
-                                            <a href="../../#">
-                                                <img src="assets/app/media/img/users/100_14.jpg" title="">
+                                            <a href="#">
+                                                <img src="../../../assets/app/media/img/users/100_14.jpg" title="">
                                             </a>
-                                            <a href="../../#">
-                                                <img src="assets/app/media/img/users/100_7.jpg" title="">
+                                            <a href="#">
+                                                <img src="../../../assets/app/media/img/users/100_7.jpg" title="">
                                             </a>
-                                            <a href="../../#">
-                                                <img src="assets/app/media/img/users/100_3.jpg" title="">
+                                            <a href="#">
+                                                <img src="../../../assets/app/media/img/users/100_3.jpg" title="">
                                             </a>
                                         </div>
                                         <div class="m-timeline-1__item-body m--margin-top-15">Lorem ipsum dolor sit amit,consectetur eiusmdd<br>tempors labore et dolore.
@@ -205,7 +164,7 @@ if (!$user_id) {
                                 <div class="m-timeline-1__item-content">
                                     <div class="media">
                                         <img class="m--margin-right-20"
-                                             src="../../assets/app/media/img/products/product1.jpg" title="">
+                                             src="../../../assets/app/media/img/products/product1.jpg" title="">
                                         <div class="media-body">
                                             <div class="m-timeline-1__item-title m--margin-top-10  ">
                                                 Some Post
@@ -281,8 +240,7 @@ if (!$user_id) {
                                 <div class="m-portlet__head-title">
                                     <span class="m-portlet__head-icon m--hide"><i class="flaticon-statistics"></i></span>
                                     <h3 class="m-portlet__head-text">Portlet sub title goes here</h3>
-                                    <h2 class="m-portlet__head-label m-portlet__head-label--info"><span>Upcoming Games</span>
-                                    </h2>
+                                    <h2 class="m-portlet__head-label m-portlet__head-label--info"><span>Upcoming Games</span></h2>
                                 </div>
                             </div>
                         </div>
@@ -297,4 +255,3 @@ if (!$user_id) {
                 </div>
     </div>
 </div>
-<?php $this->load->view('templates/modals'); ?>

@@ -105,6 +105,9 @@ if ($user_id) {
                             <input class="form-control m-input" type="text" placeholder="Fullname" name="signup_fullname" >
                         </div>
                         <div class="form-group m-form__group">
+                            <input class="form-control m-input" type="text" placeholder="User Name" name="signup_username" autocomplete="off">
+                        </div>
+                        <div class="form-group m-form__group">
                             <input class="form-control m-input" type="text" placeholder="Email" name="signup_email" autocomplete="off">
                         </div>
                         <div class="form-group m-form__group">

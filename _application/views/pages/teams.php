@@ -2,16 +2,21 @@
 $user_id = $this->session->userdata('id');
 $team_id = $this->session->userdata('team_id');
 
-$team = $this->db->get_where('team', array('id' => $team_id))->row();
-
-$userXteam_query = $this->db->select('userXteam.user_id, userXteam.team_id, team.name as team_name, team.league_id, league.name as league_name')
-    ->join('team', 'team_id = team.id and user_id = '.$user_id)
-    ->join('league', 'league_id = league.id')
-    ->get('userXteam');
+$secretary_query = $this->db->select('league.name as league_name')->join('league', 'league.id = league_id and secretary_id = 1')->get('secretaryXleague');
+$manager_query = $this->db->select('team.name as team_name')->join('team', 'team.id = team_id and manager_id = 1')->get('managerXteam');
+$player_query = $this->db->select('league.name as league_name, team.id as team_id, team.name as team_name')->join('team', 'team.id = team_id and user_id = 1')->join('league', 'league.id = team.league_id')->get('userXteam');
 
 if (isset($team_id)) {
-    $game_events_query = $this->db->select('game_event.md5, datetime, team.name as opponent, venue.name as venue_name, concat(venue.address, " ", venue.city, ", ", venue.state, " ", venue.zip ) as venue_address')
+    //$team = $this->db->get_where('team', array('id' => $team_id))->row();
+
+    $team = $this->db->select('team.name as name, logo.url as logo_url, bg.url as bg_url')
+        ->join('image as logo', 'logo.id = logo_id and team.id = '. $team_id)
+        ->join('image as bg', 'bg.id = bg_id')
+        ->get('team')->row();
+
+    $game_events_query = $this->db->select('game_event.md5, datetime, team.name as opponent_name, logo.url as logo_url, venue.name as venue_name, concat(venue.address, " ", venue.city, ", ", venue.state, " ", venue.zip ) as venue_address')
         ->join('team', 'opponent_id = team.id and team_id = ' . $team_id . ' and datetime >= now()')
+        ->join('image as logo', 'logo.id = logo_id')
         ->join('venue', 'venue_id = venue.id')
         ->order_by('datetime', 'ASC')
         ->limit(3)
@@ -19,56 +24,65 @@ if (isset($team_id)) {
 }
 ?>
 
-<div class="m-subheader ">
-    <div class="d-flex align-items-center">
-        <div class="col-2">
-            <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_team" method="post">
-                <div class="m-select2 m-select2--air m-select2--pill">
-                    <select class="form-control m-select2" id="m_select2_teamRoster"  name="teamRoster" data-placeholder="Air & pill styles" onchange="this.form.submit();" >
-                        <option></option>
-                        <?php
-                        $query_league_name = '';
-                        foreach ($userXteam_query->result() as $row){
-                            if ($row->league_name != $query_league_name){
-                                echo '<optgroup label="'.$row->league_name.'">';
-                                $query_league_name = $row->league_name;
-                            }
-                            if ($team_id == $row->team_id) {
-                                echo '<option selected="selected" value="' . $row->team_id . '">' . $row->team_name . '</option><br>';
-                            }else{
-                                echo '<option value="' . $row->team_id . '">' . $row->team_name . '</option><br>';
-                            }
-                        }
-                        ?>
-                    </select>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <!-- begin::Body -->
 <div class="m-content">
+    <div class="row  ">
+        <div class="col-3">
+            <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--rounded-force">
+                <div class="m-portlet__head m-portlet__head--fit">
+                    <div class="m-portlet__head-caption">
+                        <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_team" method="post">
+                            <div class="m-select2 m-select2--air m-select2--pill">
+                                <select class="form-control m-select2" id="m_select2_teamRoster"  name="teamRoster" data-placeholder="Air & pill styles" onchange="this.form.submit();" >
+                                    <option></option>
+                                    <?php
+                                    $query_league_name = '';
+                                    foreach ($player_query->result() as $row){
+                                        if ($row->league_name != $query_league_name){
+                                            echo '<optgroup label="'.$row->league_name.'">';
+                                            $query_league_name = $row->league_name;
+                                        }
+                                        if ($team_id == $row->team_id) {
+                                            echo '<option selected="selected" value="' . $row->team_id . '">' . $row->team_name . '</option><br>';
+                                        }else{
+                                            echo '<option value="' . $row->team_id . '">' . $row->team_name . '</option><br>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--Begin::Section-->
-    <!--<div class="m-portlet">
-        <div class="m-portlet__body  m-portlet__body--no-padding">-->
     <?php if (isset($team)){ ?>
     <div class="row  ">
         <div class="col-12">
             <!--begin:: Widgets/Blog-->
-            <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--unair m-portlet--rounded-force">
+            <div class="m-portlet m-portlet--creative m-portlet--bordered-semi m-portlet--full-height m-portlet--rounded-force">
                 <div class="m-portlet__head m-portlet__head--fit">
                     <div class="m-portlet__head-caption">
-                        <div class="m-portlet__head-action">
-                            <h1 class="m-widget19__title m--font-inverse-light"><?php if (isset($team)){echo $team->name;} ?></h1>
+                        <div class="m-portlet__head-title">
+                            <span class="m-portlet__head-icon m--hide"><i class="flaticon-calendar"></i></span>
+                            <h3 class="m-portlet__head-text"><img src="<?php echo $team->logo_url; ?>" alt=""></h3>
+                            <h2 class="m-portlet__head-label m-portlet__head-label--info"><span><?php echo $team->name ?></span></h2>
                         </div>
+                        <!--<div class="m-portlet__head-action">
+                            <h1 class="m-widget19__title m--font-inverse-light"><?php /*if (isset($team)){echo $team->name;} */?></h1>
+                        </div>-->
                     </div>
                 </div>
                 <div class="m-portlet__body">
                     <div class="m-widget19">
                         <div class="m-widget19__pic m-portlet-fit--top m-portlet-fit--sides" style="min-height-: 286px">
-                            <?php $pic = $team->image; ?>
-                            <img src="assets/app/media/img/misc/<?php echo $pic; ?>" alt="">
-                            <h1 class="m-widget19__title m--font-inverse-light"><?php echo $team->name; ?></h1>
+                            <img src="<?php echo $team->bg_url; ?>" alt="">
+                            <!--<h1 class="m-widget19__title m--font-inverse-light">
+                                <img src="<?php /*echo $team->logo_url; */?>" alt="">
+                                <?php /*echo $team->name; */?>
+                            </h1>-->
                             <div class="m-widget19__shadow"></div>
                         </div>
                         <div class="m-widget19__content">
@@ -81,28 +95,26 @@ if (isset($team_id)) {
                                     <br>
                                     <span class="m-widget19__time">Team Manager</span>
                                 </div>
-                                <div class="m-widget19__stats">
+                                <!--<div class="m-widget19__stats">
                                     <span class="m-widget19__number m--font-brand">18</span>
                                     <span class="m-widget19__comment">something</span>
-                                </div>
+                                </div>-->
                             </div>
-                            <div class="m-widget19__body">
+                            <!--<div class="m-widget19__body">
                                 Team Mission Statement: To be the best team ever!
-                            </div>
+                            </div>-->
                         </div>
-                        <!--<div class="m-widget19__action">
-                            <button type="button" class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom">Read More</button>
-                        </div>-->
                     </div>
                 </div>
             </div>
             <!--end:: Widgets/Blog-->
         </div>
     </div>
+
     <div class="row  ">
         <div class="col-xl-5">
             <!--begin:: Widgets-->
-            <div class="m-portlet m-portlet--full-height  m-portlet--unair">
+            <div class="m-portlet m-portlet--full-height ">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title"><h3 class="m-portlet__head-text">Upcoming Games</h3></div>
@@ -116,10 +128,10 @@ if (isset($team_id)) {
                                 echo '
                                 <div class="m-widget5__item">
                                     <div class="m-widget5__pic">                                        
-                                        <img class="m-widget7__img" src="../../../assets/app/media/img/users/'.$team->logo.'" alt="">
+                                        <img class="m-widget7__img" src="'.$row->logo_url.'" alt="">
                                     </div>
                                     <div class="m-widget5__content">
-                                        <h4 class="m-widget5__title"><a href="game/'.$row->md5.'">' . $row->opponent . '</a></h4>
+                                        <h4 class="m-widget5__title"><a href="game/'.$row->md5.'">' .'vs. '. $row->opponent_name . '</a></h4>
                                         <span class="m-widget5__desc">Team 1 motto here!</span>
                                         <div class="m-widget5__info">
                                             <span class="m-widget5__info-label">Date:</span>
@@ -268,7 +280,7 @@ if (isset($team_id)) {
     <div class="row  ">
         <div class="col-xl-7">
             <!--begin:: Widgets/Blog-->
-            <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--unair m-portlet--rounded-force">
+            <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height m-portlet--rounded-force">
                 <div class="m-portlet__head m-portlet__head--fit">
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-action">
@@ -279,7 +291,7 @@ if (isset($team_id)) {
                 <div class="m-portlet__body">
                     <div class="m-widget19">
                         <div class="m-widget19__pic m-portlet-fit--top m-portlet-fit--sides" style="min-height-: 286px">
-                            <img src="assets/app/media/img/blog/blog1.jpg" alt="">
+                            <img src="../../../assets/app/media/img/blog/blog1.jpg" alt="">
                             <h3 class="m-widget19__title m--font-light">
                                 Introducing New Feature
                             </h3>
@@ -288,7 +300,7 @@ if (isset($team_id)) {
                         <div class="m-widget19__content">
                             <div class="m-widget19__header">
                                 <div class="m-widget19__user-img">
-                                    <img class="m-widget19__img" src="assets/app/media/img/users/user1.jpg"
+                                    <img class="m-widget19__img" src="../../../assets/app/media/img/users/user1.jpg"
                                          alt="">
                                 </div>
                                 <div class="m-widget19__info">
@@ -323,7 +335,7 @@ if (isset($team_id)) {
             <!--end:: Widgets/Blog-->
         </div>
         <div class="col-xl-5">
-            <div class="m-portlet m-portlet--mobile m-portlet--unair">
+            <div class="m-portlet m-portlet--mobile ">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title"><h3 class="m-portlet__head-text">Team Roster</h3></div>
@@ -335,9 +347,6 @@ if (isset($team_id)) {
             </div>
         </div>
     </div>
-    <?php } ?>
-    <!--</div>
-    </div>-->
     <!--End::Section-->
     <!--Begin::Section-->
     <div class="m-portlet">
@@ -498,5 +507,6 @@ if (isset($team_id)) {
         </div>
     </div>
     <!--End::Calendar Section-->
+    <?php } ?>
 </div>
 <!-- end::Body -->

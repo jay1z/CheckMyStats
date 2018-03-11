@@ -4,7 +4,7 @@ $user_id = $this->session->userdata('id');
 if (!$user_id) {
     redirect('login');
 } else {
-    $post_query = $this->db->get_where('post', array('author_id' => $user_id), null, null);
+    $post_query = $this->db->get_where('post', array('user_id' => $user_id), null, null);
 }
 ?>
 

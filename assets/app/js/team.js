@@ -23,9 +23,7 @@ var Team = function() {
 
     var datatableTeamRoster = function() {
 
-        if ($('#m_datatable_team_roster').length === 0) {
-            return;
-        }
+        if ($('#m_datatable_team_roster').length === 0) { return; }
 
         var datatable = $('.m_datatable').mDatatable({
             data: {
@@ -80,6 +78,7 @@ var Team = function() {
         //== Init
         init: function () {
             $('#m_select2_teamRoster').select2({placeholder: "Select Team"});
+            $('#m_select2_leagueListing').select2({placeholder: "Select League"});
 
             statsWinLose();
             datatableTeamRoster();

@@ -20,9 +20,13 @@ class User extends CI_Controller {
         if ($data) {
             $this->session->set_userdata('id', $data->id);
             $this->session->set_userdata('email', $data->email);
-            $this->switch_role('_user');
-            //show_error($data, 300, 'Custom Error');
-            redirect(base_url());
+            //$this->switch_role('_user');
+            if ($this->agent->is_referral())
+            {
+                redirect($this->agent->referrer());
+            }else {
+                redirect(base_url());
+            }
         } else {
             $this->session->set_flashdata('error_msg', 'An error has occurred, Please try again.');
             redirect('login');
@@ -38,7 +42,8 @@ class User extends CI_Controller {
         );
 
         $profile = array(
-            'fullname' => $this->input->post('signup_fullname')
+            'fullname' => $this->input->post('signup_fullname'),
+            'user_name' => $this->input->post('signup_username')
         );
 
         $email_check = $this->user_model->email_check($user['email']);
@@ -93,14 +98,27 @@ class User extends CI_Controller {
         redirect('teams');
     }
 
+    public function change_league(){
+        $league_id = $this->input->post('leagueListing');
+        $this->session->set_userdata('league_id', $league_id);
+        redirect('leagues');
+    }
+
     public function create_league(){
         $league = array(
             'name' => $this->input->post('league_name'),
             'is_active' => true,
-            'secretary_id' => $this->session->userdata('id'),
             'sport_id' => $this->input->post('sport_id')
         );
-        $result = $this->user_model->create_league($league);
+        $this->user_model->create_league($league);
+
+        $league_id = $this->db->insert_id();
+        $secretaryXleague = array(
+            'secretary_id' => $this->session->userdata('id'),
+            'league_id' => $league_id
+        );
+        $result = $this->user_model->create_secretaryXleague($secretaryXleague);
+
         return $result;
     }
 
@@ -108,9 +126,17 @@ class User extends CI_Controller {
         $team = array(
             'name' => $this->input->post('team_name'),
             'is_active' => true,
-            'manager_id' => $this->session->userdata('id'),
             'league_id' => $this->input->post('league_id'),
         );
         $this->user_model->create_team($team);
+
+        $team_id = $this->db->insert_id();
+        $managerXteam = array(
+            'manager_id' => $this->session->userdata('id'),
+            'team_id' => $team_id
+        );
+        $result = $this->user_model->create_managerXteam($managerXteam);
+
+        return $result;
     }
 }

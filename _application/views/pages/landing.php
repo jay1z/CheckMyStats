@@ -1,11 +1,14 @@
 <?php
     if ($this->session->userdata('id')) {
+        $this->session->set_userdata('page', 'home');
+
         $this->load->view('templates/header');
         $this->load->view('pages/home');
         $this->load->view('templates/modals');
         $this->load->view('templates/quick_sidebar');
         $this->load->view('templates/scroll_top');
         $this->load->view('templates/footer');
+        $this->load->view('templates/javascript');
         return;
     }
 ?>

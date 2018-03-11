@@ -2,13 +2,16 @@
 
 class Pages extends CI_Controller {
     public function view($page = 'landing', $id = null) {
+        $this->session->set_userdata('page', $page);
         if (!file_exists(APPPATH . 'views/pages/' . $page . '.php')) {
             // Whoops, we don't have a page for that!
             show_404();
         }
 
-        if ($page == 'game'){
-            $this->session->set_userdata('game_event_md5', $id);
+        switch ($page){
+            case 'game':
+                $this->session->set_userdata('game_event_md5', $id);
+                break;
         }
 
         $ignore = array('landing', 'login', 'team_roster', 'header_nav_search', 'mock_data');
@@ -21,6 +24,7 @@ class Pages extends CI_Controller {
             $this->load->view('templates/quick_sidebar');
             $this->load->view('templates/scroll_top');
             $this->load->view('templates/footer');
+            $this->load->view('templates/javascript');
         }
     }
 }

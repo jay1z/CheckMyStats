@@ -6,7 +6,10 @@ if (!isset($sport_query)) {
     $sport_query = $this->db->get('sport_type');
 }
 if (!isset($league_query)) {
-    $league_query = $this->db->get_where('league', array('secretary_id' => $user_id), null, null);
+    /*$league_query = $this->db->get_where('league', array('secretary_id' => $user_id), null, null);*/
+    $league_query = $this->db->select('*')
+        ->join('league', 'league_id = league.id and secretary_id = ' . $user_id)
+        ->get('secretaryXleague');
 }
 ?>
 <!--begin::Modal-->
