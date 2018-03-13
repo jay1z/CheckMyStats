@@ -1,5 +1,6 @@
 <?php
 $user_id = $this->session->userdata('id');
+$last_page = $this->session->set_userdata('last_page', current_url());
 
 if (!$user_id) {
     redirect('login');
@@ -360,26 +361,18 @@ if (!$user_id) {
                                         </div>
                                     </div>
                                 </li>
-                                <li class="m-nav__item m-topbar__quick-actions m-dropdown m-dropdown--skin-light m-dropdown--large m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light"
+                                <li class="m-nav__item m-topbar__quick-actions m-topbar__quick-actions--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light"
                                     data-dropdown-toggle="click">
                                     <a href="#" class="m-nav__link m-dropdown__toggle">
                                         <span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
-                                        <span class="m-nav__link-icon">
-													<span class="m-nav__link-icon-wrapper">
-														<i class="flaticon-share"></i>
-													</span>
-												</span>
+                                        <span class="m-nav__link-icon"><i class="flaticon-confetti"></i></span>
                                     </a>
                                     <div class="m-dropdown__wrapper">
                                         <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                                         <div class="m-dropdown__inner">
-                                            <div class="m-dropdown__header m--align-center">
-                                                <span class="m-dropdown__header-title">
-                                                    Quick Actions
-                                                </span>
-                                                <span class="m-dropdown__header-subtitle">
-                                                    Shortcuts
-                                                </span>
+                                            <div class="m-dropdown__header m--align-center" style="background: url(../../../assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+                                                <span class="m-dropdown__header-title">Achievements</span>
+                                                <span class="m-dropdown__header-subtitle">Shortcuts</span>
                                             </div>
                                             <div class="m-dropdown__body m-dropdown__body--paddingless">
                                                 <div class="m-dropdown__content">

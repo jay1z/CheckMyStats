@@ -4,9 +4,27 @@ $team_id = $this->session->userdata('team_id');
 
 $league_id = $this->session->userdata('league_id');
 
+/*
+$this->db->distinct();
+$this->db->select('*');
+$this->db->where('user_id', $user_id);
+$player_teams = $this->db->get('userXteam');
+*/
+
 $this->db->distinct();
 $this->db->select('league.name as league_name, league.id as league_id')
-    ->join('team', 'team.id = team_id and user_id = '.$user_id)
+    ->join('team', 'team.id = team_id and manager_id = '.$user_id)
+    ->join('league', 'league.id = league_id');
+$managerXteam_query = $this->db->get('managerXteam');
+
+$this->db->distinct();
+$this->db->select('league.name as league_name, league.id as league_id')
+    ->join('league', 'league.id = league_id and secretary_id ='.$user_id);
+$secretaryXleague_query = $this->db->get('secretaryXleague');
+
+$this->db->distinct();
+$this->db->select('league.name as league_name, league.id as league_id')
+    ->join('team as team', 'team.id = team_id and user_id = '.$user_id)
     ->join('league', 'league.id = league_id');
 $userXteam_query = $this->db->get('userXteam');
 
@@ -19,6 +37,7 @@ if (isset($league_id)) {
 }
 
 ?>
+
 <div class="m-content">
     <div class="row  ">
         <div class="col-3">
@@ -27,11 +46,36 @@ if (isset($league_id)) {
                     <select class="form-control m-select2" id="m_select2_leagueListing"  name="leagueListing" data-placeholder="Air & pill styles" onchange="this.form.submit();" >
                         <option></option>
                         <?php
-                        foreach ($userXteam_query->result() as $row){
-                            if ($row->league_id == $league_id) {
-                                echo '<option selected="selected" value="' . $row->league_id . '">' . $row->league_name . '</option><br>';
-                            }else{
-                                echo '<option value="' . $row->league_id . '">' . $row->league_name . '</option><br>';
+                        if (isset($secretaryXleague_query)) {
+                            echo '<optgroup label="I am secretary for...">';
+                            foreach ($secretaryXleague_query->result() as $row) {
+                                if ($row->league_id == $league_id) {
+                                    echo '<option selected="selected" value="' . $row->league_id . '">' . $row->league_name . '</option><br>';
+                                } else {
+                                    echo '<option value="' . $row->league_id . '">' . $row->league_name . '</option><br>';
+                                }
+                            }
+                        }
+
+                        if (isset($managerXteam_query)) {
+                            echo '<optgroup label="I manage...">';
+                            foreach ($managerXteam_query->result() as $row) {
+                                if ($row->league_id == $league_id) {
+                                    echo '<option selected="selected" value="' . $row->league_id . '">' . $row->league_name . '</option><br>';
+                                } else {
+                                    echo '<option value="' . $row->league_id . '">' . $row->league_name . '</option><br>';
+                                }
+                            }
+                        }
+
+                        if (isset($userXteam_query)) {
+                            echo '<optgroup label="I play for...">';
+                            foreach ($userXteam_query->result() as $row) {
+                                if ($row->league_id == $league_id) {
+                                    echo '<option selected="selected" value="' . $row->league_id . '">' . $row->league_name . '</option><br>';
+                                } else {
+                                    echo '<option value="' . $row->league_id . '">' . $row->league_name . '</option><br>';
+                                }
                             }
                         }
                         ?>
@@ -40,25 +84,6 @@ if (isset($league_id)) {
             </form>
         </div>
     </div>
-
-    <!--<div class="row">
-        <div class="col-xl-12">
-            <div class="m-portlet m-portlet--creative m-portlet--bordered-semi m-portlet--full-height  m-portlet--rounded-force" id="m_portlet">
-                <div class="m-portlet__head">
-                    <div class="m-portlet__head-caption">
-                        <div class="m-portlet__head-title">
-                            <span class="m-portlet__head-icon m--hide"><i class="flaticon-calendar"></i></span>
-                            <h3 class="m-portlet__head-text">Portlet sub title goes here</h3>
-                            <h2 class="m-portlet__head-label m-portlet__head-label--info"><span>Upcoming Games</span></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="m-portlet__body">
-                    <div id="m_calendar"></div>
-                </div>
-            </div>
-        </div>
-    </div>-->
     <div class="m--space-40"></div>
     <div class="row">
         <div class="col-xl-4">
@@ -72,10 +97,7 @@ if (isset($league_id)) {
                     </div>
                 </div>
                 <div class="m-portlet__body">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="m_widget4_tab1_content">
-                            <!--begin::Widget 14-->
-                            <div class="m-widget4">
+                    <div class="m-widget4">
                                 <!--begin::Widget 14 Item-->
                                 <?php
                                 if (isset($league_query)) {
@@ -99,15 +121,6 @@ if (isset($league_id)) {
                                 ?>
                                 <!--end::Widget 14 Item-->
                             </div>
-                            <!--end::Widget 14-->
-                        </div>
-                        <div class="tab-pane" id="m_widget4_tab2_content">
-                            <!--begin::Widget 14-->
-                            <div class="m-widget4">
-                            </div>
-                            <!--end::Widget 14-->
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

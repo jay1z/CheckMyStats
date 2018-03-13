@@ -1,6 +1,12 @@
 <?php
 
 class Pages extends CI_Controller {
+    /*public function __construct() {
+        parent::__construct();
+
+        $this->session->set_userdata('last_page', current_url());
+    }*/
+
     public function view($page = 'landing', $id = null) {
         $this->session->set_userdata('page', $page);
         if (!file_exists(APPPATH . 'views/pages/' . $page . '.php')) {

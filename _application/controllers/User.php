@@ -21,12 +21,8 @@ class User extends CI_Controller {
             $this->session->set_userdata('id', $data->id);
             $this->session->set_userdata('email', $data->email);
             //$this->switch_role('_user');
-            if ($this->agent->is_referral())
-            {
-                redirect($this->agent->referrer());
-            }else {
-                redirect(base_url());
-            }
+            $last_page = $this->session->userdata('last_page');
+            redirect($last_page);
         } else {
             $this->session->set_flashdata('error_msg', 'An error has occurred, Please try again.');
             redirect('login');
