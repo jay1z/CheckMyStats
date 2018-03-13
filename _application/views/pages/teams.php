@@ -28,10 +28,7 @@ if (isset($team_id)) {
 <div class="m-content">
     <div class="row  ">
         <div class="col-3">
-            <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height  m-portlet--rounded-force">
-                <div class="m-portlet__head m-portlet__head--fit">
-                    <div class="m-portlet__head-caption">
-                        <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_team" method="post">
+            <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_team" method="post">
                             <div class="m-select2 m-select2--air m-select2--pill">
                                 <select class="form-control m-select2" id="m_select2_teamRoster"  name="teamRoster" data-placeholder="Air & pill styles" onchange="this.form.submit();" >
                                     <option></option>
@@ -52,9 +49,6 @@ if (isset($team_id)) {
                                 </select>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!--Begin::Section-->
@@ -95,14 +89,14 @@ if (isset($team_id)) {
                                     <br>
                                     <span class="m-widget19__time">Team Manager</span>
                                 </div>
-                                <!--<div class="m-widget19__stats">
+                                <div class="m-widget19__stats">
                                     <span class="m-widget19__number m--font-brand">18</span>
                                     <span class="m-widget19__comment">something</span>
-                                </div>-->
+                                </div>
                             </div>
-                            <!--<div class="m-widget19__body">
+                            <div class="m-widget19__body">
                                 Team Mission Statement: To be the best team ever!
-                            </div>-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,7 +104,7 @@ if (isset($team_id)) {
             <!--end:: Widgets/Blog-->
         </div>
     </div>
-
+    <div class="m--space-40"></div>
     <div class="row  ">
         <div class="col-xl-5">
             <!--begin:: Widgets-->

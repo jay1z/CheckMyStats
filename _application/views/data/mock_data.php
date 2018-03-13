@@ -12,7 +12,6 @@ $loaded = array('0-users');
     $this->session->set_flashdata('_ran', true);
 }*/
 
-/*
 $images = array(
     //Users
     array('url' => '../../../assets/app/media/img/users/100_1.jpg', 'uploaded_id' => 1),
@@ -60,7 +59,7 @@ array_push($loaded, 'images');
 $user_profiles = array(
     array('fullname' => 'Jason Zurowski', 'user_name' => 'jay1_z', 'user_id' => 1, 'logo_id' => 1, 'bg_id' => 2),
     array('fullname' => 'Bob Player', 'user_name' => 'BPlayer', 'user_id' => 2, 'logo_id' => 3, 'bg_id' => 4),
-    array('fullname' => 'Joe Player', 'user_name' => 'JPlayer', 'user_id' => 3, 'logo_id' => 4, 'bg_id' => 6),
+    array('fullname' => 'Joe Player', 'user_name' => 'JPlayer', 'user_id' => 3, 'logo_id' => 5, 'bg_id' => 6),
     array('fullname' => 'Peter L Zurowski', 'user_name' => 'PJ06', 'user_id' => 4, 'logo_id' => 7, 'bg_id' => 8)
 );
 $this->db->insert_batch('user_profile', $user_profiles);
@@ -127,7 +126,7 @@ $userXteams = array(
     array('user_id' => 2, 'team_id' => 8, 'position' => 'Pitcher', 'handedness' => 'right', 'jersey' => '06')
 );
 $this->db->insert_batch('userXteam', $userXteams);
-array_push($loaded, 'userXteams');*/
+array_push($loaded, 'userXteams');
 
 $managerXteams = array(
     array('team_id' => 1, 'manager_id' => 1),
@@ -158,7 +157,7 @@ $managerXteams = array(
 $this->db->insert_batch('managerXteam', $managerXteams);
 array_push($loaded, 'managerXteams');
 
-/*$venues = array(
+$venues = array(
     array('name' => 'Baseball Stadium', 'address' => '123 Baseball Street', 'city' => 'Solon', 'state' => 'Ohio', 'zip' => '44139'),
     array('name' => 'Softball Stadium', 'address' => '321 Baseball Street', 'city' => 'Solon', 'state' => 'Ohio', 'zip' => '44139'),
     array('name' => 'Baseball Field', 'address' => '123 Softball Street', 'city' => 'Solon', 'state' => 'Ohio', 'zip' => '44139'),
@@ -232,7 +231,7 @@ $game_events = array(
     array('md5' => random_string($random_type, $random_length), 'datetime' => date("2018-03-12 22:00"), 'team_id' => 6, 'opponent_id' => 5, 'venue_id' => 4)
 );
 $this->db->insert_batch('game_event', $game_events);
-array_push($loaded, 'game_events');*/
+array_push($loaded, 'game_events');
 
 /*$game_softball_stats = array(
     array('1B' => 4, '2B' => 3, '3B' => 2, 'AB' => 12, 'BB' => 1, 'BI' => 2, 'H' => 12, 'HR' => 2, 'R' => 4, 'signature_id' => 1, 'game_event_md5' => 61),

@@ -146,60 +146,44 @@
                                                 <div class="m-dropdown__content">
                                                     <ul class="m-nav">
                                                         <li class="m-nav__section m-nav__section--first">
-                                                                    <span class="m-nav__section-text">
-                                                                        Quick Actions
-                                                                    </span>
+                                                            <span class="m-nav__section-text">Quick Actions</span>
                                                         </li>
                                                         <li class="m-nav__item">
                                                             <a href="" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-share"></i>
-                                                                <span class="m-nav__link-text">
-                                                                            Create Post
-                                                                        </span>
+                                                                <span class="m-nav__link-text">Create Post</span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
                                                             <a href="" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                                <span class="m-nav__link-text">
-                                                                            Send Messages
-                                                                        </span>
+                                                                <span class="m-nav__link-text">Send Messages</span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
                                                             <a href="" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-multimedia-2"></i>
-                                                                <span class="m-nav__link-text">
-                                                                            Upload File
-                                                                        </span>
+                                                                <span class="m-nav__link-text">Upload File</span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__section">
-                                                                    <span class="m-nav__section-text">
-                                                                        Useful Links
-                                                                    </span>
+                                                            <span class="m-nav__section-text">Useful Links</span>
                                                         </li>
                                                         <li class="m-nav__item">
                                                             <a href="" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-info"></i>
-                                                                <span class="m-nav__link-text">
-                                                                            FAQ
-                                                                        </span>
+                                                                <span class="m-nav__link-text">FAQ</span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__item">
                                                             <a href="" class="m-nav__link">
                                                                 <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                                <span class="m-nav__link-text">
-                                                                            Support
-                                                                        </span>
+                                                                <span class="m-nav__link-text">Support</span>
                                                             </a>
                                                         </li>
                                                         <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
                                                         <li class="m-nav__item m--hide">
-                                                            <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                                Submit
-                                                            </a>
+                                                            <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">Submit</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -222,15 +206,11 @@
                                 </div>
                                 <div class="form-group m-form__group row">
                                     <div class="col-10 ml-auto">
-                                        <h3 class="m-form__section">
-                                            1. Personal Details
-                                        </h3>
+                                        <h3 class="m-form__section">1. Personal Details</h3>
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">
-                                        Full Name
-                                    </label>
+                                    <label for="example-text-input" class="col-2 col-form-label">Full Name</label>
                                     <div class="col-7">
                                         <input class="form-control m-input" title="Full Name" type="text" name="profile_fullname" value="<?php echo $profile->fullname ?>">
                                     </div>
@@ -239,39 +219,29 @@
                                 <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
                                 <div class="form-group m-form__group row">
                                     <div class="col-10 ml-auto">
-                                        <h3 class="m-form__section">
-                                            2. Address
-                                        </h3>
+                                        <h3 class="m-form__section">2. Address</h3>
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">
-                                        Address
-                                    </label>
+                                    <label for="example-text-input" class="col-2 col-form-label">Address</label>
                                     <div class="col-7">
                                         <input class="form-control m-input" title="Address" type="text" name="profile_address" value="<?php echo $profile->address ?>">
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">
-                                        City
-                                    </label>
+                                    <label for="example-text-input" class="col-2 col-form-label">City</label>
                                     <div class="col-7">
                                         <input class="form-control m-input" title="City" type="text" name="profile_city" value="<?php echo $profile->city ?>">
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">
-                                        State
-                                    </label>
+                                    <label for="example-text-input" class="col-2 col-form-label">State</label>
                                     <div class="col-7">
                                         <input class="form-control m-input" title="State" type="text" name="profile_state" value="<?php echo $profile->state ?>">
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">
-                                        Zipcode
-                                    </label>
+                                    <label for="example-text-input" class="col-2 col-form-label">Zipcode</label>
                                     <div class="col-7">
                                         <input class="form-control m-input" title="Zipcode" type="text" name="profile_zip" value="<?php echo $profile->zip ?>">
                                     </div>
@@ -279,39 +249,29 @@
                                 <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
                                 <div class="form-group m-form__group row">
                                     <div class="col-10 ml-auto">
-                                        <h3 class="m-form__section">
-                                            3. Social Links
-                                        </h3>
+                                        <h3 class="m-form__section">3. Social Links</h3>
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">
-                                        Linkedin
-                                    </label>
+                                    <label for="example-text-input" class="col-2 col-form-label">Linkedin</label>
                                     <div class="col-7">
                                         <input class="form-control m-input" type="text" value="www.linkedin.com/Mark.Andre">
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">
-                                        Facebook
-                                    </label>
+                                    <label for="example-text-input" class="col-2 col-form-label">Facebook</label>
                                     <div class="col-7">
                                         <input class="form-control m-input" type="text" value="www.facebook.com/Mark.Andre">
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">
-                                        Twitter
-                                    </label>
+                                    <label for="example-text-input" class="col-2 col-form-label">Twitter</label>
                                     <div class="col-7">
                                         <input class="form-control m-input" type="text" value="www.twitter.com/Mark.Andre">
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
-                                    <label for="example-text-input" class="col-2 col-form-label">
-                                        Instagram
-                                    </label>
+                                    <label for="example-text-input" class="col-2 col-form-label">Instagram</label>
                                     <div class="col-7">
                                         <input class="form-control m-input" type="text" value="www.instagram.com/Mark.Andre">
                                     </div>

@@ -16,61 +16,15 @@ if (isset($league_id)) {
 
 if (isset($game_events_query)) {
     foreach ($game_events_query->result() as $row) {
-        $date = new DateTime($row->datetime);
-        $format = $date->format('H:i:s');
         $data[] = array(
             'title'=>$row->team_1_name.' vs. '.$row->team_2_name,
             'id'=>$row->md5,
             'start'=>$row->datetime,
-            'description'=>$row->venue_name.'@'.$format,
+            'description'=>$row->venue_name,
             'url'=>'game/'.$row->md5,
             'className'=>'m-fc-event--primary'
         );
-/*        echo '
-        <div class="m-widget4__item">
-            <div class="m-widget4__img m-widget4__img--pic">
-                <img src="'.$row->team_1_logo.'" alt="">
-            </div>
-            <div class="m-widget4__info">
-                <a href="game/'.$row->md5.'" class="m-widget4__title">'.$row->team_1_name.' [VS] '.$row->team_2_name.'</a>
-                <br>
-                <span class="m-widget4__sub">'.$row->datetime.'</span>
-                <a href="#" class="m-widget4__sub">'.$row->venue_name.'</a>
-            </div>
-            <div class="m-widget4__img m-widget4__img--pic">
-                <img src="'.$row->team_2_logo.'" alt="">
-            </div>                                                                        
-        </div>';*/
     }
 }
-
-/*$data[] = array(
-    'title'=>'foo1',
-    'id'=>'123',
-    'start'=>'2018-03-12T10:30:00',
-    'end'=>'2018-03-12T12:30:00',
-    'className'=>'m-fc-event--primary'
-);
-$data[] = array(
-    'title'=>'foo2',
-    'id'=>'456',
-    'start'=>'2018-03-13T10:30:00',
-    'end'=>'2018-03-13T12:30:00',
-    'className'=>'m-fc-event--accent'
-);
-$data[] = array(
-    'title'=>'foo2',
-    'id'=>'456',
-    'start'=>'2018-03-14T10:30:00',
-    'end'=>'2018-03-14T12:30:00',
-    'className'=>'m-fc-event--warning'
-);
-$data[] = array(
-    'title'=>'foo2',
-    'id'=>'456',
-    'start'=>'2018-03-15T10:30:00',
-    'end'=>'2018-03-15T12:30:00',
-    'className'=>'m-fc-event--danger'
-);*/
 
 echo json_encode($data);

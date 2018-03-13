@@ -3,6 +3,7 @@ $page = $this->session->userdata('page');
 if ($page != 'landing'){ load_for_every_page(); }
 
 if ($page == 'about'){load_about();}
+if ($page == 'calendar'){load_calendar();}
 if ($page == 'dashboard'){load_dashboard();}
 if ($page == 'game'){load_game();}
 if ($page == 'home'){load_home();}
@@ -17,6 +18,11 @@ function load_for_every_page(){
     echo '<script src="../../../assets/app/js/modals.js"></script>';
 }
 function load_about(){echo '';}
+function load_calendar(){
+    echo '<script src="../../../assets/app/js/team.js"></script>';
+    echo '<script src="../../../assets/vendors/custom/fullcalendar/fullcalendar.bundle.js"></script>';
+    echo '<script src="../../../assets/default/custom/components/calendar/list-view.js"></script>';
+}
 function load_dashboard(){echo '';}
 function load_game(){
     echo '<script src="../../../assets/default/custom/components/datatables/child/data-ajax.js"></script>';

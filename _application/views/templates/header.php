@@ -593,6 +593,12 @@ if (!$user_id) {
                         </div>
                     </li>
                     <li class="m-menu__item">
+                        <a href="<?php echo base_url(); ?>calendar" class="m-menu__link">
+                            <i class="m-menu__link-icon flaticon-event-calendar-symbol"></i>
+                            <span class="m-menu__link-text">Calendar</span>
+                        </a>
+                    </li>
+                    <li class="m-menu__item">
                         <a href="<?php echo base_url(); ?>profile" class="m-menu__link">
                             <i class="m-menu__link-icon flaticon-profile"></i>
                             <span class="m-menu__link-text">Profile</span>

@@ -61,8 +61,8 @@ class User extends CI_Controller {
         $profile = array(
             'fullname' => $this->input->post('profile_fullname'),
             'address' => $this->input->post('profile_address'),
-            'state' => $this->input->post('profile_state'),
             'city' => $this->input->post('profile_city'),
+            'state' => $this->input->post('profile_state'),
             'zip' => $this->input->post('profile_zip'),
         );
 
