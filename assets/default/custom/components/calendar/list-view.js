@@ -45,7 +45,7 @@ var CalendarListView = function() {
                 editable: false,
                 eventLimit: true, // allow "more" link when too many events
                 navLinks: false,
-                height: 600,
+                height: 450,
                 eventSources:[ {url:'/data/upcoming_games'}],
 
                 eventRender: function(event, element) {

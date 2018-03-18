@@ -21,7 +21,7 @@ $userXteam_query = $this->db->get('userXteam');
 <div class="m-content">
     <div class="row  ">
         <div class="col-3">
-            <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_league" method="post">
+            <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_league/calendar" method="post">
                 <div class="m-select2 m-select2--air m-select2--pill">
                     <select class="form-control m-select2" id="m_select2_leagueListing"  name="leagueListing" data-placeholder="Air & pill styles" onchange="this.form.submit();" >
                         <option></option>

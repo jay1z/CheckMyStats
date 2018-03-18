@@ -325,10 +325,22 @@ yx-axis
 .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail,
 .mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger_bar,
 .mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail {
-  -webkit-transition: width .2s ease-out .2s, height .2s ease-out .2s,  margin-left .2s ease-out .2s, margin-right .2s ease-out .2s,  margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s, opacity .2s ease-in-out, background-color .2s ease-in-out;
-  -moz-transition: width .2s ease-out .2s, height .2s ease-out .2s,  margin-left .2s ease-out .2s, margin-right .2s ease-out .2s,  margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s, opacity .2s ease-in-out, background-color .2s ease-in-out;
-  -o-transition: width .2s ease-out .2s, height .2s ease-out .2s,  margin-left .2s ease-out .2s, margin-right .2s ease-out .2s,  margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s, opacity .2s ease-in-out, background-color .2s ease-in-out;
-  transition: width .2s ease-out .2s, height .2s ease-out .2s,  margin-left .2s ease-out .2s, margin-right .2s ease-out .2s,  margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s, opacity .2s ease-in-out, background-color .2s ease-in-out; }
+  -webkit-transition: width .2s ease-out .2s, height .2s ease-out .2s, 
+ margin-left .2s ease-out .2s, margin-right .2s ease-out .2s, 
+ margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s,
+ opacity .2s ease-in-out, background-color .2s ease-in-out;
+  -moz-transition: width .2s ease-out .2s, height .2s ease-out .2s, 
+ margin-left .2s ease-out .2s, margin-right .2s ease-out .2s, 
+ margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s,
+ opacity .2s ease-in-out, background-color .2s ease-in-out;
+  -o-transition: width .2s ease-out .2s, height .2s ease-out .2s, 
+ margin-left .2s ease-out .2s, margin-right .2s ease-out .2s, 
+ margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s,
+ opacity .2s ease-in-out, background-color .2s ease-in-out;
+  transition: width .2s ease-out .2s, height .2s ease-out .2s, 
+ margin-left .2s ease-out .2s, margin-right .2s ease-out .2s, 
+ margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s,
+ opacity .2s ease-in-out, background-color .2s ease-in-out; }
 
 /* 
 ------------------------------------------------------------------------------------------------------------------------
@@ -14638,13 +14650,18 @@ button.toast-close-button {
   font-family: "Flaticon";
   src: url("fonts/flaticon/Flaticon.eot");
   src: url("fonts/flaticon/Flaticon.eot?#iefix") format("embedded-opentype"), url("fonts/flaticon/Flaticon.woff") format("woff"), url("fonts/flaticon/Flaticon.ttf") format("truetype"), url("fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
+  src: url("fonts/flaticon/Flaticon-Sports.eot");
+  src: url("fonts/flaticon/Flaticon-Sports.eot?#iefix") format("embedded-opentype"), url("fonts/flaticon/Flaticon-Sports.woff") format("woff"), url("fonts/flaticon/Flaticon-Sports.ttf") format("truetype"), url("fonts/flaticon/Flaticon-Sports.svg#Flaticon") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
     font-family: "Flaticon";
-    src: url("fonts/flaticon/Flaticon.svg#Flaticon") format("svg"); } }
+    src: url("fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
+    src: url("fonts/flaticon/Flaticon-Sports.svg#Flaticon") format("svg");
+  }
+}
 
 [class^="flaticon-"]:before,
 [class*=" flaticon-"]:before {
@@ -15187,6 +15204,57 @@ button.toast-close-button {
 
 .flaticon-diagram:before {
   content: "\f1ae"; }
+
+.flaticon-american-football:before { content: "\f100"; }
+.flaticon-american-football-1:before { content: "\f101"; }
+.flaticon-badminton:before { content: "\f102"; }
+.flaticon-baseball:before { content: "\f103"; }
+.flaticon-basketball:before { content: "\f104"; }
+.flaticon-basketball-1:before { content: "\f105"; }
+.flaticon-basketball-court:before { content: "\f106"; }
+.flaticon-bat:before { content: "\f107"; }
+.flaticon-bowling-ball:before { content: "\f108"; }
+.flaticon-bowling-pins:before { content: "\f109"; }
+.flaticon-boxing:before { content: "\f10a"; }
+.flaticon-champion-belt:before { content: "\f10b"; }
+.flaticon-chess:before { content: "\f10c"; }
+.flaticon-cricket:before { content: "\f10d"; }
+.flaticon-curling:before { content: "\f10e"; }
+.flaticon-dart:before { content: "\f10f"; }
+.flaticon-dart-board:before { content: "\f110"; }
+.flaticon-dumbbell:before { content: "\f111"; }
+.flaticon-dumbbell-1:before { content: "\f112"; }
+.flaticon-exercising:before { content: "\f113"; }
+.flaticon-finish:before { content: "\f114"; }
+.flaticon-football:before { content: "\f115"; }
+.flaticon-football-field:before { content: "\f116"; }
+.flaticon-golf:before { content: "\f117"; }
+.flaticon-hand-bar:before { content: "\f118"; }
+.flaticon-helmet:before { content: "\f119"; }
+.flaticon-hockey-helmet:before { content: "\f11a"; }
+.flaticon-hockey-pitch:before { content: "\f11b"; }
+.flaticon-medal:before { content: "\f11c"; }
+.flaticon-ping-pong:before { content: "\f11d"; }
+.flaticon-podium:before { content: "\f11e"; }
+.flaticon-pool:before { content: "\f11f"; }
+.flaticon-pool-table:before { content: "\f120"; }
+.flaticon-puck:before { content: "\f121"; }
+.flaticon-punching-bag:before { content: "\f122"; }
+.flaticon-shorts:before { content: "\f123"; }
+.flaticon-skateboard:before { content: "\f124"; }
+.flaticon-skipping-rope:before { content: "\f125"; }
+.flaticon-soccer-boots:before { content: "\f126"; }
+.flaticon-tactics:before { content: "\f127"; }
+.flaticon-tennis:before { content: "\f128"; }
+.flaticon-tennis-ball:before { content: "\f129"; }
+.flaticon-tennis-court:before { content: "\f12a"; }
+.flaticon-timer:before { content: "\f12b"; }
+.flaticon-trophy:before { content: "\f12c"; }
+.flaticon-trophy-1:before { content: "\f12d"; }
+.flaticon-volleyball:before { content: "\f12e"; }
+.flaticon-water-bottle:before { content: "\f12f"; }
+.flaticon-whistle:before { content: "\f130"; }
+.flaticon-yin-yang:before { content: "\f131"; }
 
 /*
  * Icon Font Metronic

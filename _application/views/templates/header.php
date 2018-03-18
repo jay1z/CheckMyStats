@@ -372,7 +372,7 @@ if (!$user_id) {
                                         <div class="m-dropdown__inner">
                                             <div class="m-dropdown__header m--align-center" style="background: url(../../../assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
                                                 <span class="m-dropdown__header-title">Achievements</span>
-                                                <span class="m-dropdown__header-subtitle">Shortcuts</span>
+                                                <span class="m-dropdown__header-subtitle">Summary</span>
                                             </div>
                                             <div class="m-dropdown__body m-dropdown__body--paddingless">
                                                 <div class="m-dropdown__content">
@@ -572,7 +572,7 @@ if (!$user_id) {
                                 </li>
                                 <li class="m-menu__item">
                                     <a  href="<?php echo base_url(); ?>leagues" class="m-menu__link">
-                                        <i class="m-menu__link-icon flaticon-book"><span></span></i>
+                                        <i class="m-menu__link-icon la la-trophy"><span></span></i>
                                         <span class="m-menu__link-text">My Leagues</span>
                                     </a>
                                 </li>
@@ -619,9 +619,7 @@ if (!$user_id) {
                                         <i class="m-menu__link-bullet m-menu__link-bullet--line">
                                             <span></span>
                                         </i>
-                                        <span class="m-menu__link-text">
-													Profile
-												</span>
+                                        <span class="m-menu__link-text">Profile</span>
                                         <i class="m-menu__ver-arrow la la-angle-right"></i>
                                     </a>
                                     <div class="m-menu__submenu ">
@@ -631,68 +629,68 @@ if (!$user_id) {
                                                 <a  href="inner.html" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-computer"></i>
                                                     <span class="m-menu__link-title">
-																<span class="m-menu__link-wrap">
-																	<span class="m-menu__link-text">
-																		Pending
-																	</span>
-																	<span class="m-menu__link-badge">
-																		<span class="m-badge m-badge--warning">
-																			10
-																		</span>
-																	</span>
-																</span>
-															</span>
+                                                        <span class="m-menu__link-wrap">
+                                                            <span class="m-menu__link-text">
+                                                                Pending
+                                                            </span>
+                                                            <span class="m-menu__link-badge">
+                                                                <span class="m-badge m-badge--warning">
+                                                                    10
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </span>
                                                 </a>
                                             </li>
                                             <li class="m-menu__item " aria-haspopup="true"  data-redirect="true">
                                                 <a  href="inner.html" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-signs-2"></i>
                                                     <span class="m-menu__link-title">
-																<span class="m-menu__link-wrap">
-																	<span class="m-menu__link-text">
-																		Urgent
-																	</span>
-																	<span class="m-menu__link-badge">
-																		<span class="m-badge m-badge--danger">
-																			6
-																		</span>
-																	</span>
-																</span>
-															</span>
+                                                        <span class="m-menu__link-wrap">
+                                                            <span class="m-menu__link-text">
+                                                                Urgent
+                                                            </span>
+                                                            <span class="m-menu__link-badge">
+                                                                <span class="m-badge m-badge--danger">
+                                                                    6
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </span>
                                                 </a>
                                             </li>
                                             <li class="m-menu__item " aria-haspopup="true"  data-redirect="true">
                                                 <a  href="inner.html" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-clipboard"></i>
                                                     <span class="m-menu__link-title">
-																<span class="m-menu__link-wrap">
-																	<span class="m-menu__link-text">
-																		Done
-																	</span>
-																	<span class="m-menu__link-badge">
-																		<span class="m-badge m-badge--success">
-																			2
-																		</span>
-																	</span>
-																</span>
-															</span>
+                                                        <span class="m-menu__link-wrap">
+                                                            <span class="m-menu__link-text">
+                                                                Done
+                                                            </span>
+                                                            <span class="m-menu__link-badge">
+                                                                <span class="m-badge m-badge--success">
+                                                                    2
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </span>
                                                 </a>
                                             </li>
                                             <li class="m-menu__item " aria-haspopup="true"  data-redirect="true">
                                                 <a  href="inner.html" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-multimedia-2"></i>
                                                     <span class="m-menu__link-title">
-																<span class="m-menu__link-wrap">
-																	<span class="m-menu__link-text">
-																		Archive
-																	</span>
-																	<span class="m-menu__link-badge">
-																		<span class="m-badge m-badge--info m-badge--wide">
-																			245
-																		</span>
-																	</span>
-																</span>
-															</span>
+                                                        <span class="m-menu__link-wrap">
+                                                            <span class="m-menu__link-text">
+                                                                Archive
+                                                            </span>
+                                                            <span class="m-menu__link-badge">
+                                                                <span class="m-badge m-badge--info m-badge--wide">
+                                                                    245
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -703,9 +701,7 @@ if (!$user_id) {
                                         <i class="m-menu__link-bullet m-menu__link-bullet--line">
                                             <span></span>
                                         </i>
-                                        <span class="m-menu__link-text">
-													Accounts
-												</span>
+                                        <span class="m-menu__link-text">Accounts</span>
                                     </a>
                                 </li>
                                 <li class="m-menu__item " aria-haspopup="true"  data-redirect="true">
@@ -713,9 +709,7 @@ if (!$user_id) {
                                         <i class="m-menu__link-bullet m-menu__link-bullet--line">
                                             <span></span>
                                         </i>
-                                        <span class="m-menu__link-text">
-													Help
-												</span>
+                                        <span class="m-menu__link-text">Help</span>
                                     </a>
                                 </li>
                                 <li class="m-menu__item " aria-haspopup="true"  data-redirect="true">
@@ -723,9 +717,7 @@ if (!$user_id) {
                                         <i class="m-menu__link-bullet m-menu__link-bullet--line">
                                             <span></span>
                                         </i>
-                                        <span class="m-menu__link-text">
-													Notifications
-												</span>
+                                        <span class="m-menu__link-text">Notifications</span>
                                     </a>
                                 </li>
                             </ul>
@@ -741,20 +733,18 @@ if (!$user_id) {
                             <span class="m-menu__arrow"></span>
                             <ul class="m-menu__subnav">
                                 <li class="m-menu__item  m-menu__item--parent m-menu__item--bottom-1" aria-haspopup="true" >
-											<span class="m-menu__link">
-												<span class="m-menu__link-text">
-													Help
-												</span>
-											</span>
+                                    <span class="m-menu__link">
+                                        <span class="m-menu__link-text">
+                                            Help
+                                        </span>
+                                    </span>
                                 </li>
                                 <li class="m-menu__item " aria-haspopup="true"  data-redirect="true">
                                     <a  href="inner.html" class="m-menu__link ">
                                         <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                             <span></span>
                                         </i>
-                                        <span class="m-menu__link-text">
-													Support
-												</span>
+                                        <span class="m-menu__link-text">Support</span>
                                     </a>
                                 </li>
                                 <li class="m-menu__item " aria-haspopup="true"  data-redirect="true">
@@ -762,9 +752,7 @@ if (!$user_id) {
                                         <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                             <span></span>
                                         </i>
-                                        <span class="m-menu__link-text">
-													Blog
-												</span>
+                                        <span class="m-menu__link-text">Blog</span>
                                     </a>
                                 </li>
                                 <li class="m-menu__item " aria-haspopup="true"  data-redirect="true">
@@ -772,9 +760,7 @@ if (!$user_id) {
                                         <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                             <span></span>
                                         </i>
-                                        <span class="m-menu__link-text">
-													Documentation
-												</span>
+                                        <span class="m-menu__link-text">Documentation</span>
                                     </a>
                                 </li>
                                 <li class="m-menu__item " aria-haspopup="true"  data-redirect="true">
@@ -782,9 +768,7 @@ if (!$user_id) {
                                         <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                             <span></span>
                                         </i>
-                                        <span class="m-menu__link-text">
-													Pricing
-												</span>
+                                        <span class="m-menu__link-text">Pricing</span>
                                     </a>
                                 </li>
                                 <li class="m-menu__item " aria-haspopup="true"  data-redirect="true">
@@ -792,9 +776,7 @@ if (!$user_id) {
                                         <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                             <span></span>
                                         </i>
-                                        <span class="m-menu__link-text">
-													Terms
-												</span>
+                                        <span class="m-menu__link-text">Terms</span>
                                     </a>
                                 </li>
                             </ul>

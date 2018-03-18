@@ -1,13 +1,16 @@
 <?php
 $user_id = $this->session->userdata('id');
 $team_id = $this->session->userdata('team_id');
-
-$secretary_query = $this->db->select('league.name as league_name')->join('league', 'league.id = league_id and secretary_id = 1')->get('secretaryXleague');
-$manager_query = $this->db->select('team.name as team_name')->join('team', 'team.id = team_id and manager_id = 1')->get('managerXteam');
-$player_query = $this->db->select('league.name as league_name, team.id as team_id, team.name as team_name')->join('team', 'team.id = team_id and user_id = 1')->join('league', 'league.id = team.league_id')->get('userXteam');
-
+if (isset($user_id)) {
+    $secretary_query = $this->db->select('league.name as league_name')->join('league', 'league.id = league_id and secretary_id = ' . $user_id)->get('secretaryXleague');
+    $manager_query = $this->db->select('team.name as team_name, ')->join('team', 'team.id = team_id and manager_id = ' . $user_id)->get('managerXteam');
+    $player_query = $this->db->select('league.name as league_name, team.id as team_id, team.name as team_name')->join('team', 'team.id = team_id and user_id = ' . $user_id)->join('league', 'league.id = team.league_id')->get('userXteam');
+}
 if (isset($team_id)) {
-    //$team = $this->db->get_where('team', array('id' => $team_id))->row();
+    $managers = $this->db->select('profile.fullname as fullname, logo.url as logo_url, mXt.title as title')
+        ->join('managerXteam as mXt', 'profile.user_id = mXt.manager_id and mXt.team_id = '.$team_id)
+        ->join('image as logo', 'logo.id = profile.logo_id')
+        ->get('user_profile as profile');
 
     $team = $this->db->select('team.name as name, logo.url as logo_url, bg.url as bg_url')
         ->join('image as logo', 'logo.id = logo_id and team.id = '. $team_id)
@@ -28,7 +31,7 @@ if (isset($team_id)) {
 <div class="m-content">
     <div class="row  ">
         <div class="col-3">
-            <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_team" method="post">
+            <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_team/teams" method="post">
                             <div class="m-select2 m-select2--air m-select2--pill">
                                 <select class="form-control m-select2" id="m_select2_teamRoster"  name="teamRoster" data-placeholder="Air & pill styles" onchange="this.form.submit();" >
                                     <option></option>
@@ -80,20 +83,22 @@ if (isset($team_id)) {
                             <div class="m-widget19__shadow"></div>
                         </div>
                         <div class="m-widget19__content">
+                            <?php foreach ($managers->result() as $row){ ?>
                             <div class="m-widget19__header">
                                 <div class="m-widget19__user-img">
-                                    <img class="m-widget19__img" src="../../../assets/app/media/img/users/user2.jpg" alt="">
+                                    <img class="m-widget19__img" src="<?php echo $row->logo_url; ?>" alt="">
                                 </div>
                                 <div class="m-widget19__info">
-                                    <span class="m-widget19__username">Peter Zurowski</span>
+                                    <span class="m-widget19__username"><?php echo $row->fullname; ?></span>
                                     <br>
-                                    <span class="m-widget19__time">Team Manager</span>
+                                    <span class="m-widget19__time"><?php echo $row->title; ?></span>
                                 </div>
                                 <div class="m-widget19__stats">
                                     <span class="m-widget19__number m--font-brand">18</span>
                                     <span class="m-widget19__comment">something</span>
                                 </div>
                             </div>
+                            <?php } ?>
                             <div class="m-widget19__body">
                                 Team Mission Statement: To be the best team ever!
                             </div>

@@ -1,16 +1,16 @@
 <?php
 $page = $this->session->userdata('page');
-if ($page != 'landing'){ load_for_every_page(); }
+if ($page != 'landing')     {load_for_every_page();}
 
-if ($page == 'about'){load_about();}
-if ($page == 'calendar'){load_calendar();}
-if ($page == 'dashboard'){load_dashboard();}
-if ($page == 'game'){load_game();}
-if ($page == 'home'){load_home();}
-if ($page == 'leagues'){ load_leagues(); }
-if ($page == 'profile'){load_profile();}
-if ($page == 'register'){load_register();}
-if ($page == 'teams'){ load_teams(); }
+if ($page == 'about')       {load_about();}
+if ($page == 'calendar')    {load_calendar();}
+if ($page == 'dashboard')   {load_dashboard();}
+if ($page == 'game')        {load_game();}
+if ($page == 'home')        {load_home();}
+if ($page == 'leagues')     {load_leagues();}
+if ($page == 'profile')     {load_profile();}
+if ($page == 'register')    {load_register();}
+if ($page == 'teams')       {load_teams();}
 
 function load_for_every_page(){
     echo '<script src="../../../assets/vendors/base/vendors.bundle.js"></script>';
@@ -37,7 +37,6 @@ function load_profile(){echo '';}
 function load_register(){echo '';}
 function load_teams(){
     echo '<script src="../../../assets/app/js/team.js"></script>';
-
 };
 ?>
 

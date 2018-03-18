@@ -88,16 +88,16 @@ class User extends CI_Controller {
         redirect('login', 'refresh');
     }
 
-    public function change_team(){
+    public function change_team($page){
         $team_id = $this->input->post('teamRoster');
         $this->session->set_userdata('team_id', $team_id);
-        redirect('teams');
+        redirect($page);
     }
 
-    public function change_league(){
+    public function change_league($page){
         $league_id = $this->input->post('leagueListing');
         $this->session->set_userdata('league_id', $league_id);
-        redirect('leagues');
+        redirect($page);
     }
 
     public function create_league(){

@@ -41,7 +41,7 @@ if (isset($league_id)) {
 <div class="m-content">
     <div class="row  ">
         <div class="col-3">
-            <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_league" method="post">
+            <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_league/leagues" method="post">
                 <div class="m-select2 m-select2--air m-select2--pill">
                     <select class="form-control m-select2" id="m_select2_leagueListing"  name="leagueListing" data-placeholder="Air & pill styles" onchange="this.form.submit();" >
                         <option></option>
@@ -83,8 +83,11 @@ if (isset($league_id)) {
                 </div>
             </form>
         </div>
+        <a href="manage" class="m-portlet__nav-link btn btn-secondary  m-btn m-btn--air m-btn--icon m-btn--icon-only m-btn--pill">
+            <i class="flaticon-settings"></i>
+        </a>
     </div>
-    <div class="m--space-40"></div>
+    <div class="m--space-20"></div>
     <div class="row">
         <div class="col-xl-4">
             <div class="m-portlet m-portlet--full-height ">
