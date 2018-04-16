@@ -1,11 +1,7 @@
 <?php
-$user_id = $this->session->userdata('id');
+$user_id = $this->session->userdata('user_id');
 
-if (!$user_id) {
-    redirect('login');
-} else {
-    $post_query = $this->db->get_where('post', array('user_id' => $user_id), null, null);
-}
+$post_query = $this->db->get_where('post', array('user_id' => $user_id), null, null);
 ?>
 
 <div class="m-content">

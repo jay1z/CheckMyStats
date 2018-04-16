@@ -1,5 +1,5 @@
 <?php
-$user_id = $this->session->userdata('id');
+$user_id = $this->session->userdata('user_id');
 $game_event_md5 = $this->session->userdata('game_event_md5');
 $team_id = $this->session->userdata('team_id');
 $team = $this->db->get_where('team', array('id' => $team_id))->row();

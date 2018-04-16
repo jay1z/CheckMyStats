@@ -1,8 +1,14 @@
 <?php
-    $user_id = $this->session->userdata('id');
+$user_id = $this->session->userdata('user_id');
+$user = $this->session->userdata('user');
 
-    $user = $this->session->userdata('user');
-    $profile = $this->session->userdata('profile');
+$user_profile = $this->session->userdata('user_profile');
+if (!isset($user_profile)){
+    $this->db->select('id, fullname, address, state, city, zip');
+    $this->db->where('user_id', $user_id);
+    $user_profile = $this->db->get('user_profile')->row();
+    $this->session->set_flashdata('user_profile_id', $user_profile->id);
+}
 ?>
 
 <!-- BEGIN: Subheader -->
@@ -26,7 +32,7 @@
                                 <img src="../../../assets/app/media/img/users/user4.jpg" alt=""/>
                             </div>
                         </div>
-                        <div class="m-card-profile__details"><span class="m-card-profile__name"><?php echo $profile->fullname ?></span>
+                        <div class="m-card-profile__details"><span class="m-card-profile__name"><?php echo $user_profile->fullname ?></span>
                             <a href="" class="m-card-profile__email m-link"><?php echo $user->email ?></a>
                         </div>
                     </div>
@@ -212,7 +218,7 @@
                                 <div class="form-group m-form__group row">
                                     <label for="example-text-input" class="col-2 col-form-label">Full Name</label>
                                     <div class="col-7">
-                                        <input class="form-control m-input" title="Full Name" type="text" name="profile_fullname" value="<?php echo $profile->fullname ?>">
+                                        <input class="form-control m-input" title="Full Name" type="text" name="profile_fullname" value="<?php echo $user_profile->fullname ?>">
                                     </div>
                                 </div>
 
@@ -225,25 +231,25 @@
                                 <div class="form-group m-form__group row">
                                     <label for="example-text-input" class="col-2 col-form-label">Address</label>
                                     <div class="col-7">
-                                        <input class="form-control m-input" title="Address" type="text" name="profile_address" value="<?php echo $profile->address ?>">
+                                        <input class="form-control m-input" title="Address" type="text" name="profile_address" value="<?php echo $user_profile->address ?>">
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
                                     <label for="example-text-input" class="col-2 col-form-label">City</label>
                                     <div class="col-7">
-                                        <input class="form-control m-input" title="City" type="text" name="profile_city" value="<?php echo $profile->city ?>">
+                                        <input class="form-control m-input" title="City" type="text" name="profile_city" value="<?php echo $user_profile->city ?>">
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
                                     <label for="example-text-input" class="col-2 col-form-label">State</label>
                                     <div class="col-7">
-                                        <input class="form-control m-input" title="State" type="text" name="profile_state" value="<?php echo $profile->state ?>">
+                                        <input class="form-control m-input" title="State" type="text" name="profile_state" value="<?php echo $user_profile->state ?>">
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group row">
                                     <label for="example-text-input" class="col-2 col-form-label">Zipcode</label>
                                     <div class="col-7">
-                                        <input class="form-control m-input" title="Zipcode" type="text" name="profile_zip" value="<?php echo $profile->zip ?>">
+                                        <input class="form-control m-input" title="Zipcode" type="text" name="profile_zip" value="<?php echo $user_profile->zip ?>">
                                     </div>
                                 </div>
                                 <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>

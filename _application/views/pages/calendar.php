@@ -1,5 +1,5 @@
 <?php
-$user_id = $this->session->userdata('id');
+$user_id = $this->session->userdata('user_id');
 
 $league_id = $this->session->userdata('league_id');
 

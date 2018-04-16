@@ -14650,18 +14650,13 @@ button.toast-close-button {
   font-family: "Flaticon";
   src: url("fonts/flaticon/Flaticon.eot");
   src: url("fonts/flaticon/Flaticon.eot?#iefix") format("embedded-opentype"), url("fonts/flaticon/Flaticon.woff") format("woff"), url("fonts/flaticon/Flaticon.ttf") format("truetype"), url("fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
-  src: url("fonts/flaticon/Flaticon-Sports.eot");
-  src: url("fonts/flaticon/Flaticon-Sports.eot?#iefix") format("embedded-opentype"), url("fonts/flaticon/Flaticon-Sports.woff") format("woff"), url("fonts/flaticon/Flaticon-Sports.ttf") format("truetype"), url("fonts/flaticon/Flaticon-Sports.svg#Flaticon") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
     font-family: "Flaticon";
-    src: url("fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
-    src: url("fonts/flaticon/Flaticon-Sports.svg#Flaticon") format("svg");
-  }
-}
+    src: url("fonts/flaticon/Flaticon.svg#Flaticon") format("svg"); } }
 
 [class^="flaticon-"]:before,
 [class*=" flaticon-"]:before {
@@ -15205,6 +15200,36 @@ button.toast-close-button {
 .flaticon-diagram:before {
   content: "\f1ae"; }
 
+/*
+  	Flaticon icon font: Flaticon-Sports
+  	Creation date: 20/03/2017 20:02
+
+@font-face {
+    font-family: "Flaticon-Sports";
+    src: url("fonts/flaticon/Flaticon-Sports.eot");
+    src: url("fonts/flaticon/Flaticon-Sports.eot?#iefix") format("embedded-opentype"), url("fonts/flaticon/Flaticon-Sports.woff") format("woff"), url("fonts/flaticon/Flaticon-Sports.ttf") format("truetype"), url("fonts/flaticon/Flaticon-Sports.svg#Flaticon") format("svg");
+    font-weight: normal;
+    font-style: normal; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: "Flaticon-Sports";
+        src: url("fonts/flaticon/Flaticon-Sports.svg#Flaticon") format("svg"); } }
+
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before {
+    font-family: Flaticon-Sports;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased; }
+
 .flaticon-american-football:before { content: "\f100"; }
 .flaticon-american-football-1:before { content: "\f101"; }
 .flaticon-badminton:before { content: "\f102"; }
@@ -15255,7 +15280,7 @@ button.toast-close-button {
 .flaticon-water-bottle:before { content: "\f12f"; }
 .flaticon-whistle:before { content: "\f130"; }
 .flaticon-yin-yang:before { content: "\f131"; }
-
+*/
 /*
  * Icon Font Metronic
  * Made with love by Icons8 [ https://icons8.com/ ] using FontCustom [ https://github.com/FontCustom/fontcustom ]

@@ -18,6 +18,7 @@ if (!$user_id) {
 
 if (isset($roster_query)) {
     $count = $roster_query->num_rows();
+    //$count = 5;
     $result = '{
     "meta": {
         "page": 1,

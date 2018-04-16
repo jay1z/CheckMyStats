@@ -18,7 +18,7 @@ class User extends CI_Controller {
 
         $data = $this->user_model->login_user($user_login['email'], $user_login['password']);
         if ($data) {
-            $this->session->set_userdata('id', $data->id);
+            $this->session->set_userdata('user_id', $data->id);
             $this->session->set_userdata('email', $data->email);
             //$this->switch_role('_user');
             $last_page = $this->session->userdata('last_page');
@@ -27,6 +27,11 @@ class User extends CI_Controller {
             $this->session->set_flashdata('error_msg', 'An error has occurred, Please try again.');
             redirect('login');
         }
+    }
+
+    public function logout() {
+        $this->session->sess_destroy();
+        redirect('login', 'refresh');
     }
 
     public function register() {
@@ -83,11 +88,6 @@ class User extends CI_Controller {
         redirect(base_url());
     }
 
-    public function logout() {
-        $this->session->sess_destroy();
-        redirect('login', 'refresh');
-    }
-
     public function change_team($page){
         $team_id = $this->input->post('teamRoster');
         $this->session->set_userdata('team_id', $team_id);
@@ -104,7 +104,9 @@ class User extends CI_Controller {
         $league = array(
             'name' => $this->input->post('league_name'),
             'is_active' => true,
-            'sport_id' => $this->input->post('sport_id')
+            'sport_id' => $this->input->post('sport_id'),
+            'logo_id' => 3,
+            'bg_id' => 4
         );
         $this->user_model->create_league($league);
 
@@ -123,6 +125,8 @@ class User extends CI_Controller {
             'name' => $this->input->post('team_name'),
             'is_active' => true,
             'league_id' => $this->input->post('league_id'),
+            'logo_id' => 1,
+            'bg_id' => 2
         );
         $this->user_model->create_team($team);
 

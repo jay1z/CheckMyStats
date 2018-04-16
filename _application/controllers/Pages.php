@@ -20,7 +20,7 @@ class Pages extends CI_Controller {
                 break;
         }
 
-        $ignore = array('landing', 'login', 'team_roster', 'header_nav_search', 'mock_data');
+        $ignore = array('landing', 'login', 'header_nav_search', 'mock_data', 'team_roster');
         if (in_array($page, $ignore)) {
             $this->load->view('pages/' . $page);
         } else {

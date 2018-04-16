@@ -13,10 +13,6 @@ if (!$user_id) {
 
     $this->session->set_userdata('user', $user);
     $this->session->set_userdata('profile', $profile);
-
-    if (!isset($user)) {
-        redirect('login');
-    }
 }
 ?>
 
@@ -572,13 +568,13 @@ if (!$user_id) {
                                 </li>
                                 <li class="m-menu__item">
                                     <a  href="<?php echo base_url(); ?>leagues" class="m-menu__link">
-                                        <i class="m-menu__link-icon la la-trophy"><span></span></i>
+                                        <i class="m-menu__link-icon flaticon-trophy"><span></span></i>
                                         <span class="m-menu__link-text">My Leagues</span>
                                     </a>
                                 </li>
                                 <li class="m-menu__item">
                                     <a  href="<?php echo base_url(); ?>teams" class="m-menu__link">
-                                        <i class="m-menu__link-icon flaticon-book"><span></span></i>
+                                        <i class="m-menu__link-icon flaticon-bat"><span></span></i>
                                         <span class="m-menu__link-text">My Teams</span>
                                     </a>
                                 </li>

@@ -1,5 +1,5 @@
 <?php
-$user_id = $this->session->userdata('id');
+$user_id = $this->session->userdata('user_id');
 $team_id = $this->session->userdata('team_id');
 if (isset($user_id)) {
     $secretary_query = $this->db->select('league.name as league_name')->join('league', 'league.id = league_id and secretary_id = ' . $user_id)->get('secretaryXleague');
@@ -25,6 +25,12 @@ if (isset($team_id)) {
         ->limit(3)
         ->get('game_event');
 }
+
+if (!isset($team_id) && isset($player_query)){
+    $team_id = $player_query->row()->team_id;
+    $this->session->set_userdata('team_id', $team_id);
+    redirect($this->uri->uri_string());
+}
 ?>
 
 <!-- begin::Body -->
@@ -32,26 +38,26 @@ if (isset($team_id)) {
     <div class="row  ">
         <div class="col-3">
             <form class="m-form m-form--fit m-form--label-align-right" action="<?php echo base_url() ?>user/change_team/teams" method="post">
-                            <div class="m-select2 m-select2--air m-select2--pill">
-                                <select class="form-control m-select2" id="m_select2_teamRoster"  name="teamRoster" data-placeholder="Air & pill styles" onchange="this.form.submit();" >
-                                    <option></option>
-                                    <?php
-                                    $query_league_name = '';
-                                    foreach ($player_query->result() as $row){
-                                        if ($row->league_name != $query_league_name){
-                                            echo '<optgroup label="'.$row->league_name.'">';
-                                            $query_league_name = $row->league_name;
-                                        }
-                                        if ($team_id == $row->team_id) {
-                                            echo '<option selected="selected" value="' . $row->team_id . '">' . $row->team_name . '</option><br>';
-                                        }else{
-                                            echo '<option value="' . $row->team_id . '">' . $row->team_name . '</option><br>';
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </form>
+                <div class="m-select2 m-select2--air m-select2--pill">
+                    <select class="form-control m-select2" id="m_select2_teamRoster"  name="teamRoster" data-placeholder="Air & pill styles" onchange="this.form.submit();" >
+                        <option></option>
+                        <?php
+                        $query_league_name = '';
+                        foreach ($player_query->result() as $row){
+                            if ($row->league_name != $query_league_name){
+                                echo '<optgroup label="'.$row->league_name.'">';
+                                $query_league_name = $row->league_name;
+                            }
+                            if ($team_id == $row->team_id) {
+                                echo '<option selected="selected" value="' . $row->team_id . '">' . $row->team_name . '</option><br>';
+                            }else{
+                                echo '<option value="' . $row->team_id . '">' . $row->team_name . '</option><br>';
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+            </form>
         </div>
     </div>
     <!--Begin::Section-->
@@ -64,7 +70,7 @@ if (isset($team_id)) {
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
                             <span class="m-portlet__head-icon m--hide"><i class="flaticon-calendar"></i></span>
-                            <h3 class="m-portlet__head-text"><img src="<?php echo $team->logo_url; ?>" alt=""></h3>
+                            <h3 class="m-portlet__head-text"><img src="<?php echo $team->logo_url; ?>" alt="" ></h3>
                             <h2 class="m-portlet__head-label m-portlet__head-label--info"><span><?php echo $team->name ?></span></h2>
                         </div>
                         <!--<div class="m-portlet__head-action">
@@ -75,7 +81,7 @@ if (isset($team_id)) {
                 <div class="m-portlet__body">
                     <div class="m-widget19">
                         <div class="m-widget19__pic m-portlet-fit--top m-portlet-fit--sides" style="min-height-: 286px">
-                            <img src="<?php echo $team->bg_url; ?>" alt="">
+                            <img src="<?php echo $team->bg_url; ?>" alt="" style="max-height: 500px">
                             <!--<h1 class="m-widget19__title m--font-inverse-light">
                                 <img src="<?php /*echo $team->logo_url; */?>" alt="">
                                 <?php /*echo $team->name; */?>

@@ -5,8 +5,8 @@ class user_model extends CI_model {
         $this->db->insert('user', $user);
         $user_id = $this->db->insert_id();
 
-        $profile['user_id'] = $user_id;
-        $this->db->insert('user_profile', $profile);
+        /*$profile['user_id'] = $user_id;
+        $this->db->insert('user_profile', $profile);*/
     }
 
     public function login_user($email, $pass) {
@@ -42,13 +42,13 @@ class user_model extends CI_model {
         }
     }
 
-    public function update_profile($profile){
-        $id = $this->session->userdata('id');
-        $this->db->update('user_profile', $profile, array('id' => $id));
+    public function update_profile($user_profile){
+        $user_profile_id = $this->session->userdata('user_profile_id');
+        $this->db->update('user_profile', $user_profile, array('id' => $user_profile_id));
     }
 
     public function insert_activity_post($post){
-        $post['author_id'] = $this->session->userdata('id');
+        $post['author_id'] = $this->session->userdata('user_id');
         $this->db->insert('post', $post);
     }
 

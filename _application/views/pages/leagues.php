@@ -1,15 +1,12 @@
 <?php
-$user_id = $this->session->userdata('id');
+$user_id = $this->session->userdata('user_id');
 $team_id = $this->session->userdata('team_id');
-
 $league_id = $this->session->userdata('league_id');
 
-/*
 $this->db->distinct();
-$this->db->select('*');
-$this->db->where('user_id', $user_id);
-$player_teams = $this->db->get('userXteam');
-*/
+$this->db->select('league.name as league_name, league.id as league_id')
+    ->join('league', 'league.id = league_id and secretary_id ='.$user_id);
+$secretaryXleague_query = $this->db->get('secretaryXleague');
 
 $this->db->distinct();
 $this->db->select('league.name as league_name, league.id as league_id')
@@ -19,23 +16,29 @@ $managerXteam_query = $this->db->get('managerXteam');
 
 $this->db->distinct();
 $this->db->select('league.name as league_name, league.id as league_id')
-    ->join('league', 'league.id = league_id and secretary_id ='.$user_id);
-$secretaryXleague_query = $this->db->get('secretaryXleague');
-
-$this->db->distinct();
-$this->db->select('league.name as league_name, league.id as league_id')
     ->join('team as team', 'team.id = team_id and user_id = '.$user_id)
     ->join('league', 'league.id = league_id');
 $userXteam_query = $this->db->get('userXteam');
 
 if (isset($league_id)) {
-    $league_query = $this->db->select('team.name as team_name, image.url as team_logo')
+    $this->db->select('team.name as team_name, image.url as team_logo')
         ->join('league', 'team.league_id = league.id and league.id = '. $league_id)
         ->join('image', 'image.id = team.logo_id')
-        ->order_by('team_name', 'ASC')
-        ->get('team');
+        ->order_by('team_name', 'ASC');
+        $league_query = $this->db->get('team');
 }
 
+if (!isset($league_id)) {
+    if (isset($secretaryXleague_query)) {
+        $league_id = $secretaryXleague_query->row()->league_id;
+    }elseif (isset($managerXteam_query)){
+        $league_id = $managerXteam_query->row()->league_id;
+    }elseif (isset($userXteam_query)){
+        $league_id = $userXteam_query->row()->league_id;
+    }
+    $this->session->set_userdata('league_id', $league_id);
+    redirect($this->uri->uri_string());
+}
 ?>
 
 <div class="m-content">
@@ -101,29 +104,31 @@ if (isset($league_id)) {
                 </div>
                 <div class="m-portlet__body">
                     <div class="m-widget4">
-                                <!--begin::Widget 14 Item-->
-                                <?php
-                                if (isset($league_query)) {
-                                    foreach ($league_query->result() as $row) {
-                                        echo '
-                                        <div class="m-widget4__item">
-                                            <div class="m-widget4__img m-widget4__img--pic">
-                                                <img src="'.$row->team_logo.'" alt="">
-                                            </div>
-                                            <div class="m-widget4__info">
-                                                <span class="m-widget4__title">'.$row->team_name.'</span>
-                                                <br>
-                                                <span class="m-widget4__sub">Team Motto...?</span>
-                                            </div>
-                                            <div class="m-widget4__ext">
-                                                <a href="#"  class="m-btn m-btn--pill m-btn--hover-brand btn btn-sm btn-secondary">Follow</a>
-                                            </div>
-                                        </div>';
-                                    }
-                                }
-                                ?>
-                                <!--end::Widget 14 Item-->
-                            </div>
+                        <div class="m-scrollable mCustomScrollbar _mCS_5 mCS-autoHide" data-scrollbar-shown="true" data-scrollable="true" data-max-height="400" style="overflow: visible; height: 400px; max-height: 400px; position: relative;">
+                        <!--begin::Widget 14 Item-->
+                        <?php
+                        if (isset($league_query)) {
+                            foreach ($league_query->result() as $row) {
+                                echo '
+                                <div class="m-widget4__item">
+                                    <div class="m-widget4__img m-widget4__img--pic">
+                                        <img src="'.$row->team_logo.'" alt="">
+                                    </div>
+                                    <div class="m-widget4__info">
+                                        <span class="m-widget4__title">'.$row->team_name.'</span>
+                                        <br>
+                                        <span class="m-widget4__sub">Team Motto...?</span>
+                                    </div>
+                                    <div class="m-widget4__ext">
+                                        <a href="#"  class="m-btn m-btn--pill m-btn--hover-brand btn btn-sm btn-secondary">Follow</a>
+                                    </div>
+                                </div>';
+                            }
+                        }
+                        ?>
+                        <!--end::Widget 14 Item-->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
