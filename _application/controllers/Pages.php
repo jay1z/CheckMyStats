@@ -11,7 +11,20 @@ class Pages extends CI_Controller {
         $this->session->set_userdata('page', $page);
         if (!file_exists(APPPATH . 'views/pages/' . $page . '.php')) {
             // Whoops, we don't have a page for that!
-            show_404();
+            //show_404();
+
+
+            $this->db->select('id');
+            $this->db->where('url', $page);
+            $user_profile = $this->db->get('user_profile')->row();
+
+            if (isset($user_profile)){
+                $this->session->set_userdata('profile_id', $user_profile->id);
+                $page = 'profile';
+            } else {
+                $this->session->unset_userdata('profile_id');
+                $page = '404';
+            }
         }
 
         switch ($page){
@@ -20,7 +33,7 @@ class Pages extends CI_Controller {
                 break;
         }
 
-        $ignore = array('landing', 'login', 'header_nav_search', 'mock_data', 'team_roster');
+        $ignore = array('landing', 'login', 'header_nav_search', 'mock_data', 'team_roster', '404');
         if (in_array($page, $ignore)) {
             $this->load->view('pages/' . $page);
         } else {

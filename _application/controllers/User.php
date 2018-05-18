@@ -11,26 +11,43 @@ class User extends CI_Controller {
     }
 
     public function login() {
-        $user_login = array(
-            'email' => $this->input->post('signin_email'),
-            'password' => $this->input->post('signin_password')
-        );
+        $this->form_validation->set_rules('signin_email', 'Email', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('signin_password', 'Password', 'trim|required|xss_clean');
 
-        $data = $this->user_model->login_user($user_login['email'], $user_login['password']);
-        if ($data) {
-            $this->session->set_userdata('user_id', $data->id);
-            $this->session->set_userdata('email', $data->email);
-            //$this->switch_role('_user');
-            $last_page = $this->session->userdata('last_page');
-            redirect($last_page);
-        } else {
+        if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('error_msg', 'An error has occurred, Please try again.');
             redirect('login');
+        } else {
+            $user_login = array(
+                'email' => $this->input->post('signin_email'),
+                'password' => $this->input->post('signin_password')
+            );
+            $data = $this->user_model->login_user($user_login['email'], $user_login['password']);
+
+            if ($data) {
+                $this->session->set_userdata('user_id', $data->id);
+                $this->session->set_userdata('email', $data->email);
+                //$this->switch_role('_user');
+
+                $remember = $this->input->post('signin_remember');
+                if ($remember) {
+                    $this->session->set_userdata('remember_me', true);
+                }
+                $sess_data = array(
+                    'username' => $user_login['email'],
+                    'password' => $user_login['password']
+                );
+                $this->session->set_userdata('logged_in', $sess_data);
+
+                $last_page = $this->session->userdata('last_page');
+                redirect($last_page);
+            }
         }
     }
 
     public function logout() {
         $this->session->sess_destroy();
+        $this->session->set_flashdata('success_msg', 'You have successfully logged out!');
         redirect('login', 'refresh');
     }
 
@@ -112,7 +129,7 @@ class User extends CI_Controller {
 
         $league_id = $this->db->insert_id();
         $secretaryXleague = array(
-            'secretary_id' => $this->session->userdata('id'),
+            'secretary_id' => $this->session->userdata('user_id'),
             'league_id' => $league_id
         );
         $result = $this->user_model->create_secretaryXleague($secretaryXleague);
@@ -132,7 +149,7 @@ class User extends CI_Controller {
 
         $team_id = $this->db->insert_id();
         $managerXteam = array(
-            'manager_id' => $this->session->userdata('id'),
+            'manager_id' => $this->session->userdata('user_id'),
             'team_id' => $team_id
         );
         $result = $this->user_model->create_managerXteam($managerXteam);

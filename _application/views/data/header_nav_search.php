@@ -3,23 +3,17 @@
 
     $query_string = $this->input->get('query', TRUE);
 
-    $users = $this->db->select('*')
+    $users = $this->db->select('fullname, url')
     ->like('fullname', $query_string, 'both')
     ->get('user_profile');
 
-    $teams = $this->db->select('*')
+    $teams = $this->db->select('name, url')
     ->like('name', $query_string, 'both')
     ->get('team');
 
-    $leagues = $this->db->select('*')
+    $leagues = $this->db->select('name, url')
     ->like('name', $query_string, 'both')
     ->get('league');
-
-    /*$teams_query = $this->db->like('name', $query_string, 'both');
-    $teams = $this->db->from('team');
-
-    $leagues_query = $this->db->like('name', $query_string, 'both');
-    $leagues = $this->db->from('league');*/
 ?>
 <div class="m-list-search__results">
 	<span class="m-list-search__result-message m--hide">
@@ -30,7 +24,7 @@
     <?php
     if (isset($users)) {
         foreach ($users->result() as $row) {
-            echo '<a href="'.urlencode($row->fullname). '" class="m-list-search__result-item">
+            echo '<a href="'.urlencode($row->url). '" class="m-list-search__result-item">
                     <span class="m-list-search__result-item-pic">
                         <img class="m--img-rounded" src="../../../assets/app/media/img/users/user1.jpg" title=""/>
                     </span>
@@ -44,7 +38,7 @@
     <?php
         if (isset($teams)) {
             foreach ($teams->result() as $row) {
-                echo '<a href="'.urlencode($row->name).'" class="m-list-search__result-item">
+                echo '<a href="'.urlencode($row->url).'" class="m-list-search__result-item">
                           <span class="m-list-search__result-item-icon"><i class="flaticon-share m--font-success"></i></span>
                           <span class="m-list-search__result-item-text">'.$row->name.'</span>
                       </a>';
@@ -56,7 +50,7 @@
     <?php
     if (isset($leagues)) {
         foreach ($leagues->result() as $row) {
-            echo '<a href="'.urlencode($row->name).'" class="m-list-search__result-item">
+            echo '<a href="'.urlencode($row->url).'" class="m-list-search__result-item">
                       <span class="m-list-search__result-item-icon"><i class="flaticon-calendar m--font-danger"></i></span>
                       <span class="m-list-search__result-item-text">'.$row->name.'</span>
                   </a>';

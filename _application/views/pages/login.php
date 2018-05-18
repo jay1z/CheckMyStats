@@ -48,6 +48,7 @@ if ($user_id) {
                 </div>
 
                 <?php
+                    echo validation_errors();
                     $error_msg = $this->session->flashdata('error_msg');
                     if($error_msg){
                         echo '<div class="alert alert-warning" role="alert"><strong>Nope!</strong><br>'.$error_msg.'</div>';
@@ -73,7 +74,7 @@ if ($user_id) {
                         <div class="row m-login__form-sub">
                             <div class="col m--align-left m-login__form-left">
                                 <label class="m-checkbox  m-checkbox--focus">
-                                    <input type="checkbox" name="remember">
+                                    <input type="checkbox" name="signin_remember">
                                     Remember me
                                     <span></span>
                                 </label>

@@ -1,5 +1,5 @@
 <?php
-$user_id = $this->session->userdata('id');
+$user_id = $this->session->userdata('user_id');
 $last_page = $this->session->set_userdata('last_page', current_url());
 
 if (!$user_id) {

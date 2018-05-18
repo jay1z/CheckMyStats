@@ -1,6 +1,6 @@
 <?php
 //https://stackoverflow.com/questions/32732808/codeigniter-submit-form-without-refreshing-ajax
-$user_id = $this->session->userdata('id');
+$user_id = $this->session->userdata('user_id');
 
 if (!isset($sport_query)) {
     $sport_query = $this->db->get('sport_type');

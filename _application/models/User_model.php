@@ -5,17 +5,12 @@ class user_model extends CI_model {
         $this->db->insert('user', $user);
         $user_id = $this->db->insert_id();
 
-        /*$profile['user_id'] = $user_id;
-        $this->db->insert('user_profile', $profile);*/
+        $profile['user_id'] = $user_id;
+        $this->db->insert('user_profile', $profile);
     }
 
     public function login_user($email, $pass) {
-        //$this->db->select('*');
-        //$this->db->from('user');
         $query = $this->db->get_where('user', array('email' => $email), null, null);
-        //$this->db->where('user_password', $pass);
-
-        //$query = $this->db->get();
         $row = $query->row();
         if (isset($row)){
             $hash = $row->password;

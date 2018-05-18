@@ -13,6 +13,28 @@ if ($page == 'register')    {load_register();}
 if ($page == 'teams')       {load_teams();}
 
 function load_for_every_page(){
+    //echo '<script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>';
+    //echo '<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>';
+    //echo '<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>';
+    //echo '<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-firestore.js"></script>';
+    //echo '<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-messaging.js"></script>';
+    //echo '<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-functions.js"></script>';
+
+    /*
+      echo '<script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyB6SAbki93wUWyVVj8tr9W5UlC6JWFpQEo",
+            authDomain: "checkmystats-ca317.firebaseapp.com",
+            databaseURL: "https://checkmystats-ca317.firebaseio.com",
+            projectId: "checkmystats-ca317",
+            storageBucket: "",
+            messagingSenderId: "228973949250"
+          };
+          firebase.initializeApp(config);
+        </script>';
+    */
+
     echo '<script src="../../../assets/vendors/base/vendors.bundle.js"></script>';
     echo '<script src="../../../assets/demo/demo7/base/scripts.bundle.js"></script>';
     echo '<script src="../../../assets/app/js/modals.js"></script>';

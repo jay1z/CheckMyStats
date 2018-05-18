@@ -6,8 +6,7 @@
 				</span>
         <ul id="m_quick_sidebar_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
             <li class="nav-item m-tabs__item">
-                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger"
-                   role="tab">
+                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger" role="tab">
                     Messages
                 </a>
             </li>
@@ -188,7 +187,8 @@
                     <div class="m-messenger__seperator"></div>
                     <div class="m-messenger__form">
                         <div class="m-messenger__form-controls">
-                            <input type="text" name="messenger" placeholder="Type here..." class="m-messenger__form-input">
+                            <input type="text" name="messenger" placeholder="Type here..."
+                                   class="m-messenger__form-input">
                         </div>
                         <div class="m-messenger__form-tools">
                             <a href="" class="m-messenger__form-attachment">
